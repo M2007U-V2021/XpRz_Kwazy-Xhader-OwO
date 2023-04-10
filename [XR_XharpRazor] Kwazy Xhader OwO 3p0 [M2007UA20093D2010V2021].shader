@@ -74,7 +74,6 @@ Properties
 
 
 
-
 	[Header(Stwength Kontrol Panel)]
 	[Space(8)]
 	_KontrolTextureLayer1("Teksture Layer 1",Range(0,4)) = 1
@@ -98,6 +97,8 @@ Properties
 	_TextureLayer1MainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1MainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer1MainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+
+	_TextureLayer1AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
 	_TextureLayer1MainInvR("Kolor : InvR",Range(0,1)) = 0
 	_TextureLayer1MainInvG("Kolor : InvG",Range(0,1)) = 0
@@ -172,6 +173,8 @@ Properties
 	_TextureLayer2MainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2MainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer2MainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+
+	_TextureLayer2AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
 	_TextureLayer2MainInvR("Kolor : InvR",Range(0,1)) = 0
 	_TextureLayer2MainInvG("Kolor : InvG",Range(0,1)) = 0
@@ -344,18 +347,22 @@ Properties
 	[Space(8)]
 	_VectorCrLayer1MainClr0("Kolor0",Color) = (1,1,1,1)
 	_VectorCrLayer1MainVect("Vekter0XYZ, NULL",Vector) = (0,0,0,0)
+	_VectorCrLayer1MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer1MainStwg("Stwengh0",Range(0,1)) = 0
 	[Space(8)]
 	_VectorCrLayer2MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer2MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+	_VectorCrLayer2MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer2MainStwg("Stwengh1",Range(0,1)) = 0
 	[Space(8)]
 	_VectorCrLayer3MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer3MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+	_VectorCrLayer3MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer3MainStwg("Stwengh1",Range(0,1)) = 0
 	[Space(8)]
 	_VectorCrLayer4MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer4MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+	_VectorCrLayer4MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer4MainStwg("Stwengh1",Range(0,1)) = 0
 	[Space(128)]
 
@@ -912,9 +919,9 @@ SubShader
 
 				float4 AxisDistortTotal = float4
 				(
-					AxisDistortXPass0.r * _AxisDistortXPowr.x + AxisDistortXPass0.g * _AxisDistortXPowr.y + AxisDistortXPass0.b * _AxisDistortXPowr.z + AxisDistortXPass0.a * _AxisDistortXPowr.z,
-					AxisDistortYPass0.r * _AxisDistortYPowr.x + AxisDistortYPass0.g * _AxisDistortYPowr.y + AxisDistortYPass0.b * _AxisDistortYPowr.z + AxisDistortYPass0.a * _AxisDistortYPowr.z,
-					AxisDistortZPass0.r * _AxisDistortZPowr.x + AxisDistortZPass0.g * _AxisDistortZPowr.y + AxisDistortZPass0.b * _AxisDistortZPowr.z + AxisDistortZPass0.a * _AxisDistortZPowr.z,
+					AxisDistortXPass0.r * _AxisDistortXPowr.x + AxisDistortXPass0.g * _AxisDistortXPowr.y + AxisDistortXPass0.b * _AxisDistortXPowr.z + AxisDistortXPass0.a * _AxisDistortXPowr.z + _AxisDistortXAdjt,
+					AxisDistortYPass0.r * _AxisDistortYPowr.x + AxisDistortYPass0.g * _AxisDistortYPowr.y + AxisDistortYPass0.b * _AxisDistortYPowr.z + AxisDistortYPass0.a * _AxisDistortYPowr.z + _AxisDistortYAdjt,
+					AxisDistortZPass0.r * _AxisDistortZPowr.x + AxisDistortZPass0.g * _AxisDistortZPowr.y + AxisDistortZPass0.b * _AxisDistortZPowr.z + AxisDistortZPass0.a * _AxisDistortZPowr.z + _AxisDistortZAdjt,
 					0
 				);
 
@@ -963,6 +970,8 @@ SubShader
 			vector _TextureLayer1MainTPos;//("POS : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 			vector _TextureLayer1MainTRot;//("ROT : Afwa, Roll, CenX, CenY",Vector) = (0,0,0,0)
 			vector _TextureLayer1MainTScl;//("POS : SclX, SclY, NULL, NULL",Vector) = (0,0,0,0)
+
+			float _TextureLayer1AlphChck;//("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
 			float _TextureLayer1MainInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _TextureLayer1MainInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1036,6 +1045,8 @@ SubShader
 			vector _TextureLayer2MainTPos;//("POS : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 			vector _TextureLayer2MainTRot;//("ROT : Afwa, Roll, CenX, CenY",Vector) = (0,0,0,0)
 			vector _TextureLayer2MainTScl;//("POS : SclX, SclY, NULL, NULL",Vector) = (0,0,0,0)
+
+			float _TextureLayer2AlphChck;//("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
 			float _TextureLayer2MainInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _TextureLayer2MainInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1192,18 +1203,22 @@ SubShader
 
 			fixed4 _VectorCrLayer1MainClr0;//("Kolor0",Color) = (1,1,1,1)
 			vector _VectorCrLayer1MainVect;//("Vekter0XYZ, NULL",Vector) = (0,0,0,0)
+			float _VectorCrLayer1MainRamp;
 			float _VectorCrLayer1MainStwg;//("Stwengh0",Range(0,1)) = 0
 			
 			fixed4 _VectorCrLayer2MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer2MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+			float _VectorCrLayer2MainRamp;
 			float _VectorCrLayer2MainStwg;//("Stwengh1",Range(0,1)) = 0
 			
 			fixed4 _VectorCrLayer3MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer3MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+			float _VectorCrLayer3MainRamp;
 			float _VectorCrLayer3MainStwg;//("Stwengh1",Range(0,1)) = 0
 			
 			fixed4 _VectorCrLayer4MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer4MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
+			float _VectorCrLayer4MainRamp;
 			float _VectorCrLayer4MainStwg;//("Stwengh1",Range(0,1)) = 0
 
 
@@ -1265,7 +1280,7 @@ SubShader
 
 
 				//get original texture
-				fixed4 Piksel1Pass0 = FOwO_Color_ReadFromTexture
+				fixed4 Piksel1Pass0of1 = FOwO_Color_ReadFromTexture
 				(
 					_TextureLayer1MainImge, INCOMING.uv.x + Piksel1XOofset, INCOMING.uv.y + Piksel1YOofset, 
 					_TextureLayer1MainTPos.x, _TextureLayer1MainTPos.y, _TextureLayer1MainTPos.z, _TextureLayer1MainTPos.w, 
@@ -1273,7 +1288,7 @@ SubShader
 					_TextureLayer1MainTScl.x, _TextureLayer1MainTScl.y, _TextureLayer1MainTScl.z, _TextureLayer1MainTScl.w,
 					_TextureLayer1MainTMod
 				);
-				fixed4 Piksel2Pass0 = FOwO_Color_ReadFromTexture
+				fixed4 Piksel2Pass0of1 = FOwO_Color_ReadFromTexture
 				(
 					_TextureLayer2MainImge, INCOMING.uv.x + Piksel2XOofset, INCOMING.uv.y + Piksel2YOofset, 
 					_TextureLayer2MainTPos.x, _TextureLayer2MainTPos.y, _TextureLayer2MainTPos.z, _TextureLayer2MainTPos.w, 
@@ -1282,24 +1297,47 @@ SubShader
 					_TextureLayer2MainTMod
 				);
 
+				//Alha check : the stronger the Aplha, the stronger the RGB, user can choose to use this or not
+				//_TextureLayer1AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
+				fixed4 Piksel1Pass0of2 = fixed4(0,0,0,0);
+				fixed4 Piksel2Pass0of2 = fixed4(0,0,0,0);
+
+				if(_TextureLayer1AlphChck == 1)
+				{
+					Piksel1Pass0of2 = fixed4(Piksel1Pass0of1.r,Piksel1Pass0of1.g,Piksel1Pass0of1.b,1) * Piksel1Pass0of1.a;		
+				}
+				else
+				{
+					Piksel1Pass0of2 = Piksel1Pass0of1;
+				}
+
+				if(_TextureLayer2AlphChck == 1)
+				{
+					Piksel2Pass0of2 = fixed4(Piksel2Pass0of1.r,Piksel2Pass0of1.g,Piksel2Pass0of1.b,1) * Piksel2Pass0of1.a;		
+				}
+				else
+				{
+					Piksel2Pass0of2 = Piksel2Pass0of1;
+				}
+
 
 
 				//invert main
 				fixed4 Piksel1Pass1 = float4
 				(
 					//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
-					FOwO_Lerp_Simple(Piksel1Pass0.r,1 - Piksel1Pass0.r,_TextureLayer1MainInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0.g,1 - Piksel1Pass0.g,_TextureLayer1MainInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0.b,1 - Piksel1Pass0.b,_TextureLayer1MainInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0.a,1 - Piksel1Pass0.a,_TextureLayer1MainInvA,_KontrolLerpClamp)
+					FOwO_Lerp_Simple(Piksel1Pass0of2.r,1 - Piksel1Pass0of2.r,_TextureLayer1MainInvR,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Pass0of2.g,1 - Piksel1Pass0of2.g,_TextureLayer1MainInvG,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Pass0of2.b,1 - Piksel1Pass0of2.b,_TextureLayer1MainInvB,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Pass0of2.a,1 - Piksel1Pass0of2.a,_TextureLayer1MainInvA,_KontrolLerpClamp)
 				);
 				fixed4 Piksel2Pass1 = float4
 				(
 					//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
-					FOwO_Lerp_Simple(Piksel2Pass0.r,1 - Piksel2Pass0.r,_TextureLayer2MainInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0.g,1 - Piksel2Pass0.g,_TextureLayer2MainInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0.b,1 - Piksel2Pass0.b,_TextureLayer2MainInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0.a,1 - Piksel2Pass0.a,_TextureLayer2MainInvA,_KontrolLerpClamp)
+					FOwO_Lerp_Simple(Piksel2Pass0of2.r,1 - Piksel2Pass0of2.r,_TextureLayer2MainInvR,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel2Pass0of2.g,1 - Piksel2Pass0of2.g,_TextureLayer2MainInvG,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel2Pass0of2.b,1 - Piksel2Pass0of2.b,_TextureLayer2MainInvB,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel2Pass0of2.a,1 - Piksel2Pass0of2.a,_TextureLayer2MainInvA,_KontrolLerpClamp)
 				);
 
 
@@ -1404,16 +1442,16 @@ SubShader
 
 				//get vector color
 
-				float Vectorcr1Pass0 = max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect));
+				float Vectorcr1Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
 				fixed4 Vectorcr1Pass1 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0;
 
-				float Vectorcr2Pass0 = max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect));
+				float Vectorcr2Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
 				fixed4 Vectorcr2Pass1 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0;
 
-				float Vectorcr3Pass0 = max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect));
+				float Vectorcr3Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
 				fixed4 Vectorcr3Pass1 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0;
 
-				float Vectorcr4Pass0 = max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect));
+				float Vectorcr4Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
 				fixed4 Vectorcr4Pass1 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0;
 
 				fixed4 VectorcrFinal = Vectorcr1Pass1 + Vectorcr2Pass1 + Vectorcr3Pass1 + Vectorcr4Pass1;
