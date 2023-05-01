@@ -58,7 +58,7 @@
 
 
 
-Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.0 [M2007UA20093D2010V2021]"
+Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.04.21 [M2007UA20093D2010V2021]"
 {
 Properties
 {
@@ -78,8 +78,6 @@ Properties
 	[Space(8)]
 	_KontrolTextureLayer1("Teksture Layer 1",Range(0,4)) = 1
 	_KontrolTextureLayer2("Teksture Layer 2",Range(0,4)) = 1
-	_KontrolFresnelLayer1("Fwesnel Layer 1",Range(0,4)) = 1
-	_KontrolFresnelLayer2("Fwesnel Layer 2",Range(0,4)) = 1
 	_KontrolGlitterLayer1("Gwitter Layer 0",Range(0,4)) = 1
 	_KontrolLerpClamp("Cwamp Lwerp ?",Range(0,1)) = 1
 	[Space(128)]
@@ -115,7 +113,9 @@ Properties
 	_TextureLayer1MainClr3("Kolor : Klr3",Color) = (1,1,1,1)
 	_TextureLayer1MainClrT("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
 	_TextureLayer1VcCrInfl("Vekter Kolor Infwunce",Range(0,1)) = 0
-	_TextureLayer1VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 1
+	_TextureLayer1VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 0
+	_TextureLayer1FrslInfl("Fwensel Infwunce",Range(0,1)) = 0
+	_TextureLayer1FrslFrcA("Fwensel ForceAfwa",Range(-1,1)) = 0
 	[Space(64)]
 
 
@@ -191,7 +191,9 @@ Properties
 	_TextureLayer2MainClr3("Kolor : Klr3",Color) = (1,1,1,1)
 	_TextureLayer2MainClrT("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
 	_TextureLayer2VcCrInfl("Vekter Kolor Infwunce",Range(0,1)) = 0
-	_TextureLayer2VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 1
+	_TextureLayer2VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 0
+	_TextureLayer2FrslInfl("Fwensel Infwunce",Range(0,1)) = 0
+	_TextureLayer2FrslFrcA("Fwensel ForceAfwa",Range(-1,1)) = 0
 	[Space(64)]
 
 
@@ -836,8 +838,6 @@ SubShader
 
 			float _KontrolTextureLayer1;//("Texture Layer 1",Range(0,1)) = 1
 			float _KontrolTextureLayer2;//("Texture Layer 2",Range(0,1)) = 1
-			float _KontrolFresnelLayer1;//("Fresnel Layer 1",Range(0,1)) = 1
-			float _KontrolFresnelLayer2;//("Fresnel Layer 1",Range(0,1)) = 1
 			float _KontrolGlitterLayer1;
 			float _KontrolLerpClamp;
 
@@ -989,6 +989,8 @@ SubShader
 			vector _TextureLayer1MainClrT;//("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
 			float _TextureLayer1VcCrInfl;//("Vekter Kolor Infwunce",Range(0,1)) = 0
 			float _TextureLayer1VcCrFrcA;//("Vekter Kolor Force Afwa",Range(0,1)) = 1
+			float _TextureLayer1FrslInfl;//("Fwensel Infwunce",Range(0,1)) = 0
+			float _TextureLayer1FrslFrcA;//("Fwensel ForceAfwa",Range(0,1)) = 0
 
 			
 
@@ -1064,6 +1066,8 @@ SubShader
 			vector _TextureLayer2MainClrT;//("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
 			float _TextureLayer2VcCrInfl;//("Vekter Kolor Infwunce",Range(0,1)) = 0
 			float _TextureLayer2VcCrFrcA;//("Vekter Kolor Force Afwa",Range(0,1)) = 1
+			float _TextureLayer2FrslInfl;//("Fwensel Infwunce",Range(0,1)) = 0
+			float _TextureLayer2FrslFrcA;//("Fwensel ForceAfwa",Range(0,1)) = 0
 
 			
 
@@ -1457,11 +1461,8 @@ SubShader
 				fixed4 VectorcrFinal = Vectorcr1Pass1 + Vectorcr2Pass1 + Vectorcr3Pass1 + Vectorcr4Pass1;
 
 				//are main layers influenced ?
-				fixed4 Piksel1Pass5 = Piksel1Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal,_TextureLayer1VcCrInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer1VcCrFrcA);
-				fixed4 Piksel2Pass5 = Piksel2Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal,_TextureLayer2VcCrInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer2VcCrFrcA);
-
-
-
+				fixed4 Piksel1Pass5 = Piksel1Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer1VcCrFrcA),_TextureLayer1VcCrInfl,_KontrolLerpClamp);
+				fixed4 Piksel2Pass5 = Piksel2Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer2VcCrFrcA),_TextureLayer2VcCrInfl,_KontrolLerpClamp);
 
 
 
@@ -1543,11 +1544,17 @@ SubShader
 				//colorMix
 				float4 Fresnel1Pass3 = Fresnel1Color * Fresnel1Pass2 * Fresnel1MaskPower * _FresnelLayer1MainStwg;
 				float4 Fresnel2Pass3 = Fresnel2Color * Fresnel2Pass2 * Fresnel2MaskPower * _FresnelLayer2MainStwg;
+
+				//is Texture layer influnced ?
+				fixed4 Piksel1Pass6 = Piksel1Pass5 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),Fresnel1Pass3 + Fresnel2Pass3,_TextureLayer1FrslInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer1FrslFrcA);
+				fixed4 Piksel2Pass6 = Piksel2Pass5 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),Fresnel1Pass3 + Fresnel2Pass3,_TextureLayer2FrslInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer2FrslFrcA);;
+				if(Piksel1Pass6.a > 1){Piksel1Pass6.a = 1;}else if (Piksel1Pass6.a < 0){Piksel1Pass6.a = 0;}
+				if(Piksel2Pass6.a > 1){Piksel2Pass6.a = 1;}else if (Piksel2Pass6.a < 0){Piksel2Pass6.a = 0;}
 				
-
-
-
-
+				
+				
+				
+				
 				//get Glitter Color
 				fixed4 Glitter1Pass0 = FOwO_Color_ReadFromTexture
 				(
@@ -1602,10 +1609,8 @@ SubShader
 				
 				
 				return 
-					Piksel1Pass5 * _KontrolTextureLayer1 + 
-					Piksel2Pass5 * _KontrolTextureLayer2 + 
-					Fresnel1Pass3 * _KontrolFresnelLayer1 + 
-					Fresnel2Pass3 * _KontrolFresnelLayer2 + 
+					Piksel1Pass6 * _KontrolTextureLayer1 + 
+					Piksel2Pass6 * _KontrolTextureLayer2 + 
 					Glitter1Pass2 * _KontrolGlitterLayer1;
 				
 				
