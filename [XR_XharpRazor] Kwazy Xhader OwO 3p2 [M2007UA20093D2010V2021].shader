@@ -1,6 +1,12 @@
-﻿/*
+﻿// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
 
-	Kwazy Xayder 3.1 OwO
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
+/*
+
+	Kwazy Xayder 3.3 OwO
 
 	by:
 		XR_XharpRazor
@@ -17,57 +23,65 @@
 	SpecialThanks:
 
 		Unity
+			(Built in Unity Shader Var) : https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+			https://docs.unity3d.com/Manual/SL-BuiltinFunctions.html
+
 		Microsoft Visual Studio Code
+			(Text Editor)
 
 		Freya Holmer                         
-			(Shader Analysis)        : https://www.youtube.com/watch?v=kfM-yu0iQBk
+			(Shader Analysis)           : https://www.youtube.com/watch?v=kfM-yu0iQBk
+			(built in Unity Shader Var) : https://www.youtube.com/watch?v=mL8U8tIiRRg where t = 2:25:17
 
 		quill18creates                       
-			(General Concept)        : https://www.youtube.com/watch?v=C0uJ4sZelio
+			(General Concept)           : https://www.youtube.com/watch?v=C0uJ4sZelio
 
 		Makin' Stuff Look Good               
-			(General Concept)        : https://www.youtube.com/watch?v=T-HXmQAMhG0
+			(General Concept)           : https://www.youtube.com/watch?v=T-HXmQAMhG0
 
 		Dapper Dino                          
-			(General Concept)        : https://www.youtube.com/watch?v=bR8DHcj6Htg&list=PLS6sInD7ThM3giqACaYCBtIhkMNucqmna
+			(General Concept)           : https://www.youtube.com/watch?v=bR8DHcj6Htg&list=PLS6sInD7ThM3giqACaYCBtIhkMNucqmna
 
 		NiceChord                            
-			(ADSR Concept)           : https://www.youtube.com/watch?v=U55KRu68ls8
+			(ADSR Concept)              : https://www.youtube.com/watch?v=U55KRu68ls8
 
 		Benjamin Swee - Custom Unity Shaders 
-			(Fresnel Effect)         : https://www.youtube.com/watch?v=nuoQdbJwAHo
-			(Blending Mode)          : https://www.youtube.com/watch?v=vr1u8HbWTbo
+			(Fresnel Effect)            : https://www.youtube.com/watch?v=nuoQdbJwAHo
+			(Blending Mode)             : https://www.youtube.com/watch?v=vr1u8HbWTbo
 
 		Exsy                                 
-			(Fur Shader Explain)     : https://vrchat.com/home/user/usr_f9a43067-7a87-41ea-8514-20d68c049b2f
+			(Fur Shader Explain)        : https://vrchat.com/home/user/usr_f9a43067-7a87-41ea-8514-20d68c049b2f
 
 		Learn Unity@Yang                     
-			(Shader Format : Header) : https://www.youtube.com/watch?v=Xc9pGc8I1fA
-			(Normal extrusion)       : https://www.youtube.com/watch?v=Xc9pGc8I1fA
-			(Directional Light)      : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Shader Format : Header)    : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Normal extrusion)          : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Directional Light)         : https://www.youtube.com/watch?v=Xc9pGc8I1fA
 
 		Poiyomi                              
 			(Shader Format : Space)
 			(Enum)
 
 		Daniel llett
-			(Glitter Feature Idea)   : https://www.youtube.com/watch?v=jAOqmx764dA
+			(Glitter Feature Idea)      : https://www.youtube.com/watch?v=jAOqmx764dA
 */
 
 
 
 
 
-Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.05.13 [M2007UA20093D2010V2021]"
+Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.05.14 [M2007UA20093D2010V2021]"
 {
 Properties
 {
+	[Header(Kwazy Xhader OwO 3.3)]
+	[Space(128)]
+
 	[Header(Blend Method)]
 	[Enum(UnityEngine.Rendering.BlendMode)] _BlendModeSrc("Bwend Mode Sos ^w^",Float) = 5
 	[Enum(UnityEngine.Rendering.BlendMode)] _BlendModeBhd("Bwend Mode Beehind ^w^", Float) = 10
 	[Enum(UnityEngine.Rendering.BlendOp)]   _BlendModeOpp("Bwend Mode Opewation ^w^", Float) = 0
 	[Enum(Back,0,Front,1,Off,2)] _CullType("Kull Taip ^w^",Float) = 2
-	[Space(128)]
+	[Space(64)]
 
 
 
@@ -79,6 +93,7 @@ Properties
 	_KontrolTextureLayer1("Teksture Layer 1",Range(0,4)) = 1
 	_KontrolTextureLayer2("Teksture Layer 2",Range(0,4)) = 1
 	_KontrolGlitterLayer1("Gwitter Layer 0",Range(0,4)) = 1
+	_KontrolLightMap("Lightmap Layer",Range(0,1)) = 0
 	_KontrolLerpClamp("Cwamp Lwerp ?",Range(0,1)) = 1
 	[Space(128)]
 
@@ -380,6 +395,13 @@ Properties
 
 
 
+	[Header(Lightmap Layer)]
+	[Space(64)]
+	_LightmapLayerMainImge("Lightmap from Unity", 2D) = "white" {}
+
+
+
+
 
 	[Header(Gwitters)]
 	[Space(64)]
@@ -398,6 +420,7 @@ Properties
 	_GlitterLayer1GltTrshA("Gwitter Thweshhold : Afwa",Range(0,1)) = 0
 
 	_GlitterLayer1GlitClor("Gwitter Kolor",Color) = (1,1,1,1)
+	[Space(128)]
 
 
 
@@ -483,6 +506,20 @@ SubShader
 		BlendOp [_BlendModeOpp]
 
 		Cull [_CullType]
+
+		
+		// 0: Zero	                float4(0.0, 0.0, 0.0, 0.0),
+		// 1: One	                float4(1.0, 1.0, 1.0, 1.0),
+		// 2: DstColor	            destinationColor,
+		// 3: SrcColor	            sourceColor,
+		// 4: OneMinusDstColor	    float4(1.0, 1.0, 1.0, 1.0) - destinationColor,
+		// 5: SrcAlpha	            sourceColor.aaaa,
+		// 6: OneMinusSrcColor	    float4(1.0, 1.0, 1.0, 1.0) - sourceColor,
+		// 7: DstAlpha	            destinationColor.aaaa,
+		// 8: OneMinusDstAlpha	    float4(1.0, 1.0, 1.0, 1.0) - destinationColor.,
+		// 9: SrcAlphaSaturate     	saturate(sourceColor.aaaa),
+		// 10: OneMinusSrcAlpha		float4(1.0, 1.0, 1.0, 1.0) - sourceColor.aaaa,
+		
 	
 		
 		
@@ -493,6 +530,8 @@ SubShader
 			#pragma fragment furagmentXD
 			#include "UnityCG.cginc"
 			#include "UnityLightingCommon.cginc"
+			//#include "Lightning.cginc"
+			//#include "AutoLight.cginc"
 
 			
 
@@ -500,7 +539,24 @@ SubShader
 			{
 				float4 vertex : POSITION;//for vertex
 				float2 uv : TEXCOORD0; //for uv
+				float2 uv1 : TEXCOORD1;
+				float2 uv2 : TEXCOORD2;
+				float2 uv3 : TEXCOORD3;
 				float3 normal : NORMAL;
+
+				/*
+				from POIYOMI
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+				float4 tangent : TANGENT;
+				float4 color : COLOR;
+				float2 uv0 : TEXCOORD0;
+				float2 uv1 : TEXCOORD1;
+				float2 uv2 : TEXCOORD2;
+				float2 uv3 : TEXCOORD3;
+				uint vertexId : SV_VertexID;
+				UNITY_VERTEX_INPUT_INSTANCE_ID
+				*/
 			}; 
 	
 			struct v2f //VertexToFragment
@@ -508,8 +564,29 @@ SubShader
 				float4 position : SV_POSITION; //the type, the name, then what it is equivalent to Unity
 
 				float2 uv : TEXCOORD0;
-				float3 normal : TEXCOORD1;
-				float3 viewdir : TEXCOORD2;
+				float2 uv1 : TEXCOORD1;
+				float2 uv2 : TEXCOORD2;
+				float2 uv3 : TEXCOORD3;
+				float3 normal : TEXCOORD4;
+				float3 viewdir : TEXCOORD5;
+				float4 lightmapUV : TEXCOORD12;
+
+				/*
+				from POIYOMI
+				float4 pos : SV_POSITION;
+				float2 uv[4] : TEXCOORD0;
+				float3 objNormal : TEXCOORD4;
+				float3 normal : TEXCOORD5;
+				float3 tangent : TEXCOORD6;
+				float3 binormal : TEXCOORD7;
+				float4 worldPos : TEXCOORD8;
+				float4 localPos : TEXCOORD9;
+				float3 objectPos : TEXCOORD10;
+				float4 vertexColor : TEXCOORD11;
+				float4 lightmapUV : TEXCOORD12;
+				float4 grabPos: TEXCOORD13;
+				float4 worldDirection: TEXCOORD14;
+				*/
 
 				//float4 directionalLightingColor : COLOR0;
 			};
@@ -798,8 +875,8 @@ SubShader
 			)
 			{
 				float2 CurrentUV = float2(InX,InY);
-				int TempMode = TMode;
-				int CurrentInstruction = 0;
+				uint TempMode = TMode;
+				uint CurrentInstruction = 0;
 			
 				while(TempMode != 0)
 				{
@@ -863,6 +940,7 @@ SubShader
 			float _KontrolTextureLayer1;//("Texture Layer 1",Range(0,1)) = 1
 			float _KontrolTextureLayer2;//("Texture Layer 2",Range(0,1)) = 1
 			float _KontrolGlitterLayer1;
+			float _KontrolLightMap;
 			float _KontrolLerpClamp;
 
 
@@ -1003,6 +1081,13 @@ SubShader
 				OUTGOING.normal = UnityObjectToWorldNormal(INCOMING.normal);
 				//OUTGOING.viewdir = float4(normalize(WorldSpaceViewDir(INCOMING.vertex)),0);
 				OUTGOING.viewdir = float3(normalize(WorldSpaceViewDir(INCOMING.vertex)));
+
+				//#if defined(LIGHTMAP_ON)
+				OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+				//#endif
+				//#if defined(DYNAMICLIGHTMAP_ON)
+				//OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
+				//#endif
 
 				return OUTGOING;
 			}
@@ -1289,6 +1374,15 @@ SubShader
 			vector _VectorCrLayer4MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 			float _VectorCrLayer4MainRamp;
 			float _VectorCrLayer4MainStwg;//("Stwengh1",Range(0,1)) = 0
+
+
+
+
+
+
+
+
+			sampler2D _LightmapLayerMainImge;
 
 
 
@@ -1628,7 +1722,8 @@ SubShader
 				
 				
 				
-				
+				//---===<<< Glitter >>>===---
+
 				//get Glitter Color
 				fixed4 Glitter1Pass0 = FOwO_Color_ReadFromTexture
 				(
@@ -1669,32 +1764,49 @@ SubShader
 
 
 
-
-
-
-				
+				//---===<<< Light Map >>>===---
 
 				
 				
 
-
+				//float2 LMUV = (INCOMING.uv + unity_LightmapST.zw) * unity_LightmapST.xy;
+				fixed4 LightmapPass0 = float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,INCOMING.lightmapUV)),1);
 
 				
 
 				
-				
+				/*
 				return 
 					Piksel1Pass6 * _KontrolTextureLayer1 + 
 					Piksel2Pass6 * _KontrolTextureLayer2 + 
+					Glitter1Pass2 * _KontrolGlitterLayer1 ;
+				*/
+
+				/*
+				return 
+					Piksel1Pass6 * _KontrolTextureLayer1 + 
+					Piksel2Pass6 * _KontrolTextureLayer2 + 
+					Glitter1Pass2 * _KontrolGlitterLayer1 +
+					LightmapPass0 * _KontrolLightMap ;
+				*/
+
+				
+				return
+					(Piksel1Pass6 * _KontrolTextureLayer1 + Piksel2Pass6 * _KontrolTextureLayer2) * FOwO_Lerp_ColorSimple(float4(1,1,1,1),LightmapPass0,_KontrolLightMap,_KontrolLerpClamp) +
 					Glitter1Pass2 * _KontrolGlitterLayer1;
 				
+
+				//return float4(INCOMING.lightmapUV.xy,0,1);
+
+				//return float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,INCOMING.lightmapUV)),1);
+				//_LightmapLayerMainImge
+
+				//return tex2D(unity_Lightmap,INCOMING.lightmapUV.xy);
+
+				//return float4(INCOMING.lightmapUV.xy,0,1);
 				
 
 				
-
-				
-
-
 
 			}
 
