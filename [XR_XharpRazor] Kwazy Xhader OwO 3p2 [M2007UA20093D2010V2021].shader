@@ -1,12 +1,6 @@
-﻿// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+﻿/*
 
-// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
-
-// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
-
-/*
-
-	Kwazy Xayder 3.3 OwO
+	Kwazy Xayder 3.4 OwO
 
 	by:
 		XR_XharpRazor
@@ -69,11 +63,11 @@
 
 
 
-Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.05.14 [M2007UA20093D2010V2021]"
+Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.05.29 [M2007UA20093D2010V2021]"
 {
 Properties
 {
-	[Header(Kwazy Xhader OwO 3.3)]
+	[Header(Kwazy Xhader OwO 3.4)]
 	[Space(128)]
 
 	[Header(Blend Method)]
@@ -1416,193 +1410,279 @@ SubShader
 				
 				
 				//get distort color
-				fixed4 Piksel1Dist = FOwO_Color_ReadFromTexture
-				(
+				fixed4 Piksel1Dist;
+				fixed4 Piksel2Dist;
+
+				//get distort power
+				float Piksel1XOofset;
+				float Piksel1YOofset;
+				float Piksel2XOofset;
+				float Piksel2YOofset;
+
+
+				if(_KontrolTextureLayer1 == 0)
+				{
+					Piksel1Dist = float4(0,0,0,0);
+					Piksel1XOofset = 0;
+					Piksel1YOofset = 0;
+				}
+				else
+				{
+					Piksel1Dist = FOwO_Color_ReadFromTexture
+					(
 					_TextureLayer1DistImge, 0, INCOMING.uv.x, INCOMING.uv.y,
 					_TextureLayer1DistTPos.x, _TextureLayer1DistTPos.y, _TextureLayer1DistTPos.z, _TextureLayer1DistTPos.w,
 					_TextureLayer1DistTRot.x, _TextureLayer1DistTRot.y, _TextureLayer1DistTRot.z, _TextureLayer1DistTRot.w,
 					_TextureLayer1DistTScl.x, _TextureLayer1DistTScl.y, _TextureLayer1DistTScl.z, _TextureLayer1DistTScl.w,
 					_TextureLayer1DistTSkw.x, _TextureLayer1DistTSkw.y, _TextureLayer1DistTSkw.z, _TextureLayer1DistTSkw.w,
 					_TextureLayer1DistTMod
-				);
-				fixed4 Piksel2Dist = FOwO_Color_ReadFromTexture
-				(
+					);
+
+					Piksel1XOofset = Piksel1Dist.r * _TextureLayer1DistPowR.x + Piksel1Dist.g * _TextureLayer1DistPowG.x + Piksel1Dist.b * _TextureLayer1DistPowB.x + Piksel1Dist.a * _TextureLayer1DistPowA.x;
+					Piksel1YOofset = Piksel1Dist.r * _TextureLayer1DistPowR.y + Piksel1Dist.g * _TextureLayer1DistPowG.y + Piksel1Dist.b * _TextureLayer1DistPowB.y + Piksel1Dist.a * _TextureLayer1DistPowA.y;
+				}
+
+				if(_KontrolTextureLayer2 == 0)
+				{
+					Piksel2Dist = float4(0,0,0,0);
+					Piksel2XOofset = 0;
+					Piksel2YOofset = 0;
+				}
+				else
+				{
+					Piksel2Dist = FOwO_Color_ReadFromTexture
+					(
 					_TextureLayer2DistImge, 0, INCOMING.uv.x, INCOMING.uv.y,
 					_TextureLayer2DistTPos.x, _TextureLayer2DistTPos.y, _TextureLayer2DistTPos.z, _TextureLayer2DistTPos.w,
 					_TextureLayer2DistTRot.x, _TextureLayer2DistTRot.y, _TextureLayer2DistTRot.z, _TextureLayer2DistTRot.w,
 					_TextureLayer2DistTScl.x, _TextureLayer2DistTScl.y, _TextureLayer2DistTScl.z, _TextureLayer2DistTScl.w,
 					_TextureLayer2DistTSkw.x, _TextureLayer2DistTSkw.y, _TextureLayer2DistTSkw.z, _TextureLayer2DistTSkw.w,
 					_TextureLayer2DistTMod
-				);
+					);
 
+					Piksel2XOofset = Piksel2Dist.r * _TextureLayer2DistPowR.x + Piksel2Dist.g * _TextureLayer2DistPowG.x + Piksel2Dist.b * _TextureLayer2DistPowB.x + Piksel2Dist.a * _TextureLayer2DistPowA.x;
+					Piksel2YOofset = Piksel2Dist.r * _TextureLayer2DistPowR.y + Piksel2Dist.g * _TextureLayer2DistPowG.y + Piksel2Dist.b * _TextureLayer2DistPowB.y + Piksel2Dist.a * _TextureLayer2DistPowA.y;
+				}
 
-
-				//get distort power
-				float Piksel1XOofset = Piksel1Dist.r * _TextureLayer1DistPowR.x + Piksel1Dist.g * _TextureLayer1DistPowG.x + Piksel1Dist.b * _TextureLayer1DistPowB.x + Piksel1Dist.a * _TextureLayer1DistPowA.x;
-				float Piksel1YOofset = Piksel1Dist.r * _TextureLayer1DistPowR.y + Piksel1Dist.g * _TextureLayer1DistPowG.y + Piksel1Dist.b * _TextureLayer1DistPowB.y + Piksel1Dist.a * _TextureLayer1DistPowA.y;
-				float Piksel2XOofset = Piksel2Dist.r * _TextureLayer2DistPowR.x + Piksel2Dist.g * _TextureLayer2DistPowG.x + Piksel2Dist.b * _TextureLayer2DistPowB.x + Piksel2Dist.a * _TextureLayer2DistPowA.x;
-				float Piksel2YOofset = Piksel2Dist.r * _TextureLayer2DistPowR.y + Piksel2Dist.g * _TextureLayer2DistPowG.y + Piksel2Dist.b * _TextureLayer2DistPowB.y + Piksel2Dist.a * _TextureLayer2DistPowA.y;
 				
-
-
-				//get original texture
-				fixed4 Piksel1Pass0of1 = FOwO_Color_ReadFromTexture
-				(
-					_TextureLayer1MainImge, 0, INCOMING.uv.x + Piksel1XOofset, INCOMING.uv.y + Piksel1YOofset, 
-					_TextureLayer1MainTPos.x, _TextureLayer1MainTPos.y, _TextureLayer1MainTPos.z, _TextureLayer1MainTPos.w, 
-					_TextureLayer1MainTRot.x, _TextureLayer1MainTRot.y, _TextureLayer1MainTRot.z, _TextureLayer1MainTRot.w, 
-					_TextureLayer1MainTScl.x, _TextureLayer1MainTScl.y, _TextureLayer1MainTScl.z, _TextureLayer1MainTScl.w,
-					_TextureLayer1MainTSkw.x, _TextureLayer1MainTSkw.y, _TextureLayer1MainTSkw.z, _TextureLayer1MainTSkw.w,
-					_TextureLayer1MainTMod
-				);
-				fixed4 Piksel2Pass0of1 = FOwO_Color_ReadFromTexture
-				(
-					_TextureLayer2MainImge, 0, INCOMING.uv.x + Piksel2XOofset, INCOMING.uv.y + Piksel2YOofset, 
-					_TextureLayer2MainTPos.x, _TextureLayer2MainTPos.y, _TextureLayer2MainTPos.z, _TextureLayer2MainTPos.w, 
-					_TextureLayer2MainTRot.x, _TextureLayer2MainTRot.y, _TextureLayer2MainTRot.z, _TextureLayer2MainTRot.w, 
-					_TextureLayer2MainTScl.x, _TextureLayer2MainTScl.y, _TextureLayer2MainTScl.z, _TextureLayer2MainTScl.w,
-					_TextureLayer2MainTSkw.x, _TextureLayer2MainTSkw.y, _TextureLayer2MainTSkw.z, _TextureLayer2MainTSkw.w,
-					_TextureLayer2MainTMod
-				);
-
-				//Alha check : the stronger the Aplha, the stronger the RGB, user can choose to use this or not
-				//_TextureLayer1AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
-				fixed4 Piksel1Pass0of2 = fixed4(0,0,0,0);
-				fixed4 Piksel2Pass0of2 = fixed4(0,0,0,0);
-
-				if(_TextureLayer1AlphChck == 1)
-				{
-					Piksel1Pass0of2 = fixed4(Piksel1Pass0of1.r,Piksel1Pass0of1.g,Piksel1Pass0of1.b,1) * Piksel1Pass0of1.a;		
-				}
-				else
-				{
-					Piksel1Pass0of2 = Piksel1Pass0of1;
-				}
-
-				if(_TextureLayer2AlphChck == 1)
-				{
-					Piksel2Pass0of2 = fixed4(Piksel2Pass0of1.r,Piksel2Pass0of1.g,Piksel2Pass0of1.b,1) * Piksel2Pass0of1.a;		
-				}
-				else
-				{
-					Piksel2Pass0of2 = Piksel2Pass0of1;
-				}
-
-
-
-				//invert main
-				fixed4 Piksel1Pass1 = float4
-				(
-					//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
-					FOwO_Lerp_Simple(Piksel1Pass0of2.r,1 - Piksel1Pass0of2.r,_TextureLayer1MainInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0of2.g,1 - Piksel1Pass0of2.g,_TextureLayer1MainInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0of2.b,1 - Piksel1Pass0of2.b,_TextureLayer1MainInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Pass0of2.a,1 - Piksel1Pass0of2.a,_TextureLayer1MainInvA,_KontrolLerpClamp)
-				);
-				fixed4 Piksel2Pass1 = float4
-				(
-					//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
-					FOwO_Lerp_Simple(Piksel2Pass0of2.r,1 - Piksel2Pass0of2.r,_TextureLayer2MainInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0of2.g,1 - Piksel2Pass0of2.g,_TextureLayer2MainInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0of2.b,1 - Piksel2Pass0of2.b,_TextureLayer2MainInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel2Pass0of2.a,1 - Piksel2Pass0of2.a,_TextureLayer2MainInvA,_KontrolLerpClamp)
-				);
-
-
-
-				//HSVA shift
-				//float4 FOwO_Color_RGBAtoHSVA(float R, float G, float B, float A)
-				//float4 FOwO_Color_HSVAtoRGBA(float H, float S, float V, float A)
-				fixed4 Piksel1Pass2of1 = FOwO_Color_RGBAtoHSVA(Piksel1Pass1.r,Piksel1Pass1.g,Piksel1Pass1.b,Piksel1Pass1.a);
-				fixed4 Piksel1Pass2of2 = fixed4((Piksel1Pass2of1.r + _TextureLayer1MainHSVh)%1,Piksel1Pass2of1.g + _TextureLayer1MainHSVs,Piksel1Pass2of1.b + _TextureLayer1MainHSVv,Piksel1Pass2of1.a);
-				fixed4 Piksel1Pass2of3 = FOwO_Color_HSVAtoRGBA(Piksel1Pass2of2.r,Piksel1Pass2of2.g,Piksel1Pass2of2.b,Piksel1Pass2of2.a);
-
-				fixed4 Piksel2Pass2of1 = FOwO_Color_RGBAtoHSVA(Piksel2Pass1.r,Piksel2Pass1.g,Piksel2Pass1.b,Piksel2Pass1.a);
-				fixed4 Piksel2Pass2of2 = fixed4((Piksel2Pass2of1.r + _TextureLayer2MainHSVh)%1,Piksel2Pass2of1.g + _TextureLayer2MainHSVs,Piksel2Pass2of1.b + _TextureLayer2MainHSVv,Piksel2Pass2of1.a);
-				fixed4 Piksel2Pass2of3 = FOwO_Color_HSVAtoRGBA(Piksel2Pass2of2.r,Piksel2Pass2of2.g,Piksel2Pass2of2.b,Piksel2Pass2of2.a);
-
-
-
-				//Color Multiplication
-				fixed4 Piksel1Pass3of1 = FOwO_Lerp_Color4Intervals
-				(	
-					_TextureLayer1MainClr0,_TextureLayer1MainClr1,_TextureLayer1MainClr2,_TextureLayer1MainClr3,
-					_TextureLayer1MainClrT.x,_TextureLayer1MainClrT.y,_TextureLayer1MainClrT.z,_TextureLayer1MainClrT.w,
-					_KontrolLerpClamp
-				);
-				fixed4 Piksel2Pass3of1 = FOwO_Lerp_Color4Intervals
-				(	
-					_TextureLayer2MainClr0,_TextureLayer2MainClr1,_TextureLayer2MainClr2,_TextureLayer2MainClr3,
-					_TextureLayer2MainClrT.x,_TextureLayer2MainClrT.y,_TextureLayer2MainClrT.z,_TextureLayer2MainClrT.w,
-					_KontrolLerpClamp
-				);
-
-				fixed4 Piksel1Pass3of2 = Piksel1Pass3of1 * Piksel1Pass2of3;
-				fixed4 Piksel2Pass3of2 = Piksel2Pass3of1 * Piksel2Pass2of3;
+				
 
 
 
 				//get mask color
-				fixed4 Piksel1Mask1 = FOwO_Color_ReadFromTexture
-				(
+				fixed4 Piksel1Mask1;
+				fixed4 Piksel2Mask1;
+				//invert mask
+				fixed4 Piksel1Mask2;
+				fixed4 Piksel2Mask2;
+				//thresholdcut
+				fixed4 Piksel1Mask3;
+				fixed4 Piksel2Mask3;
+				//calculate filter power
+				float Piksel1MaskPower;
+				float Piksel2MaskPower;
+
+				if(_KontrolTextureLayer1 == 0)
+				{
+					Piksel1Mask1 = float4(0,0,0,0);
+					Piksel1MaskPower = 0;
+				}
+				else
+				{
+					Piksel1Mask1 = FOwO_Color_ReadFromTexture
+					(
 					_TextureLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
 					_TextureLayer1MaskTPos.x, _TextureLayer1MaskTPos.y, _TextureLayer1MaskTPos.z, _TextureLayer1MaskTPos.w,
 					_TextureLayer1MaskTRot.x, _TextureLayer1MaskTRot.y, _TextureLayer1MaskTRot.z, _TextureLayer1MaskTRot.w,
 					_TextureLayer1MaskTScl.x, _TextureLayer1MaskTScl.y, _TextureLayer1MaskTScl.z, _TextureLayer1MaskTScl.w,
 					_TextureLayer1MaskTSkw.x, _TextureLayer1MaskTSkw.y, _TextureLayer1MaskTSkw.z, _TextureLayer1MaskTSkw.w,
 					_TextureLayer1MaskTMod
-				);
-				fixed4 Piksel2Mask1 = FOwO_Color_ReadFromTexture
-				(
+					);
+
+					Piksel1Mask2 = float4
+					(
+					FOwO_Lerp_Simple(Piksel1Mask1.r,1-Piksel1Mask1.r,_TextureLayer1MaskInvR,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Mask1.g,1-Piksel1Mask1.g,_TextureLayer1MaskInvG,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Mask1.b,1-Piksel1Mask1.b,_TextureLayer1MaskInvB,_KontrolLerpClamp),
+					FOwO_Lerp_Simple(Piksel1Mask1.a,1-Piksel1Mask1.a,_TextureLayer1MaskInvA,_KontrolLerpClamp)
+					);
+
+					Piksel1Mask3 = float4
+					(
+					FOwO_Lerp_Thresh(_TextureLayer1MaskRLow,_TextureLayer1MaskRHgh,0,1,Piksel1Mask2.r),
+					FOwO_Lerp_Thresh(_TextureLayer1MaskGLow,_TextureLayer1MaskGHgh,0,1,Piksel1Mask2.g),
+					FOwO_Lerp_Thresh(_TextureLayer1MaskBLow,_TextureLayer1MaskBHgh,0,1,Piksel1Mask2.b),
+					FOwO_Lerp_Thresh(_TextureLayer1MaskALow,_TextureLayer1MaskAHgh,0,1,Piksel1Mask2.a)
+					);
+
+					Piksel1MaskPower = Piksel1Mask3.r * _TextureLayer1MaskPowR + Piksel1Mask3.g * _TextureLayer1MaskPowG + Piksel1Mask3.b * _TextureLayer1MaskPowB + Piksel1Mask3.a * _TextureLayer1MaskPowA;
+				}
+
+				if(_KontrolTextureLayer2 == 0)
+				{
+					Piksel2Mask1 = float4(1,1,1,1);
+					Piksel2MaskPower = 0;
+				}
+				else
+				{
+					Piksel2Mask1 = FOwO_Color_ReadFromTexture
+					(
 					_TextureLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
 					_TextureLayer2MaskTPos.x, _TextureLayer2MaskTPos.y, _TextureLayer2MaskTPos.z, _TextureLayer2MaskTPos.w,
 					_TextureLayer2MaskTRot.x, _TextureLayer2MaskTRot.y, _TextureLayer2MaskTRot.z, _TextureLayer2MaskTRot.w,
 					_TextureLayer2MaskTScl.x, _TextureLayer2MaskTScl.y, _TextureLayer2MaskTScl.z, _TextureLayer2MaskTScl.w,
 					_TextureLayer2MaskTSkw.x, _TextureLayer2MaskTSkw.y, _TextureLayer2MaskTSkw.z, _TextureLayer2MaskTSkw.w,
 					_TextureLayer2MaskTMod
-				);
+					);
 
-				//invert mask
-				fixed4 Piksel1Mask2 = float4
-				(
-					FOwO_Lerp_Simple(Piksel1Mask1.r,1-Piksel1Mask1.r,_TextureLayer1MaskInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Mask1.g,1-Piksel1Mask1.g,_TextureLayer1MaskInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Mask1.b,1-Piksel1Mask1.b,_TextureLayer1MaskInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Piksel1Mask1.a,1-Piksel1Mask1.a,_TextureLayer1MaskInvA,_KontrolLerpClamp)
-				);
-				fixed4 Piksel2Mask2 = float4
-				(
+					Piksel2Mask2 = float4
+					(
 					FOwO_Lerp_Simple(Piksel2Mask1.r,1-Piksel2Mask1.r,_TextureLayer2MaskInvR,_KontrolLerpClamp),
 					FOwO_Lerp_Simple(Piksel2Mask1.g,1-Piksel2Mask1.g,_TextureLayer2MaskInvG,_KontrolLerpClamp),
 					FOwO_Lerp_Simple(Piksel2Mask1.b,1-Piksel2Mask1.b,_TextureLayer2MaskInvB,_KontrolLerpClamp),
 					FOwO_Lerp_Simple(Piksel2Mask1.a,1-Piksel2Mask1.a,_TextureLayer2MaskInvA,_KontrolLerpClamp)
-				);
+					);
 
-
-
-				//threshholdCuts
-				fixed4 Piksel1Mask3 = float4
-				(
-					FOwO_Lerp_Thresh(_TextureLayer1MaskRLow,_TextureLayer1MaskRHgh,0,1,Piksel1Mask2.r),
-					FOwO_Lerp_Thresh(_TextureLayer1MaskGLow,_TextureLayer1MaskGHgh,0,1,Piksel1Mask2.g),
-					FOwO_Lerp_Thresh(_TextureLayer1MaskBLow,_TextureLayer1MaskBHgh,0,1,Piksel1Mask2.b),
-					FOwO_Lerp_Thresh(_TextureLayer1MaskALow,_TextureLayer1MaskAHgh,0,1,Piksel1Mask2.a)
-				);
-				fixed4 Piksel2Mask3 = float4
-				(
+					Piksel2Mask3 = float4
+					(
 					FOwO_Lerp_Thresh(_TextureLayer2MaskRLow,_TextureLayer2MaskRHgh,0,1,Piksel2Mask2.r),
 					FOwO_Lerp_Thresh(_TextureLayer2MaskGLow,_TextureLayer2MaskGHgh,0,1,Piksel2Mask2.g),
 					FOwO_Lerp_Thresh(_TextureLayer2MaskBLow,_TextureLayer2MaskBHgh,0,1,Piksel2Mask2.b),
 					FOwO_Lerp_Thresh(_TextureLayer2MaskALow,_TextureLayer2MaskAHgh,0,1,Piksel2Mask2.a)
-				);
+					);
 
-				//calculate filter power
-				float Piksel1MaskPower = Piksel1Mask3.r * _TextureLayer1MaskPowR + Piksel1Mask3.g * _TextureLayer1MaskPowG + Piksel1Mask3.b * _TextureLayer1MaskPowB + Piksel1Mask3.a * _TextureLayer1MaskPowA;
-				float Piksel2MaskPower = Piksel2Mask3.r * _TextureLayer2MaskPowR + Piksel2Mask3.g * _TextureLayer2MaskPowG + Piksel2Mask3.b * _TextureLayer2MaskPowB + Piksel2Mask3.a * _TextureLayer2MaskPowA;
-					
-				//influnce Texture alpha
-				fixed4 Piksel1Pass4 = fixed4(Piksel1Pass3of2.r,Piksel1Pass3of2.g,Piksel1Pass3of2.b,Piksel1Pass3of2.a*Piksel1MaskPower);
-				fixed4 Piksel2Pass4 = fixed4(Piksel2Pass3of2.r,Piksel2Pass3of2.g,Piksel2Pass3of2.b,Piksel2Pass3of2.a*Piksel2MaskPower);
+					Piksel2MaskPower = Piksel2Mask3.r * _TextureLayer2MaskPowR + Piksel2Mask3.g * _TextureLayer2MaskPowG + Piksel2Mask3.b * _TextureLayer2MaskPowB + Piksel2Mask3.a * _TextureLayer2MaskPowA;
+				}
+
+
+
+
+
+
+
+				//get original texture
+				fixed4 Piksel1Pass0of1;
+				fixed4 Piksel2Pass0of1;
+				//alpha check
+				//_TextureLayer1AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
+				fixed4 Piksel1Pass0of2 = fixed4(0,0,0,0);
+				fixed4 Piksel2Pass0of2 = fixed4(0,0,0,0);
+				//invert main
+				fixed4 Piksel1Pass1;
+				fixed4 Piksel2Pass1;
+				//HSVA shift
+				fixed4 Piksel1Pass2of1;
+				fixed4 Piksel1Pass2of2;
+				fixed4 Piksel1Pass2of3;
+				fixed4 Piksel2Pass2of1;
+				fixed4 Piksel2Pass2of2;
+				fixed4 Piksel2Pass2of3;
+				//color multiplication
+				fixed4 Piksel1Pass3of1;
+				fixed4 Piksel2Pass3of1;
+				fixed4 Piksel1Pass3of2;
+				fixed4 Piksel2Pass3of2;
+				//final pure texture result + alpha influnced by mask
+				fixed4 Piksel1Pass4;
+				fixed4 Piksel2Pass4;
+
+
+				if(_KontrolTextureLayer1 == 0)
+				{
+					Piksel1Pass0of1 = float4(1,1,1,1);
+					Piksel1Pass4 = float4(0,0,0,0);
+				}
+				else
+				{
+					Piksel1Pass0of1 = FOwO_Color_ReadFromTexture
+					(
+						_TextureLayer1MainImge, 0, INCOMING.uv.x + Piksel1XOofset, INCOMING.uv.y + Piksel1YOofset, 
+						_TextureLayer1MainTPos.x, _TextureLayer1MainTPos.y, _TextureLayer1MainTPos.z, _TextureLayer1MainTPos.w, 
+						_TextureLayer1MainTRot.x, _TextureLayer1MainTRot.y, _TextureLayer1MainTRot.z, _TextureLayer1MainTRot.w, 
+						_TextureLayer1MainTScl.x, _TextureLayer1MainTScl.y, _TextureLayer1MainTScl.z, _TextureLayer1MainTScl.w,
+						_TextureLayer1MainTSkw.x, _TextureLayer1MainTSkw.y, _TextureLayer1MainTSkw.z, _TextureLayer1MainTSkw.w,
+						_TextureLayer1MainTMod
+					);
+
+					if(_TextureLayer1AlphChck == 1)
+					{Piksel1Pass0of2 = fixed4(Piksel1Pass0of1.r,Piksel1Pass0of1.g,Piksel1Pass0of1.b,1) * Piksel1Pass0of1.a;		}
+					else
+					{Piksel1Pass0of2 = Piksel1Pass0of1;}
+
+					Piksel1Pass1 = float4
+					(
+						//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
+						FOwO_Lerp_Simple(Piksel1Pass0of2.r,1 - Piksel1Pass0of2.r,_TextureLayer1MainInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel1Pass0of2.g,1 - Piksel1Pass0of2.g,_TextureLayer1MainInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel1Pass0of2.b,1 - Piksel1Pass0of2.b,_TextureLayer1MainInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel1Pass0of2.a,1 - Piksel1Pass0of2.a,_TextureLayer1MainInvA,_KontrolLerpClamp)
+					);
+
+					Piksel1Pass2of1 = FOwO_Color_RGBAtoHSVA(Piksel1Pass1.r,Piksel1Pass1.g,Piksel1Pass1.b,Piksel1Pass1.a);
+					Piksel1Pass2of2 = fixed4((Piksel1Pass2of1.r + _TextureLayer1MainHSVh)%1,Piksel1Pass2of1.g + _TextureLayer1MainHSVs,Piksel1Pass2of1.b + _TextureLayer1MainHSVv,Piksel1Pass2of1.a);
+					Piksel1Pass2of3 = FOwO_Color_HSVAtoRGBA(Piksel1Pass2of2.r,Piksel1Pass2of2.g,Piksel1Pass2of2.b,Piksel1Pass2of2.a);
+
+					Piksel1Pass3of1 = FOwO_Lerp_Color4Intervals
+					(	
+						_TextureLayer1MainClr0,_TextureLayer1MainClr1,_TextureLayer1MainClr2,_TextureLayer1MainClr3,
+						_TextureLayer1MainClrT.x,_TextureLayer1MainClrT.y,_TextureLayer1MainClrT.z,_TextureLayer1MainClrT.w,
+						_KontrolLerpClamp
+					);
+					Piksel1Pass3of2 = Piksel1Pass3of1 * Piksel1Pass2of3;
+
+					Piksel1Pass4 = fixed4(Piksel1Pass3of2.r,Piksel1Pass3of2.g,Piksel1Pass3of2.b,Piksel1Pass3of2.a*Piksel1MaskPower);
+				}
+
+				if(_KontrolTextureLayer2 == 0)
+				{
+					Piksel2Pass0of1 = float4(1,1,1,1);
+					Piksel2Pass4 = float4(0,0,0,0);
+				}
+				else
+				{
+					Piksel2Pass0of1 = FOwO_Color_ReadFromTexture
+					(
+						_TextureLayer2MainImge, 0, INCOMING.uv.x + Piksel2XOofset, INCOMING.uv.y + Piksel2YOofset, 
+						_TextureLayer2MainTPos.x, _TextureLayer2MainTPos.y, _TextureLayer2MainTPos.z, _TextureLayer2MainTPos.w, 
+						_TextureLayer2MainTRot.x, _TextureLayer2MainTRot.y, _TextureLayer2MainTRot.z, _TextureLayer2MainTRot.w, 
+						_TextureLayer2MainTScl.x, _TextureLayer2MainTScl.y, _TextureLayer2MainTScl.z, _TextureLayer2MainTScl.w,
+						_TextureLayer2MainTSkw.x, _TextureLayer2MainTSkw.y, _TextureLayer2MainTSkw.z, _TextureLayer2MainTSkw.w,
+						_TextureLayer2MainTMod
+					);
+
+					if(_TextureLayer2AlphChck == 1)
+					{Piksel2Pass0of2 = fixed4(Piksel2Pass0of1.r,Piksel2Pass0of1.g,Piksel2Pass0of1.b,1) * Piksel2Pass0of1.a;		}
+					else
+					{Piksel2Pass0of2 = Piksel2Pass0of1;}
+
+					Piksel2Pass1 = float4
+					(
+						//float FOwO_Lerp_Simple(float Start,float End,float T,int Clamp)
+						FOwO_Lerp_Simple(Piksel2Pass0of2.r,1 - Piksel2Pass0of2.r,_TextureLayer2MainInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel2Pass0of2.g,1 - Piksel2Pass0of2.g,_TextureLayer2MainInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel2Pass0of2.b,1 - Piksel2Pass0of2.b,_TextureLayer2MainInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Piksel2Pass0of2.a,1 - Piksel2Pass0of2.a,_TextureLayer2MainInvA,_KontrolLerpClamp)
+					);
+
+					Piksel2Pass2of1 = FOwO_Color_RGBAtoHSVA(Piksel2Pass1.r,Piksel2Pass1.g,Piksel2Pass1.b,Piksel2Pass1.a);
+					Piksel2Pass2of2 = fixed4((Piksel2Pass2of1.r + _TextureLayer2MainHSVh)%1,Piksel2Pass2of1.g + _TextureLayer2MainHSVs,Piksel2Pass2of1.b + _TextureLayer2MainHSVv,Piksel2Pass2of1.a);
+					Piksel2Pass2of3 = FOwO_Color_HSVAtoRGBA(Piksel2Pass2of2.r,Piksel2Pass2of2.g,Piksel2Pass2of2.b,Piksel2Pass2of2.a);
+
+					Piksel2Pass3of1 = FOwO_Lerp_Color4Intervals
+					(	
+						_TextureLayer2MainClr0,_TextureLayer2MainClr1,_TextureLayer2MainClr2,_TextureLayer2MainClr3,
+						_TextureLayer2MainClrT.x,_TextureLayer2MainClrT.y,_TextureLayer2MainClrT.z,_TextureLayer2MainClrT.w,
+						_KontrolLerpClamp
+					);
+					Piksel2Pass3of2 = Piksel2Pass3of1 * Piksel2Pass2of3;
+
+					Piksel2Pass4 = fixed4(Piksel2Pass3of2.r,Piksel2Pass3of2.g,Piksel2Pass3of2.b,Piksel2Pass3of2.a*Piksel2MaskPower);
+				}
+
+
+
+
+	
 					
 				
 
@@ -1611,111 +1691,207 @@ SubShader
 
 
 				//get vector color
+				float Vectorcr1Pass0;
+				float Vectorcr2Pass0;
+				float Vectorcr3Pass0;
+				float Vectorcr4Pass0;
+				fixed4 Vectorcr1Pass1;
+				fixed4 Vectorcr2Pass1;
+				fixed4 Vectorcr3Pass1;
+				fixed4 Vectorcr4Pass1;
 
-				float Vectorcr1Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
-				fixed4 Vectorcr1Pass1 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0;
 
-				float Vectorcr2Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
-				fixed4 Vectorcr2Pass1 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0;
+				if(_VectorCrLayer1MainStwg == 0)
+				{
+					Vectorcr1Pass1 = float4(0,0,0,0);
+				}
+				else
+				{
+					Vectorcr1Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
+					Vectorcr1Pass1 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0;
+				}
 
-				float Vectorcr3Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
-				fixed4 Vectorcr3Pass1 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0;
+				if(_VectorCrLayer2MainStwg == 0)
+				{
+					Vectorcr2Pass1 = float4(0,0,0,0);
+				}
+				else
+				{
+					Vectorcr2Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
+					Vectorcr2Pass1 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0;
+				}
 
-				float Vectorcr4Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
-				fixed4 Vectorcr4Pass1 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0;
+				if(_VectorCrLayer3MainStwg == 0)
+				{
+					Vectorcr3Pass1 = float4(0,0,0,0);
+				}
+				else
+				{
+					Vectorcr3Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
+					Vectorcr3Pass1 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0;
+				}
+
+				if(_VectorCrLayer4MainStwg == 0)
+				{
+					Vectorcr4Pass1 = float4(0,0,0,0);
+				}
+				else
+				{
+					Vectorcr4Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
+					Vectorcr4Pass1 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0;
+				}
 
 				fixed4 VectorcrFinal = Vectorcr1Pass1 + Vectorcr2Pass1 + Vectorcr3Pass1 + Vectorcr4Pass1;
 
+
 				//are main layers influenced ?
-				fixed4 Piksel1Pass5 = Piksel1Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer1VcCrFrcA),_TextureLayer1VcCrInfl,_KontrolLerpClamp);
-				fixed4 Piksel2Pass5 = Piksel2Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer2VcCrFrcA),_TextureLayer2VcCrInfl,_KontrolLerpClamp);
+				fixed4 Piksel1Pass5;
+				fixed4 Piksel2Pass5;
+
+				if(_KontrolTextureLayer1 == 0)
+				{
+					Piksel1Pass5 = float4(0,0,0,0);
+				}
+				else
+				{
+					Piksel1Pass5 = Piksel1Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer1VcCrFrcA),_TextureLayer1VcCrInfl,_KontrolLerpClamp);
+				}
+
+				if(_KontrolTextureLayer2 == 0)
+				{
+					Piksel2Pass5 = float4(0,0,0,0);
+				}
+				else
+				{
+					Piksel2Pass5 = Piksel2Pass4 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),VectorcrFinal + fixed4(0,0,0,_TextureLayer2VcCrFrcA),_TextureLayer2VcCrInfl,_KontrolLerpClamp);
+				}
 
 
 
 
 
-
-				//get Fresnel Main Color
-				fixed4 Fresnel1Color = FOwO_Lerp_Color4Intervals(_FresnelLayer1MainClr0, _FresnelLayer1MainClr1, _FresnelLayer1MainClr2, _FresnelLayer1MainClr3, _FresnelLayer1MainClrT.x, _FresnelLayer1MainClrT.y, _FresnelLayer1MainClrT.z, _FresnelLayer1MainClrT.w,_KontrolLerpClamp);
-				fixed4 Fresnel2Color = FOwO_Lerp_Color4Intervals(_FresnelLayer2MainClr0, _FresnelLayer2MainClr1, _FresnelLayer2MainClr2, _FresnelLayer2MainClr3, _FresnelLayer2MainClrT.x, _FresnelLayer2MainClrT.y, _FresnelLayer2MainClrT.z, _FresnelLayer2MainClrT.w,_KontrolLerpClamp);
-				
-
-
+				//get Fresnel Color
+				fixed4 Fresnel1Color;
+				fixed4 Fresnel2Color;
 				//get Fresnel Vector Amount
-
-				float Fresnel1Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer1MainRgIv);
-				float Fresnel1Pass1 = pow(Fresnel1Pass0,_FresnelLayer1MainRamp);
-				float Fresnel1Pass2 = FOwO_Lerp_Thresh(_FresnelLayer1MainTrLw, _FresnelLayer1MainTrHg, 0, 1, Fresnel1Pass1);
-				
-				float Fresnel2Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer2MainRgIv);
-				float Fresnel2Pass1 = pow(Fresnel2Pass0,_FresnelLayer2MainRamp);
-				float Fresnel2Pass2 = FOwO_Lerp_Thresh(_FresnelLayer2MainTrLw, _FresnelLayer2MainTrHg, 0, 1, Fresnel2Pass1);
-				
-
-
+				float Fresnel1Pass0;
+				float Fresnel1Pass1;
+				float Fresnel1Pass2;
+				float Fresnel2Pass0;
+				float Fresnel2Pass1;
+				float Fresnel2Pass2;
 				//get Fresnel Mask Color
-				fixed4 Fresnel1Pass4of0 = FOwO_Color_ReadFromTexture
-				(
-					_FresnelLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
-					_FresnelLayer1MaskTPos.x, _FresnelLayer1MaskTPos.y, _FresnelLayer1MaskTPos.z, _FresnelLayer1MaskTPos.w, 
-					_FresnelLayer1MaskTRot.x, _FresnelLayer1MaskTRot.y, _FresnelLayer1MaskTRot.z, _FresnelLayer1MaskTRot.w, 
-					_FresnelLayer1MaskTScl.x, _FresnelLayer1MaskTScl.y, _FresnelLayer1MaskTScl.z, _FresnelLayer1MaskTScl.w,
-					_FresnelLayer1MaskTSkw.x, _FresnelLayer1MaskTSkw.y, _FresnelLayer1MaskTSkw.z, _FresnelLayer1MaskTSkw.w,
-					_FresnelLayer1MaskTMod
-				);
-				fixed4 Fresnel2Pass4of0 = FOwO_Color_ReadFromTexture
-				(
-					_FresnelLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
-					_FresnelLayer2MaskTPos.x, _FresnelLayer2MaskTPos.y, _FresnelLayer2MaskTPos.z, _FresnelLayer2MaskTPos.w, 
-					_FresnelLayer2MaskTRot.x, _FresnelLayer2MaskTRot.y, _FresnelLayer2MaskTRot.z, _FresnelLayer2MaskTRot.w, 
-					_FresnelLayer2MaskTScl.x, _FresnelLayer2MaskTScl.y, _FresnelLayer2MaskTScl.z, _FresnelLayer2MaskTScl.w,
-					_FresnelLayer2MaskTSkw.x, _FresnelLayer2MaskTSkw.y, _FresnelLayer2MaskTSkw.z, _FresnelLayer2MaskTSkw.w, 
-					_FresnelLayer2MaskTMod
-				);
-
+				fixed4 Fresnel1Pass4of0;
+				fixed4 Fresnel2Pass4of0;
 				//invert mask
-				fixed4 Fresnel1Pass4of1 = float4
-				(
-					FOwO_Lerp_Simple(Fresnel1Pass4of0.r,1-Fresnel1Pass4of0.r,_FresnelLayer1MaskInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel1Pass4of0.g,1-Fresnel1Pass4of0.g,_FresnelLayer1MaskInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel1Pass4of0.b,1-Fresnel1Pass4of0.b,_FresnelLayer1MaskInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel1Pass4of0.a,1-Fresnel1Pass4of0.a,_FresnelLayer1MaskInvA,_KontrolLerpClamp)
-				);
-				fixed4 Fresnel2Pass4of1 = float4
-				(
-					FOwO_Lerp_Simple(Fresnel2Pass4of0.r,1-Fresnel2Pass4of0.r,_FresnelLayer2MaskInvR,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel2Pass4of0.g,1-Fresnel2Pass4of0.g,_FresnelLayer2MaskInvG,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel2Pass4of0.b,1-Fresnel2Pass4of0.b,_FresnelLayer2MaskInvB,_KontrolLerpClamp),
-					FOwO_Lerp_Simple(Fresnel2Pass4of0.a,1-Fresnel2Pass4of0.a,_FresnelLayer2MaskInvA,_KontrolLerpClamp)
-				);
-
-				//Threshhold Cuts
-				fixed4 Fresnel1Pass4of2 = float4
-				(
-					FOwO_Lerp_Thresh(_FresnelLayer1MaskRLow,_FresnelLayer1MaskRHgh,0,1,Fresnel1Pass4of1.r),
-					FOwO_Lerp_Thresh(_FresnelLayer1MaskGLow,_FresnelLayer1MaskGHgh,0,1,Fresnel1Pass4of1.g),
-					FOwO_Lerp_Thresh(_FresnelLayer1MaskBLow,_FresnelLayer1MaskBHgh,0,1,Fresnel1Pass4of1.b),
-					FOwO_Lerp_Thresh(_FresnelLayer1MaskALow,_FresnelLayer1MaskAHgh,0,1,Fresnel1Pass4of1.a)
-				);
-				fixed4 Fresnel2Pass4of2 = float4
-				(
-					FOwO_Lerp_Thresh(_FresnelLayer2MaskRLow,_FresnelLayer2MaskRHgh,0,1,Fresnel2Pass4of1.r),
-					FOwO_Lerp_Thresh(_FresnelLayer2MaskGLow,_FresnelLayer2MaskGHgh,0,1,Fresnel2Pass4of1.g),
-					FOwO_Lerp_Thresh(_FresnelLayer2MaskBLow,_FresnelLayer2MaskBHgh,0,1,Fresnel2Pass4of1.b),
-					FOwO_Lerp_Thresh(_FresnelLayer2MaskALow,_FresnelLayer2MaskAHgh,0,1,Fresnel2Pass4of1.a)
-				);
-
+				fixed4 Fresnel1Pass4of1;
+				fixed4 Fresnel2Pass4of1;
+				//ThresholdCut
+				fixed4 Fresnel1Pass4of2;
+				fixed4 Fresnel2Pass4of2;
 				//calculate filter power
-				float Fresnel1MaskPower = Fresnel1Pass4of2.r * _FresnelLayer1MaskPowR + Fresnel1Pass4of2.g * _FresnelLayer1MaskPowG + Fresnel1Pass4of2.b * _FresnelLayer1MaskPowB + Fresnel1Pass4of2.a * _FresnelLayer1MaskPowA;
-				float Fresnel2MaskPower = Fresnel2Pass4of2.r * _FresnelLayer2MaskPowR + Fresnel2Pass4of2.g * _FresnelLayer2MaskPowG + Fresnel2Pass4of2.b * _FresnelLayer2MaskPowB + Fresnel2Pass4of2.a * _FresnelLayer2MaskPowA;
+				float Fresnel1MaskPower;
+				float Fresnel2MaskPower;
 
 				//colorMix
-				float4 Fresnel1Pass3 = Fresnel1Color * Fresnel1Pass2 * Fresnel1MaskPower * _FresnelLayer1MainStwg;
-				float4 Fresnel2Pass3 = Fresnel2Color * Fresnel2Pass2 * Fresnel2MaskPower * _FresnelLayer2MainStwg;
+				float4 Fresnel1Pass3; //fresnel result
+				float4 Fresnel2Pass3; //fresnel result
 
+				//TextureLayerInflunced
+
+
+				if(_FresnelLayer1MainStwg == 0)
+				{
+					Fresnel1Pass3 = float4(0,0,0,0);
+				}
+				else
+				{
+					Fresnel1Color = FOwO_Lerp_Color4Intervals(_FresnelLayer1MainClr0, _FresnelLayer1MainClr1, _FresnelLayer1MainClr2, _FresnelLayer1MainClr3, _FresnelLayer1MainClrT.x, _FresnelLayer1MainClrT.y, _FresnelLayer1MainClrT.z, _FresnelLayer1MainClrT.w,_KontrolLerpClamp);
+				
+					Fresnel1Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer1MainRgIv);
+					Fresnel1Pass1 = pow(Fresnel1Pass0,_FresnelLayer1MainRamp);
+					Fresnel1Pass2 = FOwO_Lerp_Thresh(_FresnelLayer1MainTrLw, _FresnelLayer1MainTrHg, 0, 1, Fresnel1Pass1);
+
+					Fresnel1Pass4of0 = FOwO_Color_ReadFromTexture
+					(
+						_FresnelLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+						_FresnelLayer1MaskTPos.x, _FresnelLayer1MaskTPos.y, _FresnelLayer1MaskTPos.z, _FresnelLayer1MaskTPos.w, 
+						_FresnelLayer1MaskTRot.x, _FresnelLayer1MaskTRot.y, _FresnelLayer1MaskTRot.z, _FresnelLayer1MaskTRot.w, 
+						_FresnelLayer1MaskTScl.x, _FresnelLayer1MaskTScl.y, _FresnelLayer1MaskTScl.z, _FresnelLayer1MaskTScl.w,
+						_FresnelLayer1MaskTSkw.x, _FresnelLayer1MaskTSkw.y, _FresnelLayer1MaskTSkw.z, _FresnelLayer1MaskTSkw.w,
+						_FresnelLayer1MaskTMod
+					);
+
+					Fresnel1Pass4of1 = float4
+					(
+						FOwO_Lerp_Simple(Fresnel1Pass4of0.r,1-Fresnel1Pass4of0.r,_FresnelLayer1MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel1Pass4of0.g,1-Fresnel1Pass4of0.g,_FresnelLayer1MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel1Pass4of0.b,1-Fresnel1Pass4of0.b,_FresnelLayer1MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel1Pass4of0.a,1-Fresnel1Pass4of0.a,_FresnelLayer1MaskInvA,_KontrolLerpClamp)
+					);
+
+					Fresnel1Pass4of2 = float4
+					(
+						FOwO_Lerp_Thresh(_FresnelLayer1MaskRLow,_FresnelLayer1MaskRHgh,0,1,Fresnel1Pass4of1.r),
+						FOwO_Lerp_Thresh(_FresnelLayer1MaskGLow,_FresnelLayer1MaskGHgh,0,1,Fresnel1Pass4of1.g),
+						FOwO_Lerp_Thresh(_FresnelLayer1MaskBLow,_FresnelLayer1MaskBHgh,0,1,Fresnel1Pass4of1.b),
+						FOwO_Lerp_Thresh(_FresnelLayer1MaskALow,_FresnelLayer1MaskAHgh,0,1,Fresnel1Pass4of1.a)
+					);
+
+					Fresnel1MaskPower = Fresnel1Pass4of2.r * _FresnelLayer1MaskPowR + Fresnel1Pass4of2.g * _FresnelLayer1MaskPowG + Fresnel1Pass4of2.b * _FresnelLayer1MaskPowB + Fresnel1Pass4of2.a * _FresnelLayer1MaskPowA;
+				
+					Fresnel1Pass3 = Fresnel1Color * Fresnel1Pass2 * Fresnel1MaskPower * _FresnelLayer1MainStwg;
+				
+				}
+
+				if(_FresnelLayer2MainStwg == 0)
+				{
+					Fresnel2Pass3 = float4(0,0,0,0);
+				}
+				else
+				{
+					Fresnel2Color = FOwO_Lerp_Color4Intervals(_FresnelLayer2MainClr0, _FresnelLayer2MainClr1, _FresnelLayer2MainClr2, _FresnelLayer2MainClr3, _FresnelLayer2MainClrT.x, _FresnelLayer2MainClrT.y, _FresnelLayer2MainClrT.z, _FresnelLayer2MainClrT.w,_KontrolLerpClamp);
+				
+					Fresnel2Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer2MainRgIv);
+					Fresnel2Pass1 = pow(Fresnel2Pass0,_FresnelLayer2MainRamp);
+					Fresnel2Pass2 = FOwO_Lerp_Thresh(_FresnelLayer2MainTrLw, _FresnelLayer2MainTrHg, 0, 1, Fresnel2Pass1);
+
+					Fresnel2Pass4of0 = FOwO_Color_ReadFromTexture
+					(
+						_FresnelLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+						_FresnelLayer2MaskTPos.x, _FresnelLayer2MaskTPos.y, _FresnelLayer2MaskTPos.z, _FresnelLayer2MaskTPos.w, 
+						_FresnelLayer2MaskTRot.x, _FresnelLayer2MaskTRot.y, _FresnelLayer2MaskTRot.z, _FresnelLayer2MaskTRot.w, 
+						_FresnelLayer2MaskTScl.x, _FresnelLayer2MaskTScl.y, _FresnelLayer2MaskTScl.z, _FresnelLayer2MaskTScl.w,
+						_FresnelLayer2MaskTSkw.x, _FresnelLayer2MaskTSkw.y, _FresnelLayer2MaskTSkw.z, _FresnelLayer2MaskTSkw.w, 
+						_FresnelLayer2MaskTMod
+					);
+
+					Fresnel2Pass4of1 = float4
+					(
+						FOwO_Lerp_Simple(Fresnel2Pass4of0.r,1-Fresnel2Pass4of0.r,_FresnelLayer2MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel2Pass4of0.g,1-Fresnel2Pass4of0.g,_FresnelLayer2MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel2Pass4of0.b,1-Fresnel2Pass4of0.b,_FresnelLayer2MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Fresnel2Pass4of0.a,1-Fresnel2Pass4of0.a,_FresnelLayer2MaskInvA,_KontrolLerpClamp)
+					);
+
+					Fresnel2Pass4of2 = float4
+					(
+						FOwO_Lerp_Thresh(_FresnelLayer2MaskRLow,_FresnelLayer2MaskRHgh,0,1,Fresnel2Pass4of1.r),
+						FOwO_Lerp_Thresh(_FresnelLayer2MaskGLow,_FresnelLayer2MaskGHgh,0,1,Fresnel2Pass4of1.g),
+						FOwO_Lerp_Thresh(_FresnelLayer2MaskBLow,_FresnelLayer2MaskBHgh,0,1,Fresnel2Pass4of1.b),
+						FOwO_Lerp_Thresh(_FresnelLayer2MaskALow,_FresnelLayer2MaskAHgh,0,1,Fresnel2Pass4of1.a)
+					);
+
+					Fresnel2MaskPower = Fresnel2Pass4of2.r * _FresnelLayer2MaskPowR + Fresnel2Pass4of2.g * _FresnelLayer2MaskPowG + Fresnel2Pass4of2.b * _FresnelLayer2MaskPowB + Fresnel2Pass4of2.a * _FresnelLayer2MaskPowA;
+				
+					Fresnel2Pass3 = Fresnel2Color * Fresnel2Pass2 * Fresnel2MaskPower * _FresnelLayer2MainStwg;	
+				}
+
+				
+				
 				//is Texture layer influnced ?
 				fixed4 Piksel1Pass6 = Piksel1Pass5 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),Fresnel1Pass3 + Fresnel2Pass3,_TextureLayer1FrslInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer1FrslFrcA);
-				fixed4 Piksel2Pass6 = Piksel2Pass5 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),Fresnel1Pass3 + Fresnel2Pass3,_TextureLayer2FrslInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer2FrslFrcA);;
+				fixed4 Piksel2Pass6 = Piksel2Pass5 * FOwO_Lerp_ColorSimple(fixed4(1,1,1,1),Fresnel1Pass3 + Fresnel2Pass3,_TextureLayer2FrslInfl,_KontrolLerpClamp) + fixed4(0,0,0,_TextureLayer2FrslFrcA);
 				if(Piksel1Pass6.a > 1){Piksel1Pass6.a = 1;}else if (Piksel1Pass6.a < 0){Piksel1Pass6.a = 0;}
 				if(Piksel2Pass6.a > 1){Piksel2Pass6.a = 1;}else if (Piksel2Pass6.a < 0){Piksel2Pass6.a = 0;}
 				
@@ -1725,40 +1901,53 @@ SubShader
 				//---===<<< Glitter >>>===---
 
 				//get Glitter Color
-				fixed4 Glitter1Pass0 = FOwO_Color_ReadFromTexture
-				(
-					_GlitterLayer1MainImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
-					_GlitterLayer1MainTPos.x, _GlitterLayer1MainTPos.y, _GlitterLayer1MainTPos.z, _GlitterLayer1MainTPos.w, 
-					_GlitterLayer1MainTRot.x, _GlitterLayer1MainTRot.y, _GlitterLayer1MainTRot.z, _GlitterLayer1MainTRot.w, 
-					_GlitterLayer1MainTScl.x, _GlitterLayer1MainTScl.y, _GlitterLayer1MainTScl.z, _GlitterLayer1MainTScl.w,
-					_GlitterLayer1MainTSkw.x, _GlitterLayer1MainTSkw.y, _GlitterLayer1MainTSkw.z, _GlitterLayer1MainTSkw.w,
-					_GlitterLayer1MainTMod
-				);
-
+				fixed4 Glitter1Pass0;
 				//huescroll
-
-				fixed4 Glitter1Pass1of1 = FOwO_Color_RGBAtoHSVA(Glitter1Pass0.r, Glitter1Pass0.g, Glitter1Pass0.b, Glitter1Pass0.a);//1of1 is HSVA
-				fixed4 Glitter1Pass1of2 = fixed4((Glitter1Pass1of1.r + _GlitterLayer1MainHueS * _Time[1])%1,Glitter1Pass1of1.g,Glitter1Pass1of1.b,Glitter1Pass1of1.a);//1of2 is HShifted
-				fixed4 Glitter1Pass1of3 = FOwO_Color_HSVAtoRGBA(Glitter1Pass1of2.r, Glitter1Pass1of2.g, Glitter1Pass1of2.b, Glitter1Pass1of2.a);//back to RGBA
-
-
-
-				//did it pass the threshhold
+				fixed4 Glitter1Pass1of1;
+				fixed4 Glitter1Pass1of2;
+				fixed4 Glitter1Pass1of3;
+				//did it pass the threshold ? + result
 				fixed4 Glitter1Pass2 = fixed4(0,0,0,0);
-				if 
-				(
-					Glitter1Pass1of3.r > _GlitterLayer1GltTrshR &&
-					Glitter1Pass1of3.g > _GlitterLayer1GltTrshG &&
-					Glitter1Pass1of3.b > _GlitterLayer1GltTrshB &&
-					Glitter1Pass1of3.a > _GlitterLayer1GltTrshA
-				)
+
+				if(_KontrolGlitterLayer1 == 0)
 				{
-					Glitter1Pass2 = _GlitterLayer1GlitClor;
+					Glitter1Pass2 = float4(0,0,0,0);
 				}
 				else
 				{
-					Glitter1Pass2 = fixed4(0,0,0,0);
+					Glitter1Pass0 = FOwO_Color_ReadFromTexture
+					(
+						_GlitterLayer1MainImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+						_GlitterLayer1MainTPos.x, _GlitterLayer1MainTPos.y, _GlitterLayer1MainTPos.z, _GlitterLayer1MainTPos.w, 
+						_GlitterLayer1MainTRot.x, _GlitterLayer1MainTRot.y, _GlitterLayer1MainTRot.z, _GlitterLayer1MainTRot.w, 
+						_GlitterLayer1MainTScl.x, _GlitterLayer1MainTScl.y, _GlitterLayer1MainTScl.z, _GlitterLayer1MainTScl.w,
+						_GlitterLayer1MainTSkw.x, _GlitterLayer1MainTSkw.y, _GlitterLayer1MainTSkw.z, _GlitterLayer1MainTSkw.w,
+						_GlitterLayer1MainTMod
+					);
+
+					Glitter1Pass1of1 = FOwO_Color_RGBAtoHSVA(Glitter1Pass0.r, Glitter1Pass0.g, Glitter1Pass0.b, Glitter1Pass0.a);//1of1 is HSVA
+					Glitter1Pass1of2 = fixed4((Glitter1Pass1of1.r + _GlitterLayer1MainHueS * _Time[1])%1,Glitter1Pass1of1.g,Glitter1Pass1of1.b,Glitter1Pass1of1.a);//1of2 is HShifted
+					Glitter1Pass1of3 = FOwO_Color_HSVAtoRGBA(Glitter1Pass1of2.r, Glitter1Pass1of2.g, Glitter1Pass1of2.b, Glitter1Pass1of2.a);//back to RGBA
+
+					if 
+					(
+						Glitter1Pass1of3.r > _GlitterLayer1GltTrshR &&
+						Glitter1Pass1of3.g > _GlitterLayer1GltTrshG &&
+						Glitter1Pass1of3.b > _GlitterLayer1GltTrshB &&
+						Glitter1Pass1of3.a > _GlitterLayer1GltTrshA
+					)
+					{
+						Glitter1Pass2 = _GlitterLayer1GlitClor;
+					}
+					else
+					{
+						Glitter1Pass2 = fixed4(0,0,0,0);
+					}
+
 				}
+
+				
+				
 
 
 
