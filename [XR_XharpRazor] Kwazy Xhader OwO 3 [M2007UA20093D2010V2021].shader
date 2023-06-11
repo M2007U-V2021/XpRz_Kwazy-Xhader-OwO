@@ -63,11 +63,11 @@
 
 
 
-Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3.2023.05.29 [M2007UA20093D2010V2021]"
+Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3 [M2007UA20093D2010V2021]"
 {
 Properties
 {
-	[Header(Kwazy Xhader OwO 3.5)]
+	[Header(Kwazy Xhader OwO 3.6)]
 	[Space(128)]
 
 	[Header(Blend Method)]
@@ -90,7 +90,7 @@ Properties
 	_KontrolLightMap("Lightmap Layer",Range(0,1)) = 0
 	_KontrolLerpClamp("Cwamp Lwerp ?",Range(0,1)) = 1
 
-	[Enum(ChannelAdd,0,StackLayer1First,1,StackLayer2First,2)] _LayerBlendMode("Layer Bwend Mode",Float) = 0
+	[Enum(ChannelAdd,0,StackLayer1First,1,StackLayer2First,2,ShaderTesting,3)] _LayerBlendMode("Layer Bwend Mode",Float) = 0
 	[Space(128)]
 
 
@@ -102,7 +102,7 @@ Properties
 	[Header(Teksture Layer 01)]
 	[Space(64)]
 	_TextureLayer1MainImge("Mwain Teksture",2D) = "white" {}
-	_TextureLayer1MainTMod("Transform Mode",float) = 4213
+	_TextureLayer1MainTMod("Transform Mode",float) = 0
 	_TextureLayer1MainTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1MainTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer1MainTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -125,6 +125,10 @@ Properties
 	_TextureLayer1MainClr3("Kolor : Klr3",Color) = (1,1,1,1)
 	_TextureLayer1MainClrT("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
 
+	_TextureLayer1MainDtcu("Use Distance Fade ?, 0 = no, else yes",Range(0,1)) = 0
+	_TextureLayer1MainDtcv("Distance : Near Value, Near Distance, Far Distance, Far Value",vector) = (1,0,1,0)
+	
+
 	_TextureLayer1VcCrInfl("Vekter Kolor Infwunce",Range(0,1)) = 0
 	_TextureLayer1VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 0
 	_TextureLayer1FrslInfl("Fwensel Infwunce",Range(0,1)) = 0
@@ -134,7 +138,7 @@ Properties
 
 
 	_TextureLayer1DistImge("Distwot Teksture",2D) = "black" {}
-	_TextureLayer1DistTMod("Transform Mode",float) = 4213
+	_TextureLayer1DistTMod("Transform Mode",float) = 0
 	_TextureLayer1DistTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1DistTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer1DistTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -149,7 +153,7 @@ Properties
 
 
 	_TextureLayer1MaskImge("Mask Teksture",2D) = "white" {}
-	_TextureLayer1MaskTMod("Transform Mode",float) = 4213
+	_TextureLayer1MaskTMod("Transform Mode",float) = 0
 	_TextureLayer1MaskTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1MaskTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer1MaskTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -184,7 +188,7 @@ Properties
 	[Header(Teksture Layer 02)]
 	[Space(64)]
 	_TextureLayer2MainImge("Mwain Teksture",2D) = "white" {}
-	_TextureLayer2MainTMod("Transform Mode",float) = 4213
+	_TextureLayer2MainTMod("Transform Mode",float) = 0
 	_TextureLayer2MainTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2MainTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer2MainTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -206,6 +210,10 @@ Properties
 	_TextureLayer2MainClr2("Kolor : Klr2",Color) = (1,1,1,1)
 	_TextureLayer2MainClr3("Kolor : Klr3",Color) = (1,1,1,1)
 	_TextureLayer2MainClrT("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
+
+	_TextureLayer2MainDtcu("Use Distance Fade ?, 0 = no, else yes",Range(0,1)) = 0
+	_TextureLayer2MainDtcv("Distance : Near Value, Near Distance, Far Distance, Far Value",vector) = (1,0,1,0)
+
 	_TextureLayer2VcCrInfl("Vekter Kolor Infwunce",Range(0,1)) = 0
 	_TextureLayer2VcCrFrcA("Vekter Kolor Force Afwa",Range(0,1)) = 0
 	_TextureLayer2FrslInfl("Fwensel Infwunce",Range(0,1)) = 0
@@ -215,7 +223,7 @@ Properties
 
 
 	_TextureLayer2DistImge("Distwot Teksture",2D) = "black" {}
-	_TextureLayer2DistTMod("Transform Mode",float) = 4213
+	_TextureLayer2DistTMod("Transform Mode",float) = 0
 	_TextureLayer2DistTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2DistTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer2DistTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -230,7 +238,7 @@ Properties
 
 
 	_TextureLayer2MaskImge("Mask Teksture",2D) = "white" {}
-	_TextureLayer2MaskTMod("Transform Mode",float) = 4213
+	_TextureLayer2MaskTMod("Transform Mode",float) = 0
 	_TextureLayer2MaskTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2MaskTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_TextureLayer2MaskTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -282,7 +290,7 @@ Properties
 
 
 	_FresnelLayer1MaskImge("Mask Teksture",2D) = "white" {}
-	_FresnelLayer1MaskTMod("Transform Mode",float) = 4213
+	_FresnelLayer1MaskTMod("Transform Mode",float) = 0
 	_FresnelLayer1MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_FresnelLayer1MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_FresnelLayer1MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -334,7 +342,7 @@ Properties
 
 
 	_FresnelLayer2MaskImge("Mask Teksture",2D) = "white" {}
-	_FresnelLayer2MaskTMod("Transform Mode",float) = 4213
+	_FresnelLayer2MaskTMod("Transform Mode",float) = 0
 	_FresnelLayer2MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_FresnelLayer2MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_FresnelLayer2MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -367,25 +375,148 @@ Properties
 
 	[Header(Vekter Kolor)]
 	[Space(8)]
+
+	[Header(Vekter Kolor 1)]
+
 	_VectorCrLayer1MainClr0("Kolor0",Color) = (1,1,1,1)
 	_VectorCrLayer1MainVect("Vekter0XYZ, NULL",Vector) = (0,0,0,0)
 	_VectorCrLayer1MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer1MainStwg("Stwengh0",Range(0,1)) = 0
+
+	_VectorCrLayer1MaskImge("Mask Teksture",2D) = "white" {}
+	_VectorCrLayer1MaskTMod("Transform Mode",float) = 0
+	_VectorCrLayer1MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer1MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer1MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer1MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+	_VectorCrLayer1MaskInvR("Kolor : InvR",Range(0,1)) = 0
+	_VectorCrLayer1MaskInvG("Kolor : InvG",Range(0,1)) = 0
+	_VectorCrLayer1MaskInvB("Kolor : InvB",Range(0,1)) = 0
+	_VectorCrLayer1MaskInvA("Kolor : InvA",Range(0,1)) = 0
+
+	//1 = "I'll let you through", 0 = "I'll block you"
+	_VectorCrLayer1MaskPowR("Rwed is Mask",Range(0,1)) = 1
+	_VectorCrLayer1MaskPowG("Gwin is Mask",Range(0,1)) = 1
+	_VectorCrLayer1MaskPowB("Bwoo is Mask",Range(0,1)) = 1
+	_VectorCrLayer1MaskPowA("Afwa is Mask",Range(0,1)) = 1
+
+	_VectorCrLayer1MaskRLow("Rwed Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer1MaskRHgh("Rwed Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer1MaskGLow("Gwin Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer1MaskGHgh("Gwin Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer1MaskBLow("Bwoo Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer1MaskBHgh("Bwoo Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer1MaskALow("Afwa Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer1MaskAHgh("Afwa Thresh Hgh",Range(0,1)) = 1
+
 	[Space(8)]
+
+	[Header(Vekter Kolor 2)]
+
 	_VectorCrLayer2MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer2MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 	_VectorCrLayer2MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer2MainStwg("Stwengh1",Range(0,1)) = 0
+
+	_VectorCrLayer2MaskImge("Mask Teksture",2D) = "white" {}
+	_VectorCrLayer2MaskTMod("Transform Mode",float) = 0
+	_VectorCrLayer2MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer2MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer2MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer2MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+	_VectorCrLayer2MaskInvR("Kolor : InvR",Range(0,1)) = 0
+	_VectorCrLayer2MaskInvG("Kolor : InvG",Range(0,1)) = 0
+	_VectorCrLayer2MaskInvB("Kolor : InvB",Range(0,1)) = 0
+	_VectorCrLayer2MaskInvA("Kolor : InvA",Range(0,1)) = 0
+
+	//1 = "I'll let you through", 0 = "I'll block you"
+	_VectorCrLayer2MaskPowR("Rwed is Mask",Range(0,1)) = 1
+	_VectorCrLayer2MaskPowG("Gwin is Mask",Range(0,1)) = 1
+	_VectorCrLayer2MaskPowB("Bwoo is Mask",Range(0,1)) = 1
+	_VectorCrLayer2MaskPowA("Afwa is Mask",Range(0,1)) = 1
+
+	_VectorCrLayer2MaskRLow("Rwed Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer2MaskRHgh("Rwed Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer2MaskGLow("Gwin Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer2MaskGHgh("Gwin Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer2MaskBLow("Bwoo Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer2MaskBHgh("Bwoo Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer2MaskALow("Afwa Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer2MaskAHgh("Afwa Thresh Hgh",Range(0,1)) = 1
+
 	[Space(8)]
+
+	[Header(Vekter Kolor 3)]
+
 	_VectorCrLayer3MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer3MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 	_VectorCrLayer3MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer3MainStwg("Stwengh1",Range(0,1)) = 0
+
+	_VectorCrLayer3MaskImge("Mask Teksture",2D) = "white" {}
+	_VectorCrLayer3MaskTMod("Transform Mode",float) = 0
+	_VectorCrLayer3MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer3MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer3MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer3MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+	_VectorCrLayer3MaskInvR("Kolor : InvR",Range(0,1)) = 0
+	_VectorCrLayer3MaskInvG("Kolor : InvG",Range(0,1)) = 0
+	_VectorCrLayer3MaskInvB("Kolor : InvB",Range(0,1)) = 0
+	_VectorCrLayer3MaskInvA("Kolor : InvA",Range(0,1)) = 0
+
+	//1 = "I'll let you through", 0 = "I'll block you"
+	_VectorCrLayer3MaskPowR("Rwed is Mask",Range(0,1)) = 1
+	_VectorCrLayer3MaskPowG("Gwin is Mask",Range(0,1)) = 1
+	_VectorCrLayer3MaskPowB("Bwoo is Mask",Range(0,1)) = 1
+	_VectorCrLayer3MaskPowA("Afwa is Mask",Range(0,1)) = 1
+
+	_VectorCrLayer3MaskRLow("Rwed Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer3MaskRHgh("Rwed Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer3MaskGLow("Gwin Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer3MaskGHgh("Gwin Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer3MaskBLow("Bwoo Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer3MaskBHgh("Bwoo Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer3MaskALow("Afwa Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer3MaskAHgh("Afwa Thresh Hgh",Range(0,1)) = 1
+
 	[Space(8)]
+
+	[Header(Vekter Kolor 4)]
+
 	_VectorCrLayer4MainClr0("Kolor1",Color) = (1,1,1,1)
 	_VectorCrLayer4MainVect("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 	_VectorCrLayer4MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer4MainStwg("Stwengh1",Range(0,1)) = 0
+
+	_VectorCrLayer4MaskImge("Mask Teksture",2D) = "white" {}
+	_VectorCrLayer4MaskTMod("Transform Mode",float) = 0
+	_VectorCrLayer4MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer4MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer4MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer4MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+	_VectorCrLayer4MaskInvR("Kolor : InvR",Range(0,1)) = 0
+	_VectorCrLayer4MaskInvG("Kolor : InvG",Range(0,1)) = 0
+	_VectorCrLayer4MaskInvB("Kolor : InvB",Range(0,1)) = 0
+	_VectorCrLayer4MaskInvA("Kolor : InvA",Range(0,1)) = 0
+
+	//1 = "I'll let you through", 0 = "I'll block you"
+	_VectorCrLayer4MaskPowR("Rwed is Mask",Range(0,1)) = 1
+	_VectorCrLayer4MaskPowG("Gwin is Mask",Range(0,1)) = 1
+	_VectorCrLayer4MaskPowB("Bwoo is Mask",Range(0,1)) = 1
+	_VectorCrLayer4MaskPowA("Afwa is Mask",Range(0,1)) = 1
+
+	_VectorCrLayer4MaskRLow("Rwed Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer4MaskRHgh("Rwed Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer4MaskGLow("Gwin Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer4MaskGHgh("Gwin Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer4MaskBLow("Bwoo Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer4MaskBHgh("Bwoo Thresh Hgh",Range(0,1)) = 1
+	_VectorCrLayer4MaskALow("Afwa Thresh Low",Range(0,1)) = 0
+	_VectorCrLayer4MaskAHgh("Afwa Thresh Hgh",Range(0,1)) = 1
 	[Space(128)]
 
 
@@ -402,7 +533,7 @@ Properties
 	[Header(Gwitters)]
 	[Space(64)]
 	_GlitterLayer1MainImge("Noise Texture",2D) = "black" {}
-	_GlitterLayer1MainTMod("Transform Mode",float) = 4213
+	_GlitterLayer1MainTMod("Transform Mode",float) = 0
 	_GlitterLayer1MainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_GlitterLayer1MainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_GlitterLayer1MainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -427,7 +558,7 @@ Properties
 	[Space(64)]
 
 	_AxisDistortXImge("X Distwot texture",2D) = "black" {}
-	_AxisDistortXTMod("Transform Mode",float) = 4213
+	_AxisDistortXTMod("Transform Mode",float) = 0
 	_AxisDistortXTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortXTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_AxisDistortXTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -436,7 +567,7 @@ Properties
 	_AxisDistortXAdjt("Distwot Adjust",Float) = 0
 	[Space(64)]
 	_AxisDistortYImge("Y Distwot texture",2D) = "black" {}
-	_AxisDistortYTMod("Transform Mode",float) = 4213
+	_AxisDistortYTMod("Transform Mode",float) = 0
 	_AxisDistortYTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortYTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_AxisDistortYTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -445,7 +576,7 @@ Properties
 	_AxisDistortYAdjt("Distwot Adjust",Float) = 0
 	[Space(64)]
 	_AxisDistortZImge("Z Distwot texture",2D) = "black" {}
-	_AxisDistortZTMod("Transform Mode",float) = 4213
+	_AxisDistortZTMod("Transform Mode",float) = 0
 	_AxisDistortZTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortZTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_AxisDistortZTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -462,7 +593,7 @@ Properties
 	[Space(64)]
 
 	_NormalExtrudeMainImge("Extrude Teksture",2D) = "white" {}
-	_NormalExtrudeMainTMod("Transform Mode",float) = 4213
+	_NormalExtrudeMainTMod("Transform Mode",float) = 0
 	_NormalExtrudeMainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_NormalExtrudeMainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 	_NormalExtrudeMainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
@@ -553,6 +684,7 @@ SubShader
 				float2 uv2 : TEXCOORD2;
 				float2 uv3 : TEXCOORD3;
 				float3 normal : NORMAL;
+				float3 tangent : TANGENT;
 
 				/*
 				from POIYOMI
@@ -577,8 +709,15 @@ SubShader
 				float2 uv1 : TEXCOORD1;
 				float2 uv2 : TEXCOORD2;
 				float2 uv3 : TEXCOORD3;
+
 				float3 normal : TEXCOORD4;
-				float3 viewdir : TEXCOORD5;
+				float3 tangent : TEXCOORD5;
+				float3 binormal : TEXCOORD6;
+
+				float3 viewdir : TEXCOORD7;
+				float3 worldPos : TEXCOORD8;
+
+
 				float4 lightmapUV : TEXCOORD12;
 
 				/*
@@ -602,6 +741,10 @@ SubShader
 			};
 
 
+			float FOwO_Vec3Mag(float3 vek)
+			{
+				return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2),0.5);
+			}
 
 			float FOwO_BlendOneMinus(float InCurrent,float InFull,float K)
 			{
@@ -650,6 +793,29 @@ SubShader
 				else
 				{
 					return Incoming;
+				}
+			}
+
+			float FOwO_Lerp_ThreshLerp(float LowX, float HghX, float LowY, float HghY, float InX)
+			{
+				if(LowX < HghX)
+				{
+					if(InX < LowX)
+					{
+						return LowY;
+					}
+					else if(InX > HghX)
+					{
+						return HghY;
+					}
+					else
+					{
+						return FOwO_Lerp_Map(LowX,HghX,LowY,HghY,InX);
+					}
+				}
+				else
+				{
+					return InX;
 				}
 			}
 
@@ -1190,9 +1356,13 @@ SubShader
 
 				OUTGOING.position = UnityObjectToClipPos(INCOMING.vertex + AxisDistortTotal + NormDistortPass2);//float4
 				OUTGOING.uv = INCOMING.uv;
-				OUTGOING.normal = UnityObjectToWorldNormal(INCOMING.normal);
-				//OUTGOING.viewdir = float4(normalize(WorldSpaceViewDir(INCOMING.vertex)),0);
+
+				OUTGOING.normal = normalize(UnityObjectToWorldNormal(INCOMING.normal));
+                OUTGOING.tangent = normalize(mul(unity_ObjectToWorld,INCOMING.tangent));
+                OUTGOING.binormal = normalize(mul(unity_ObjectToWorld,cross(INCOMING.normal,INCOMING.tangent)));
+
 				OUTGOING.viewdir = float3(normalize(WorldSpaceViewDir(INCOMING.vertex)));
+				OUTGOING.worldPos = mul(unity_ObjectToWorld,INCOMING.vertex);
 
 				//#if defined(LIGHTMAP_ON)
 				OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
@@ -1242,6 +1412,10 @@ SubShader
 			fixed4 _TextureLayer1MainClr2;//("Kolor : Klr2",Color) = (1,1,1,1)
 			fixed4 _TextureLayer1MainClr3;//("Kolor : Klr3",Color) = (1,1,1,1)
 			vector _TextureLayer1MainClrT;//("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
+
+			float _TextureLayer1MainDtcu;//("Use Distance Fade ?, 1 = yes, else no",Range(0,1)) = 0
+			vector _TextureLayer1MainDtcv;//("Distance : Near Value, Near Distance, Far Distance, Far Value",vector) = (1,0,1,0)
+
 			float _TextureLayer1VcCrInfl;//("Vekter Kolor Infwunce",Range(0,1)) = 0
 			float _TextureLayer1VcCrFrcA;//("Vekter Kolor Force Afwa",Range(0,1)) = 1
 			float _TextureLayer1FrslInfl;//("Fwensel Infwunce",Range(0,1)) = 0
@@ -1322,6 +1496,10 @@ SubShader
 			fixed4 _TextureLayer2MainClr2;//("Kolor : Klr2",Color) = (1,1,1,1)
 			fixed4 _TextureLayer2MainClr3;//("Kolor : Klr3",Color) = (1,1,1,1)
 			vector _TextureLayer2MainClrT;//("Kolor : Dur0, Dur1, Dur2, Dur3",Vector) = (1,1,0,0)
+
+			float _TextureLayer2MainDtcu;//("Use Distance Fade ?, 1 = yes, else no",Range(0,1)) = 0
+			vector _TextureLayer2MainDtcv;//("Distance : Near Value, Near Distance, Far Distance, Far Value",vector) = (1,0,1,0)
+
 			float _TextureLayer2VcCrInfl;//("Vekter Kolor Infwunce",Range(0,1)) = 0
 			float _TextureLayer2VcCrFrcA;//("Vekter Kolor Force Afwa",Range(0,1)) = 1
 			float _TextureLayer2FrslInfl;//("Fwensel Infwunce",Range(0,1)) = 0
@@ -1471,21 +1649,131 @@ SubShader
 			vector _VectorCrLayer1MainVect;//("Vekter0XYZ, NULL",Vector) = (0,0,0,0)
 			float _VectorCrLayer1MainRamp;
 			float _VectorCrLayer1MainStwg;//("Stwengh0",Range(0,1)) = 0
+
+			sampler2D _VectorCrLayer1MaskImge;//("Mask Teksture",2D) = "white" {}
+			float _VectorCrLayer1MaskTMod;//("Transform Mode",float) = 0
+			vector _VectorCrLayer1MaskTPos;//("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+			vector _VectorCrLayer1MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+			vector _VectorCrLayer1MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+			vector _VectorCrLayer1MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+			float _VectorCrLayer1MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
+			float _VectorCrLayer1MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
+			float _VectorCrLayer1MaskInvB;//("Kolor : InvB",Range(0,1)) = 0
+			float _VectorCrLayer1MaskInvA;//("Kolor : InvA",Range(0,1)) = 0
+
+			float _VectorCrLayer1MaskPowR;//("Rwed is Mask",Range(0,1)) = 1
+			float _VectorCrLayer1MaskPowG;//("Gwin is Mask",Range(0,1)) = 1
+			float _VectorCrLayer1MaskPowB;//("Bwoo is Mask",Range(0,1)) = 1
+			float _VectorCrLayer1MaskPowA;//("Afwa is Mask",Range(0,1)) = 1
+
+			float _VectorCrLayer1MaskRLow;//("Rwed Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer1MaskRHgh;//("Rwed Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer1MaskGLow;//("Gwin Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer1MaskGHgh;//("Gwin Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer1MaskBLow;//("Bwoo Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer1MaskBHgh;//("Bwoo Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer1MaskALow;//("Afwa Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer1MaskAHgh;//("Afwa Thresh Hgh",Range(0,1)) = 1
 			
+
+
 			fixed4 _VectorCrLayer2MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer2MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 			float _VectorCrLayer2MainRamp;
 			float _VectorCrLayer2MainStwg;//("Stwengh1",Range(0,1)) = 0
+
+			sampler2D _VectorCrLayer2MaskImge;//("Mask Teksture",2D) = "white" {}
+			float _VectorCrLayer2MaskTMod;//("Transform Mode",float) = 0
+			vector _VectorCrLayer2MaskTPos;//("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+			vector _VectorCrLayer2MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+			vector _VectorCrLayer2MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+			vector _VectorCrLayer2MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+			float _VectorCrLayer2MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
+			float _VectorCrLayer2MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
+			float _VectorCrLayer2MaskInvB;//("Kolor : InvB",Range(0,1)) = 0
+			float _VectorCrLayer2MaskInvA;//("Kolor : InvA",Range(0,1)) = 0
+
+			float _VectorCrLayer2MaskPowR;//("Rwed is Mask",Range(0,1)) = 1
+			float _VectorCrLayer2MaskPowG;//("Gwin is Mask",Range(0,1)) = 1
+			float _VectorCrLayer2MaskPowB;//("Bwoo is Mask",Range(0,1)) = 1
+			float _VectorCrLayer2MaskPowA;//("Afwa is Mask",Range(0,1)) = 1
+
+			float _VectorCrLayer2MaskRLow;//("Rwed Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer2MaskRHgh;//("Rwed Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer2MaskGLow;//("Gwin Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer2MaskGHgh;//("Gwin Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer2MaskBLow;//("Bwoo Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer2MaskBHgh;//("Bwoo Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer2MaskALow;//("Afwa Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer2MaskAHgh;//("Afwa Thresh Hgh",Range(0,1)) = 1
 			
+
+
 			fixed4 _VectorCrLayer3MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer3MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 			float _VectorCrLayer3MainRamp;
 			float _VectorCrLayer3MainStwg;//("Stwengh1",Range(0,1)) = 0
+
+			sampler2D _VectorCrLayer3MaskImge;//("Mask Teksture",2D) = "white" {}
+			float _VectorCrLayer3MaskTMod;//("Transform Mode",float) = 0
+			vector _VectorCrLayer3MaskTPos;//("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+			vector _VectorCrLayer3MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+			vector _VectorCrLayer3MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+			vector _VectorCrLayer3MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+			float _VectorCrLayer3MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
+			float _VectorCrLayer3MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
+			float _VectorCrLayer3MaskInvB;//("Kolor : InvB",Range(0,1)) = 0
+			float _VectorCrLayer3MaskInvA;//("Kolor : InvA",Range(0,1)) = 0
+
+			float _VectorCrLayer3MaskPowR;//("Rwed is Mask",Range(0,1)) = 1
+			float _VectorCrLayer3MaskPowG;//("Gwin is Mask",Range(0,1)) = 1
+			float _VectorCrLayer3MaskPowB;//("Bwoo is Mask",Range(0,1)) = 1
+			float _VectorCrLayer3MaskPowA;//("Afwa is Mask",Range(0,1)) = 1
+
+			float _VectorCrLayer3MaskRLow;//("Rwed Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer3MaskRHgh;//("Rwed Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer3MaskGLow;//("Gwin Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer3MaskGHgh;//("Gwin Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer3MaskBLow;//("Bwoo Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer3MaskBHgh;//("Bwoo Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer3MaskALow;//("Afwa Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer3MaskAHgh;//("Afwa Thresh Hgh",Range(0,1)) = 1
 			
+
+
 			fixed4 _VectorCrLayer4MainClr0;//("Kolor1",Color) = (1,1,1,1)
 			vector _VectorCrLayer4MainVect;//("Vekter1XYZ, NULL",Vector) = (0,0,0,0)
 			float _VectorCrLayer4MainRamp;
 			float _VectorCrLayer4MainStwg;//("Stwengh1",Range(0,1)) = 0
+
+			sampler2D _VectorCrLayer4MaskImge;//("Mask Teksture",2D) = "white" {}
+			float _VectorCrLayer4MaskTMod;//("Transform Mode",float) = 0
+			vector _VectorCrLayer4MaskTPos;//("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+			vector _VectorCrLayer4MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+			vector _VectorCrLayer4MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+			vector _VectorCrLayer4MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+
+			float _VectorCrLayer4MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
+			float _VectorCrLayer4MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
+			float _VectorCrLayer4MaskInvB;//("Kolor : InvB",Range(0,1)) = 0
+			float _VectorCrLayer4MaskInvA;//("Kolor : InvA",Range(0,1)) = 0
+
+			float _VectorCrLayer4MaskPowR;//("Rwed is Mask",Range(0,1)) = 1
+			float _VectorCrLayer4MaskPowG;//("Gwin is Mask",Range(0,1)) = 1
+			float _VectorCrLayer4MaskPowB;//("Bwoo is Mask",Range(0,1)) = 1
+			float _VectorCrLayer4MaskPowA;//("Afwa is Mask",Range(0,1)) = 1
+
+			float _VectorCrLayer4MaskRLow;//("Rwed Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer4MaskRHgh;//("Rwed Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer4MaskGLow;//("Gwin Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer4MaskGHgh;//("Gwin Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer4MaskBLow;//("Bwoo Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer4MaskBHgh;//("Bwoo Thresh Hgh",Range(0,1)) = 1
+			float _VectorCrLayer4MaskALow;//("Afwa Thresh Low",Range(0,1)) = 0
+			float _VectorCrLayer4MaskAHgh;//("Afwa Thresh Hgh",Range(0,1)) = 1
 
 
 
@@ -1620,12 +1908,12 @@ SubShader
 				{
 					Piksel1Mask1 = FOwO_Color_ReadFromTexture
 					(
-					_TextureLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
-					_TextureLayer1MaskTPos.x, _TextureLayer1MaskTPos.y, _TextureLayer1MaskTPos.z, _TextureLayer1MaskTPos.w,
-					_TextureLayer1MaskTRot.x, _TextureLayer1MaskTRot.y, _TextureLayer1MaskTRot.z, _TextureLayer1MaskTRot.w,
-					_TextureLayer1MaskTScl.x, _TextureLayer1MaskTScl.y, _TextureLayer1MaskTScl.z, _TextureLayer1MaskTScl.w,
-					_TextureLayer1MaskTSkw.x, _TextureLayer1MaskTSkw.y, _TextureLayer1MaskTSkw.z, _TextureLayer1MaskTSkw.w,
-					_TextureLayer1MaskTMod
+						_TextureLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+						_TextureLayer1MaskTPos.x, _TextureLayer1MaskTPos.y, _TextureLayer1MaskTPos.z, _TextureLayer1MaskTPos.w,
+						_TextureLayer1MaskTRot.x, _TextureLayer1MaskTRot.y, _TextureLayer1MaskTRot.z, _TextureLayer1MaskTRot.w,
+						_TextureLayer1MaskTScl.x, _TextureLayer1MaskTScl.y, _TextureLayer1MaskTScl.z, _TextureLayer1MaskTScl.w,
+						_TextureLayer1MaskTSkw.x, _TextureLayer1MaskTSkw.y, _TextureLayer1MaskTSkw.z, _TextureLayer1MaskTSkw.w,
+						_TextureLayer1MaskTMod
 					);
 
 					Piksel1Mask2 = float4
@@ -1711,9 +1999,11 @@ SubShader
 				fixed4 Piksel2Pass3of1;
 				fixed4 Piksel1Pass3of2;
 				fixed4 Piksel2Pass3of2;
-				//final pure texture result + alpha influnced by mask
+				//final color + alpha influnced by mask + influnced by distance fading ?
+				float Piksel1DistanceFade,Piksel2DistanceFade;
 				fixed4 Piksel1Pass4;
 				fixed4 Piksel2Pass4;
+				
 
 
 				if(_KontrolTextureLayer1 == 0)
@@ -1759,7 +2049,23 @@ SubShader
 					);
 					Piksel1Pass3of2 = Piksel1Pass3of1 * Piksel1Pass2of3;
 
-					Piksel1Pass4 = fixed4(Piksel1Pass3of2.r,Piksel1Pass3of2.g,Piksel1Pass3of2.b,Piksel1Pass3of2.a*Piksel1MaskPower);
+					if(_TextureLayer1MainDtcu == 0)
+					{
+						Piksel1DistanceFade = 1;
+					}
+					else
+					{
+						Piksel1DistanceFade = FOwO_Lerp_ThreshLerp
+						(
+							_TextureLayer1MainDtcv.y,
+							_TextureLayer1MainDtcv.z,
+							_TextureLayer1MainDtcv.x,
+							_TextureLayer1MainDtcv.w,
+							FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - INCOMING.worldPos.xyz)
+						);
+					}
+
+					Piksel1Pass4 = fixed4(Piksel1Pass3of2.r,Piksel1Pass3of2.g,Piksel1Pass3of2.b,Piksel1Pass3of2.a * Piksel1MaskPower * Piksel1DistanceFade);
 				}
 
 				if(_KontrolTextureLayer2 == 0)
@@ -1805,7 +2111,23 @@ SubShader
 					);
 					Piksel2Pass3of2 = Piksel2Pass3of1 * Piksel2Pass2of3;
 
-					Piksel2Pass4 = fixed4(Piksel2Pass3of2.r,Piksel2Pass3of2.g,Piksel2Pass3of2.b,Piksel2Pass3of2.a*Piksel2MaskPower);
+					if(_TextureLayer2MainDtcu == 0)
+					{
+						Piksel2DistanceFade = 1;
+					}
+					else
+					{
+						Piksel2DistanceFade = FOwO_Lerp_ThreshLerp
+						(
+							_TextureLayer2MainDtcv.y,
+							_TextureLayer2MainDtcv.z,
+							_TextureLayer2MainDtcv.x,
+							_TextureLayer2MainDtcv.w,
+							FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - INCOMING.worldPos.xyz)
+						);
+					}
+
+					Piksel2Pass4 = fixed4(Piksel2Pass3of2.r,Piksel2Pass3of2.g,Piksel2Pass3of2.b,Piksel2Pass3of2.a * Piksel2MaskPower * Piksel2DistanceFade);
 				}
 
 
@@ -1820,57 +2142,193 @@ SubShader
 
 
 				//get vector color
-				float Vectorcr1Pass0;
+				float Vectorcr1Pass0; //get dot product and ramp
 				float Vectorcr2Pass0;
 				float Vectorcr3Pass0;
 				float Vectorcr4Pass0;
-				fixed4 Vectorcr1Pass1;
-				fixed4 Vectorcr2Pass1;
-				fixed4 Vectorcr3Pass1;
-				fixed4 Vectorcr4Pass1;
+
+				fixed4 Vectorcr1Pass1of0; //get mask color
+				fixed4 Vectorcr2Pass1of0;
+				fixed4 Vectorcr3Pass1of0;
+				fixed4 Vectorcr4Pass1of0;
+				fixed4 Vectorcr1Pass1of1; //invert mask
+				fixed4 Vectorcr2Pass1of1;
+				fixed4 Vectorcr3Pass1of1;
+				fixed4 Vectorcr4Pass1of1;
+				fixed4 Vectorcr1Pass1of2; //mask threshold cut
+				fixed4 Vectorcr2Pass1of2;
+				fixed4 Vectorcr3Pass1of2;
+				fixed4 Vectorcr4Pass1of2;
+				float Vectorcr1Pass1of3; //mask filter power
+				float Vectorcr2Pass1of3;
+				float Vectorcr3Pass1of3;
+				float Vectorcr4Pass1of3;
+
+				fixed4 Vectorcr1Pass2; //dot product * Strength * Vector Color
+				fixed4 Vectorcr2Pass2;
+				fixed4 Vectorcr3Pass2;
+				fixed4 Vectorcr4Pass2;
 
 
 				if(_VectorCrLayer1MainStwg == 0)
 				{
-					Vectorcr1Pass1 = float4(0,0,0,0);
+					Vectorcr1Pass2 = float4(0,0,0,0);
 				}
 				else
 				{
 					Vectorcr1Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
-					Vectorcr1Pass1 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0;
+
+					Vectorcr1Pass1of0 = FOwO_Color_ReadFromTexture
+					(
+						_VectorCrLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+						_VectorCrLayer1MaskTPos.x, _VectorCrLayer1MaskTPos.y, _VectorCrLayer1MaskTPos.z, _VectorCrLayer1MaskTPos.w,
+						_VectorCrLayer1MaskTRot.x, _VectorCrLayer1MaskTRot.y, _VectorCrLayer1MaskTRot.z, _VectorCrLayer1MaskTRot.w,
+						_VectorCrLayer1MaskTScl.x, _VectorCrLayer1MaskTScl.y, _VectorCrLayer1MaskTScl.z, _VectorCrLayer1MaskTScl.w,
+						_VectorCrLayer1MaskTSkw.x, _VectorCrLayer1MaskTSkw.y, _VectorCrLayer1MaskTSkw.z, _VectorCrLayer1MaskTSkw.w,
+						_VectorCrLayer1MaskTMod
+					);
+
+					Vectorcr1Pass1of1 = float4
+					(
+						FOwO_Lerp_Simple(Vectorcr1Pass1of0.r,1-Vectorcr1Pass1of0.r,_VectorCrLayer1MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr1Pass1of0.g,1-Vectorcr1Pass1of0.g,_VectorCrLayer1MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr1Pass1of0.b,1-Vectorcr1Pass1of0.b,_VectorCrLayer1MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr1Pass1of0.a,1-Vectorcr1Pass1of0.a,_VectorCrLayer1MaskInvA,_KontrolLerpClamp)
+					);
+
+					Vectorcr1Pass1of2 = float4
+					(
+						FOwO_Lerp_Thresh(_VectorCrLayer1MaskRLow,_VectorCrLayer1MaskRHgh,0,1,Vectorcr1Pass1of1.r),
+						FOwO_Lerp_Thresh(_VectorCrLayer1MaskGLow,_VectorCrLayer1MaskGHgh,0,1,Vectorcr1Pass1of1.g),
+						FOwO_Lerp_Thresh(_VectorCrLayer1MaskBLow,_VectorCrLayer1MaskBHgh,0,1,Vectorcr1Pass1of1.b),
+						FOwO_Lerp_Thresh(_VectorCrLayer1MaskALow,_VectorCrLayer1MaskAHgh,0,1,Vectorcr1Pass1of1.a)
+					);
+
+					Vectorcr1Pass1of3 = Vectorcr1Pass1of2.r * _VectorCrLayer1MaskPowR + Vectorcr1Pass1of2.g * _VectorCrLayer1MaskPowG + Vectorcr1Pass1of2.b * _VectorCrLayer1MaskPowB + Vectorcr1Pass1of2.a * _VectorCrLayer1MaskPowA;
+
+					Vectorcr1Pass2 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0 * Vectorcr1Pass1of3;
 				}
 
 				if(_VectorCrLayer2MainStwg == 0)
 				{
-					Vectorcr2Pass1 = float4(0,0,0,0);
+					Vectorcr2Pass2 = float4(0,0,0,0);
 				}
 				else
 				{
 					Vectorcr2Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
-					Vectorcr2Pass1 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0;
+
+					Vectorcr2Pass1of0 = FOwO_Color_ReadFromTexture
+					(
+						_VectorCrLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+						_VectorCrLayer2MaskTPos.x, _VectorCrLayer2MaskTPos.y, _VectorCrLayer2MaskTPos.z, _VectorCrLayer2MaskTPos.w,
+						_VectorCrLayer2MaskTRot.x, _VectorCrLayer2MaskTRot.y, _VectorCrLayer2MaskTRot.z, _VectorCrLayer2MaskTRot.w,
+						_VectorCrLayer2MaskTScl.x, _VectorCrLayer2MaskTScl.y, _VectorCrLayer2MaskTScl.z, _VectorCrLayer2MaskTScl.w,
+						_VectorCrLayer2MaskTSkw.x, _VectorCrLayer2MaskTSkw.y, _VectorCrLayer2MaskTSkw.z, _VectorCrLayer2MaskTSkw.w,
+						_VectorCrLayer2MaskTMod
+					);
+
+					Vectorcr2Pass1of1 = float4
+					(
+						FOwO_Lerp_Simple(Vectorcr2Pass1of0.r,1-Vectorcr2Pass1of0.r,_VectorCrLayer2MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr2Pass1of0.g,1-Vectorcr2Pass1of0.g,_VectorCrLayer2MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr2Pass1of0.b,1-Vectorcr2Pass1of0.b,_VectorCrLayer2MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr2Pass1of0.a,1-Vectorcr2Pass1of0.a,_VectorCrLayer2MaskInvA,_KontrolLerpClamp)
+					);
+
+					Vectorcr2Pass1of2 = float4
+					(
+						FOwO_Lerp_Thresh(_VectorCrLayer2MaskRLow,_VectorCrLayer2MaskRHgh,0,1,Vectorcr2Pass1of1.r),
+						FOwO_Lerp_Thresh(_VectorCrLayer2MaskGLow,_VectorCrLayer2MaskGHgh,0,1,Vectorcr2Pass1of1.g),
+						FOwO_Lerp_Thresh(_VectorCrLayer2MaskBLow,_VectorCrLayer2MaskBHgh,0,1,Vectorcr2Pass1of1.b),
+						FOwO_Lerp_Thresh(_VectorCrLayer2MaskALow,_VectorCrLayer2MaskAHgh,0,1,Vectorcr2Pass1of1.a)
+					);
+
+					Vectorcr2Pass1of3 = Vectorcr2Pass1of2.r * _VectorCrLayer2MaskPowR + Vectorcr2Pass1of2.g * _VectorCrLayer2MaskPowG + Vectorcr2Pass1of2.b * _VectorCrLayer2MaskPowB + Vectorcr2Pass1of2.a * _VectorCrLayer2MaskPowA;
+
+
+					Vectorcr2Pass2 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0 * Vectorcr2Pass1of3;
 				}
 
 				if(_VectorCrLayer3MainStwg == 0)
 				{
-					Vectorcr3Pass1 = float4(0,0,0,0);
+					Vectorcr3Pass2 = float4(0,0,0,0);
 				}
 				else
 				{
 					Vectorcr3Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
-					Vectorcr3Pass1 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0;
+
+					Vectorcr3Pass1of0 = FOwO_Color_ReadFromTexture
+					(
+						_VectorCrLayer3MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+						_VectorCrLayer3MaskTPos.x, _VectorCrLayer3MaskTPos.y, _VectorCrLayer3MaskTPos.z, _VectorCrLayer3MaskTPos.w,
+						_VectorCrLayer3MaskTRot.x, _VectorCrLayer3MaskTRot.y, _VectorCrLayer3MaskTRot.z, _VectorCrLayer3MaskTRot.w,
+						_VectorCrLayer3MaskTScl.x, _VectorCrLayer3MaskTScl.y, _VectorCrLayer3MaskTScl.z, _VectorCrLayer3MaskTScl.w,
+						_VectorCrLayer3MaskTSkw.x, _VectorCrLayer3MaskTSkw.y, _VectorCrLayer3MaskTSkw.z, _VectorCrLayer3MaskTSkw.w,
+						_VectorCrLayer3MaskTMod
+					);
+
+					Vectorcr3Pass1of1 = float4
+					(
+						FOwO_Lerp_Simple(Vectorcr3Pass1of0.r,1-Vectorcr3Pass1of0.r,_VectorCrLayer3MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr3Pass1of0.g,1-Vectorcr3Pass1of0.g,_VectorCrLayer3MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr3Pass1of0.b,1-Vectorcr3Pass1of0.b,_VectorCrLayer3MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr3Pass1of0.a,1-Vectorcr3Pass1of0.a,_VectorCrLayer3MaskInvA,_KontrolLerpClamp)
+					);
+
+					Vectorcr3Pass1of2 = float4
+					(
+						FOwO_Lerp_Thresh(_VectorCrLayer3MaskRLow,_VectorCrLayer3MaskRHgh,0,1,Vectorcr3Pass1of1.r),
+						FOwO_Lerp_Thresh(_VectorCrLayer3MaskGLow,_VectorCrLayer3MaskGHgh,0,1,Vectorcr3Pass1of1.g),
+						FOwO_Lerp_Thresh(_VectorCrLayer3MaskBLow,_VectorCrLayer3MaskBHgh,0,1,Vectorcr3Pass1of1.b),
+						FOwO_Lerp_Thresh(_VectorCrLayer3MaskALow,_VectorCrLayer3MaskAHgh,0,1,Vectorcr3Pass1of1.a)
+					);
+
+					Vectorcr3Pass1of3 = Vectorcr3Pass1of2.r * _VectorCrLayer3MaskPowR + Vectorcr3Pass1of2.g * _VectorCrLayer3MaskPowG + Vectorcr3Pass1of2.b * _VectorCrLayer3MaskPowB + Vectorcr3Pass1of2.a * _VectorCrLayer3MaskPowA;
+
+					Vectorcr3Pass2 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0 * Vectorcr3Pass1of3;
 				}
 
 				if(_VectorCrLayer4MainStwg == 0)
 				{
-					Vectorcr4Pass1 = float4(0,0,0,0);
+					Vectorcr4Pass2 = float4(0,0,0,0);
 				}
 				else
 				{
 					Vectorcr4Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
-					Vectorcr4Pass1 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0;
+
+					Vectorcr4Pass1of0 = FOwO_Color_ReadFromTexture
+					(
+						_VectorCrLayer4MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+						_VectorCrLayer4MaskTPos.x, _VectorCrLayer4MaskTPos.y, _VectorCrLayer4MaskTPos.z, _VectorCrLayer4MaskTPos.w,
+						_VectorCrLayer4MaskTRot.x, _VectorCrLayer4MaskTRot.y, _VectorCrLayer4MaskTRot.z, _VectorCrLayer4MaskTRot.w,
+						_VectorCrLayer4MaskTScl.x, _VectorCrLayer4MaskTScl.y, _VectorCrLayer4MaskTScl.z, _VectorCrLayer4MaskTScl.w,
+						_VectorCrLayer4MaskTSkw.x, _VectorCrLayer4MaskTSkw.y, _VectorCrLayer4MaskTSkw.z, _VectorCrLayer4MaskTSkw.w,
+						_VectorCrLayer4MaskTMod
+					);
+
+					Vectorcr4Pass1of1 = float4
+					(
+						FOwO_Lerp_Simple(Vectorcr4Pass1of0.r,1-Vectorcr4Pass1of0.r,_VectorCrLayer4MaskInvR,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr4Pass1of0.g,1-Vectorcr4Pass1of0.g,_VectorCrLayer4MaskInvG,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr4Pass1of0.b,1-Vectorcr4Pass1of0.b,_VectorCrLayer4MaskInvB,_KontrolLerpClamp),
+						FOwO_Lerp_Simple(Vectorcr4Pass1of0.a,1-Vectorcr4Pass1of0.a,_VectorCrLayer4MaskInvA,_KontrolLerpClamp)
+					);
+
+					Vectorcr4Pass1of2 = float4
+					(
+						FOwO_Lerp_Thresh(_VectorCrLayer4MaskRLow,_VectorCrLayer4MaskRHgh,0,1,Vectorcr4Pass1of1.r),
+						FOwO_Lerp_Thresh(_VectorCrLayer4MaskGLow,_VectorCrLayer4MaskGHgh,0,1,Vectorcr4Pass1of1.g),
+						FOwO_Lerp_Thresh(_VectorCrLayer4MaskBLow,_VectorCrLayer4MaskBHgh,0,1,Vectorcr4Pass1of1.b),
+						FOwO_Lerp_Thresh(_VectorCrLayer4MaskALow,_VectorCrLayer4MaskAHgh,0,1,Vectorcr4Pass1of1.a)
+					);
+
+					Vectorcr4Pass1of3 = Vectorcr4Pass1of2.r * _VectorCrLayer4MaskPowR + Vectorcr4Pass1of2.g * _VectorCrLayer4MaskPowG + Vectorcr4Pass1of2.b * _VectorCrLayer4MaskPowB + Vectorcr4Pass1of2.a * _VectorCrLayer4MaskPowA;
+
+
+					Vectorcr4Pass2 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0 * Vectorcr4Pass1of3;
 				}
 
-				fixed4 VectorcrFinal = Vectorcr1Pass1 + Vectorcr2Pass1 + Vectorcr3Pass1 + Vectorcr4Pass1;
+				fixed4 VectorcrFinal = Vectorcr1Pass2 + Vectorcr2Pass2 + Vectorcr3Pass2 + Vectorcr4Pass2;
 
 
 				//are main layers influenced ?
@@ -2230,9 +2688,13 @@ SubShader
 
 
 				}
-				else
+				else //shader testing
 				{
-					return float4(1,1,1,1);
+					return float4(INCOMING.uv.xy,0,1);
+
+					//return float4(INCOMING.worldPos.xyz,1);
+
+					//return float4(_WorldSpaceCameraPos.xyz,1);
 				}
 	
 
