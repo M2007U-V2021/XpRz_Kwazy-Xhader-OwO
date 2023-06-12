@@ -67,7 +67,7 @@ Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 3 [M200
 {
 Properties
 {
-	[Header(Kwazy Xhader OwO 3.6)]
+	[Header(Kwazy Xhader OwO 3.7)]
 	[Space(128)]
 
 	[Header(Blend Method)]
@@ -103,10 +103,11 @@ Properties
 	[Space(64)]
 	_TextureLayer1MainImge("Mwain Teksture",2D) = "white" {}
 	_TextureLayer1MainTMod("Transform Mode",float) = 0
-	_TextureLayer1MainTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer1MainTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer1MainTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer1MainTSkw("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1MainTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer1MainTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer1MainTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer1MainTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1MainTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_TextureLayer1AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
@@ -139,10 +140,12 @@ Properties
 
 	_TextureLayer1DistImge("Distwot Teksture",2D) = "black" {}
 	_TextureLayer1DistTMod("Transform Mode",float) = 0
-	_TextureLayer1DistTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer1DistTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer1DistTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer1DistSkXY("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1DistTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer1DistTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer1DistTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer1DistTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1DistTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
+
 
 	_TextureLayer1DistPowR("Rwed Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
 	_TextureLayer1DistPowG("Gwin Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
@@ -154,10 +157,11 @@ Properties
 
 	_TextureLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_TextureLayer1MaskTMod("Transform Mode",float) = 0
-	_TextureLayer1MaskTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer1MaskTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer1MaskTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer1MaskTSkw("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer1MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer1MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer1MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer1MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_TextureLayer1MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_TextureLayer1MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -189,10 +193,11 @@ Properties
 	[Space(64)]
 	_TextureLayer2MainImge("Mwain Teksture",2D) = "white" {}
 	_TextureLayer2MainTMod("Transform Mode",float) = 0
-	_TextureLayer2MainTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer2MainTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer2MainTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer2MainTSkw("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2MainTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer2MainTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer2MainTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer2MainTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2MainTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_TextureLayer2AlphChck("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
@@ -224,10 +229,11 @@ Properties
 
 	_TextureLayer2DistImge("Distwot Teksture",2D) = "black" {}
 	_TextureLayer2DistTMod("Transform Mode",float) = 0
-	_TextureLayer2DistTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer2DistTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer2DistTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer2DistTSkw("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2DistTPos("Trf_Shift : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer2DistTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer2DistTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer2DistTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2DistTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_TextureLayer2DistPowR("Rwed Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
 	_TextureLayer2DistPowG("Gwin Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
@@ -239,10 +245,11 @@ Properties
 
 	_TextureLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_TextureLayer2MaskTMod("Transform Mode",float) = 0
-	_TextureLayer2MaskTPos("Transform : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_TextureLayer2MaskTRot("Transform : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_TextureLayer2MaskTScl("Transform : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_TextureLayer2MaskTSkw("Transform : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_TextureLayer2MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_TextureLayer2MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_TextureLayer2MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_TextureLayer2MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_TextureLayer2MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_TextureLayer2MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -291,10 +298,11 @@ Properties
 
 	_FresnelLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_FresnelLayer1MaskTMod("Transform Mode",float) = 0
-	_FresnelLayer1MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_FresnelLayer1MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_FresnelLayer1MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_FresnelLayer1MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_FresnelLayer1MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_FresnelLayer1MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_FresnelLayer1MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_FresnelLayer1MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_FresnelLayer1MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_FresnelLayer1MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_FresnelLayer1MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -343,10 +351,11 @@ Properties
 
 	_FresnelLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_FresnelLayer2MaskTMod("Transform Mode",float) = 0
-	_FresnelLayer2MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_FresnelLayer2MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_FresnelLayer2MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_FresnelLayer2MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_FresnelLayer2MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_FresnelLayer2MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_FresnelLayer2MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_FresnelLayer2MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_FresnelLayer2MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_FresnelLayer2MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_FresnelLayer2MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -385,10 +394,11 @@ Properties
 
 	_VectorCrLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer1MaskTMod("Transform Mode",float) = 0
-	_VectorCrLayer1MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_VectorCrLayer1MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_VectorCrLayer1MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_VectorCrLayer1MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer1MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer1MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer1MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer1MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer1MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_VectorCrLayer1MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_VectorCrLayer1MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -421,10 +431,11 @@ Properties
 
 	_VectorCrLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer2MaskTMod("Transform Mode",float) = 0
-	_VectorCrLayer2MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_VectorCrLayer2MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_VectorCrLayer2MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_VectorCrLayer2MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer2MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer2MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer2MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer2MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer2MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_VectorCrLayer2MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_VectorCrLayer2MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -457,10 +468,11 @@ Properties
 
 	_VectorCrLayer3MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer3MaskTMod("Transform Mode",float) = 0
-	_VectorCrLayer3MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_VectorCrLayer3MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_VectorCrLayer3MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_VectorCrLayer3MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer3MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer3MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer3MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer3MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer3MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_VectorCrLayer3MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_VectorCrLayer3MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -493,10 +505,11 @@ Properties
 
 	_VectorCrLayer4MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer4MaskTMod("Transform Mode",float) = 0
-	_VectorCrLayer4MaskTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_VectorCrLayer4MaskTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_VectorCrLayer4MaskTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_VectorCrLayer4MaskTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer4MaskTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_VectorCrLayer4MaskTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_VectorCrLayer4MaskTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_VectorCrLayer4MaskTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_VectorCrLayer4MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_VectorCrLayer4MaskInvR("Kolor : InvR",Range(0,1)) = 0
 	_VectorCrLayer4MaskInvG("Kolor : InvG",Range(0,1)) = 0
@@ -534,10 +547,11 @@ Properties
 	[Space(64)]
 	_GlitterLayer1MainImge("Noise Texture",2D) = "black" {}
 	_GlitterLayer1MainTMod("Transform Mode",float) = 0
-	_GlitterLayer1MainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_GlitterLayer1MainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_GlitterLayer1MainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_GlitterLayer1MainTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_GlitterLayer1MainTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_GlitterLayer1MainTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_GlitterLayer1MainTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_GlitterLayer1MainTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_GlitterLayer1MaskTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_GlitterLayer1MainHueS("Noise Texture Hue Scroll",float) = 0
 
@@ -559,28 +573,31 @@ Properties
 
 	_AxisDistortXImge("X Distwot texture",2D) = "black" {}
 	_AxisDistortXTMod("Transform Mode",float) = 0
-	_AxisDistortXTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_AxisDistortXTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_AxisDistortXTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_AxisDistortXTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortXTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_AxisDistortXTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_AxisDistortXTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_AxisDistortXTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortXTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 	_AxisDistortXPowr("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 	_AxisDistortXAdjt("Distwot Adjust",Float) = 0
 	[Space(64)]
 	_AxisDistortYImge("Y Distwot texture",2D) = "black" {}
 	_AxisDistortYTMod("Transform Mode",float) = 0
-	_AxisDistortYTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_AxisDistortYTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_AxisDistortYTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_AxisDistortYTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortYTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_AxisDistortYTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_AxisDistortYTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_AxisDistortYTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortYTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 	_AxisDistortYPowr("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 	_AxisDistortYAdjt("Distwot Adjust",Float) = 0
 	[Space(64)]
 	_AxisDistortZImge("Z Distwot texture",2D) = "black" {}
 	_AxisDistortZTMod("Transform Mode",float) = 0
-	_AxisDistortZTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_AxisDistortZTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_AxisDistortZTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_AxisDistortZTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortZTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_AxisDistortZTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_AxisDistortZTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_AxisDistortZTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_AxisDistortZTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 	_AxisDistortZPowr("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 	_AxisDistortZAdjt("Distwot Adjust",Float) = 0
 	[Space(128)]
@@ -594,10 +611,11 @@ Properties
 
 	_NormalExtrudeMainImge("Extrude Teksture",2D) = "white" {}
 	_NormalExtrudeMainTMod("Transform Mode",float) = 0
-	_NormalExtrudeMainTPos("TrPos : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
-	_NormalExtrudeMainTRot("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
-	_NormalExtrudeMainTScl("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
-	_NormalExtrudeMainTSkw("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_NormalExtrudeMainTPos("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_NormalExtrudeMainTRot("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_NormalExtrudeMainTScl("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_NormalExtrudeMainTSkw("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_NormalExtrudeMainTRad("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
 
 	_NormDistortAmpl("Ampwitude",Float) = 0
 	_NormDistortFreq("Fwikuensy",Float) = 0
@@ -744,6 +762,11 @@ SubShader
 			float FOwO_Vec3Mag(float3 vek)
 			{
 				return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2),0.5);
+			}
+
+			float FOwO_Vec4Mag(float4 vek)
+			{
+				return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2) + pow(vek.w,2),0.5);
 			}
 
 			float FOwO_BlendOneMinus(float InCurrent,float InFull,float K)
@@ -1140,13 +1163,24 @@ SubShader
 				return float2(input.x , input.y + ((Yr - Yl) / 1 * input.x));
 			}
 
+			float2 FOwO_UVCoordTransform_Radial(float2 input, float CenterX, float CenterY, float angle, float roll)
+			{
+				float R = pow(pow(input.x - CenterX,2) + pow(input.y - CenterY,2),0.5);
+				float angleCurrent = angle + roll * _Time[1];
+				float DeltaX = R * cos(angleCurrent);
+				float DeltaY = R * sin(angleCurrent);
+
+				return float2(CenterX + DeltaX, CenterY + DeltaY);
+			}
+
 			fixed4 FOwO_Color_ReadFromTexture
 			(
 				sampler2D Image, int SampleMode, float InX, float InY, 
 				float ShiftX, float ShiftY, float ScrollX, float ScrollY, 
-				float Angle, float Roll, float CenterX, float CenterY, 
+				float RotateAngle, float RotateRoll, float RotateCenterX, float RotateCenterY, 
 				float ScaleX, float ScaleY, float PixelX, float PixelY,
 				float SkewXd, float SkewXu, float SkewYl, float SkewYr,
+				float RadialCenterX, float RadialCenterY, float RadialAngle, float RadialRoll,
 				float TMode
 			)
 			{
@@ -1165,7 +1199,7 @@ SubShader
 					}
 					else if(CurrentInstruction == 2)
 					{
-						CurrentUV = FOwO_UVCoordTransform_Rotate(CurrentUV, Angle, Roll, CenterX, CenterY);
+						CurrentUV = FOwO_UVCoordTransform_Rotate(CurrentUV, RotateAngle, RotateRoll, RotateCenterX, RotateCenterY);
 					}
 					else if(CurrentInstruction == 3)
 					{
@@ -1182,6 +1216,10 @@ SubShader
 					else if(CurrentInstruction == 6)
 					{
 						CurrentUV = FOwO_UVCoordTransform_SkewY(CurrentUV, SkewYl, SkewYr);
+					}
+					else if(CurrentInstruction == 7)
+					{
+						CurrentUV = FOwO_UVCoordTransform_Radial(CurrentUV, RadialCenterX, RadialCenterY, RadialAngle, RadialRoll);
 					}
 					else
 					{
@@ -1232,6 +1270,7 @@ SubShader
 			vector _AxisDistortXTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _AxisDistortXTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _AxisDistortXTSkw;
+			vector _AxisDistortXTRad;
 			vector _AxisDistortXPowr;//("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 			float _AxisDistortXAdjt;//("Distwot Adjust",Float) = 0
 
@@ -1241,6 +1280,7 @@ SubShader
 			vector _AxisDistortYTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _AxisDistortYTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _AxisDistortYTSkw;
+			vector _AxisDistortYTRad;
 			vector _AxisDistortYPowr;//("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 			float _AxisDistortYAdjt;//("Distwot Adjust",Float) = 0
 
@@ -1250,6 +1290,7 @@ SubShader
 			vector _AxisDistortZTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _AxisDistortZTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _AxisDistortZTSkw;
+			vector _AxisDistortZTRad;
 			vector _AxisDistortZPowr;//("Distwot Amount : R, G, B, A",Vector) = (0,0,0,0)
 			float _AxisDistortZAdjt;//("Distwot Adjust",Float) = 0
 
@@ -1264,6 +1305,7 @@ SubShader
 			vector _NormalExtrudeMainTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _NormalExtrudeMainTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
 			vector _NormalExtrudeMainTSkw;
+			vector _NormalExtrudeMainTRad;
 
 			vector _NormalExtrudeRS;//("Rwed Stwength",Vector) = (0,0,0,0)
 			vector _NormalExtrudeRD;//("Rwed Duwation",Vector) = (1,0,0,0)
@@ -1287,69 +1329,125 @@ SubShader
 				v2f OUTGOING;
 
 
+
+
 				//Texture Offsets
 
-				fixed4 AxisDistortXPass0 = FOwO_Color_ReadFromTexture
-				(
-					_AxisDistortXImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
-					_AxisDistortXTPos.x, _AxisDistortXTPos.y, _AxisDistortXTPos.z, _AxisDistortXTPos.w, 
-					_AxisDistortXTRot.x, _AxisDistortXTRot.y, _AxisDistortXTRot.z, _AxisDistortXTRot.w, 
-					_AxisDistortXTScl.x, _AxisDistortXTScl.y, _AxisDistortXTScl.z, _AxisDistortXTScl.w,
-					_AxisDistortXTSkw.x, _AxisDistortXTSkw.y, _AxisDistortXTSkw.z, _AxisDistortXTSkw.w,
-					_AxisDistortXTMod
-				);
+				fixed4 AxisDistortXPass0;
+				fixed4 AxisDistortYPass0;
+				fixed4 AxisDistortZPass0;
 
-				fixed4 AxisDistortYPass0 = FOwO_Color_ReadFromTexture
-				(
-					_AxisDistortYImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
-					_AxisDistortYTPos.x, _AxisDistortYTPos.y, _AxisDistortYTPos.z, _AxisDistortYTPos.w, 
-					_AxisDistortYTRot.x, _AxisDistortYTRot.y, _AxisDistortYTRot.z, _AxisDistortYTRot.w, 
-					_AxisDistortYTScl.x, _AxisDistortYTScl.y, _AxisDistortYTScl.z, _AxisDistortYTScl.w,
-					_AxisDistortYTSkw.x, _AxisDistortYTSkw.y, _AxisDistortYTSkw.z, _AxisDistortYTSkw.w,
-					_AxisDistortYTMod
-				);
+				if(FOwO_Vec4Mag(_AxisDistortXPowr) == 0)
+				{
+					AxisDistortXPass0 = float4(0,0,0,0);
+				}
+				else
+				{
+					AxisDistortXPass0 = FOwO_Color_ReadFromTexture
+					(
+						_AxisDistortXImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
+						_AxisDistortXTPos.x, _AxisDistortXTPos.y, _AxisDistortXTPos.z, _AxisDistortXTPos.w, 
+						_AxisDistortXTRot.x, _AxisDistortXTRot.y, _AxisDistortXTRot.z, _AxisDistortXTRot.w, 
+						_AxisDistortXTScl.x, _AxisDistortXTScl.y, _AxisDistortXTScl.z, _AxisDistortXTScl.w,
+						_AxisDistortXTSkw.x, _AxisDistortXTSkw.y, _AxisDistortXTSkw.z, _AxisDistortXTSkw.w,
+						_AxisDistortXTRad.x, _AxisDistortXTRad.y, _AxisDistortXTRad.z, _AxisDistortXTRad.w,
+						_AxisDistortXTMod
+					);
+				}
 
-				fixed4 AxisDistortZPass0 = FOwO_Color_ReadFromTexture
-				(
-					_AxisDistortZImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
-					_AxisDistortZTPos.x, _AxisDistortZTPos.y, _AxisDistortZTPos.z, _AxisDistortZTPos.w, 
-					_AxisDistortZTRot.x, _AxisDistortZTRot.y, _AxisDistortZTRot.z, _AxisDistortZTRot.w, 
-					_AxisDistortZTScl.x, _AxisDistortZTScl.y, _AxisDistortZTScl.z, _AxisDistortZTScl.w,
-					_AxisDistortZTSkw.x, _AxisDistortZTSkw.y, _AxisDistortZTSkw.z, _AxisDistortZTSkw.w,
-					_AxisDistortZTMod
-				);
+				if(FOwO_Vec4Mag(_AxisDistortYPowr) == 0)
+				{
+					AxisDistortYPass0 = float4(0,0,0,0);
+				}
+				else
+				{
+					AxisDistortYPass0 = FOwO_Color_ReadFromTexture
+					(
+						_AxisDistortYImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
+						_AxisDistortYTPos.x, _AxisDistortYTPos.y, _AxisDistortYTPos.z, _AxisDistortYTPos.w,
+						_AxisDistortYTRot.x, _AxisDistortYTRot.y, _AxisDistortYTRot.z, _AxisDistortYTRot.w, 
+						_AxisDistortYTScl.x, _AxisDistortYTScl.y, _AxisDistortYTScl.z, _AxisDistortYTScl.w,
+						_AxisDistortYTSkw.x, _AxisDistortYTSkw.y, _AxisDistortYTSkw.z, _AxisDistortYTSkw.w,
+						_AxisDistortYTRad.x, _AxisDistortYTRad.y, _AxisDistortYTRad.z, _AxisDistortYTRad.w,
+						_AxisDistortYTMod
+					);
+				}
+
+				if(FOwO_Vec4Mag(_AxisDistortZPowr) == 0)
+				{
+					AxisDistortZPass0 = float4(0,0,0,0);
+				}
+				else
+				{
+					AxisDistortZPass0 = FOwO_Color_ReadFromTexture
+					(
+						_AxisDistortZImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
+						_AxisDistortZTPos.x, _AxisDistortZTPos.y, _AxisDistortZTPos.z, _AxisDistortZTPos.w, 
+						_AxisDistortZTRot.x, _AxisDistortZTRot.y, _AxisDistortZTRot.z, _AxisDistortZTRot.w, 
+						_AxisDistortZTScl.x, _AxisDistortZTScl.y, _AxisDistortZTScl.z, _AxisDistortZTScl.w,
+						_AxisDistortZTSkw.x, _AxisDistortZTSkw.y, _AxisDistortZTSkw.z, _AxisDistortZTSkw.w,
+						_AxisDistortZTRad.x, _AxisDistortZTRad.y, _AxisDistortZTRad.z, _AxisDistortZTRad.w,
+						_AxisDistortZTMod
+					);
+				}
 
 				float4 AxisDistortTotal = float4
 				(
-					AxisDistortXPass0.r * _AxisDistortXPowr.x + AxisDistortXPass0.g * _AxisDistortXPowr.y + AxisDistortXPass0.b * _AxisDistortXPowr.z + AxisDistortXPass0.a * _AxisDistortXPowr.z + _AxisDistortXAdjt,
-					AxisDistortYPass0.r * _AxisDistortYPowr.x + AxisDistortYPass0.g * _AxisDistortYPowr.y + AxisDistortYPass0.b * _AxisDistortYPowr.z + AxisDistortYPass0.a * _AxisDistortYPowr.z + _AxisDistortYAdjt,
-					AxisDistortZPass0.r * _AxisDistortZPowr.x + AxisDistortZPass0.g * _AxisDistortZPowr.y + AxisDistortZPass0.b * _AxisDistortZPowr.z + AxisDistortZPass0.a * _AxisDistortZPowr.z + _AxisDistortZAdjt,
+					dot(AxisDistortXPass0,_AxisDistortXPowr) + _AxisDistortXAdjt,
+					dot(AxisDistortYPass0,_AxisDistortYPowr) + _AxisDistortYAdjt,
+					dot(AxisDistortZPass0,_AxisDistortZPowr) + _AxisDistortZAdjt,
 					0
 				);
 
 
 
 
-				
+
 
 				//Normal Extrude
-				fixed4 NormDistortPass0 = FOwO_Color_ReadFromTexture
-				(
-					_NormalExtrudeMainImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
-					_NormalExtrudeMainTPos.x, _NormalExtrudeMainTPos.y, _NormalExtrudeMainTPos.z, _NormalExtrudeMainTPos.w, 
-					_NormalExtrudeMainTRot.x, _NormalExtrudeMainTRot.y, _NormalExtrudeMainTRot.z, _NormalExtrudeMainTRot.w, 
-					_NormalExtrudeMainTScl.x, _NormalExtrudeMainTScl.y, _NormalExtrudeMainTScl.z, _NormalExtrudeMainTScl.w,
-					_NormalExtrudeMainTSkw.x, _NormalExtrudeMainTSkw.y, _NormalExtrudeMainTSkw.z, _NormalExtrudeMainTSkw.w,
-					_NormalExtrudeMainTMod
-				);
+				fixed4 NormDistortPass0;
+				float NormDistortPowerR;
+				float NormDistortPowerG;
+				float NormDistortPowerB;
+				float NormDistortPowerA;
+				float NormDistortPass1;
+				float4 NormDistortPass2;
 
-				float NormDistortPowerR = FOwO_Lerp_Simple4Intervals(_NormalExtrudeRS.x, _NormalExtrudeRS.y, _NormalExtrudeRS.z, _NormalExtrudeRS.w, _NormalExtrudeRD.x, _NormalExtrudeRD.y, _NormalExtrudeRD.z, _NormalExtrudeRD.w, _NormDistortFreq);
-				float NormDistortPowerG = FOwO_Lerp_Simple4Intervals(_NormalExtrudeGS.x, _NormalExtrudeGS.y, _NormalExtrudeGS.z, _NormalExtrudeGS.w, _NormalExtrudeGD.x, _NormalExtrudeGD.y, _NormalExtrudeGD.z, _NormalExtrudeGD.w, _NormDistortFreq);
-				float NormDistortPowerB = FOwO_Lerp_Simple4Intervals(_NormalExtrudeBS.x, _NormalExtrudeBS.y, _NormalExtrudeBS.z, _NormalExtrudeBS.w, _NormalExtrudeBD.x, _NormalExtrudeBD.y, _NormalExtrudeBD.z, _NormalExtrudeBD.w, _NormDistortFreq);
-				float NormDistortPowerA = FOwO_Lerp_Simple4Intervals(_NormalExtrudeAS.x, _NormalExtrudeAS.y, _NormalExtrudeAS.z, _NormalExtrudeAS.w, _NormalExtrudeAD.x, _NormalExtrudeAD.y, _NormalExtrudeAD.z, _NormalExtrudeAD.w, _NormDistortFreq);
-			
-				float NormDistortPass1 = (NormDistortPass0.r * NormDistortPowerR + NormDistortPass0.g * NormDistortPowerG + NormDistortPass0.b * NormDistortPowerB + NormDistortPass0.a * NormDistortPowerA) * _NormDistortAmpl;
-				float4 NormDistortPass2 = float4(INCOMING.normal.xyz,0) * NormDistortPass1;
+				if(_NormDistortAmpl == 0)
+				{
+					NormDistortPass0 = float4(0,0,0,0);
+					NormDistortPowerR = 0;
+					NormDistortPowerG = 0;
+					NormDistortPowerB = 0;
+					NormDistortPowerA = 0;
+					NormDistortPass1 = 0;
+					NormDistortPass2 = float4(0,0,0,0);
+				}
+				else
+				{
+					NormDistortPass0 = FOwO_Color_ReadFromTexture
+					(
+						_NormalExtrudeMainImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
+						_NormalExtrudeMainTPos.x, _NormalExtrudeMainTPos.y, _NormalExtrudeMainTPos.z, _NormalExtrudeMainTPos.w, 
+						_NormalExtrudeMainTRot.x, _NormalExtrudeMainTRot.y, _NormalExtrudeMainTRot.z, _NormalExtrudeMainTRot.w, 
+						_NormalExtrudeMainTScl.x, _NormalExtrudeMainTScl.y, _NormalExtrudeMainTScl.z, _NormalExtrudeMainTScl.w,
+						_NormalExtrudeMainTSkw.x, _NormalExtrudeMainTSkw.y, _NormalExtrudeMainTSkw.z, _NormalExtrudeMainTSkw.w,
+						_NormalExtrudeMainTRad.x, _NormalExtrudeMainTRad.y, _NormalExtrudeMainTRad.z, _NormalExtrudeMainTRad.w,
+						_NormalExtrudeMainTMod
+					);
+
+					NormDistortPowerR = FOwO_Lerp_Simple4Intervals(_NormalExtrudeRS.x, _NormalExtrudeRS.y, _NormalExtrudeRS.z, _NormalExtrudeRS.w, _NormalExtrudeRD.x, _NormalExtrudeRD.y, _NormalExtrudeRD.z, _NormalExtrudeRD.w, _NormDistortFreq);
+					NormDistortPowerG = FOwO_Lerp_Simple4Intervals(_NormalExtrudeGS.x, _NormalExtrudeGS.y, _NormalExtrudeGS.z, _NormalExtrudeGS.w, _NormalExtrudeGD.x, _NormalExtrudeGD.y, _NormalExtrudeGD.z, _NormalExtrudeGD.w, _NormDistortFreq);
+					NormDistortPowerB = FOwO_Lerp_Simple4Intervals(_NormalExtrudeBS.x, _NormalExtrudeBS.y, _NormalExtrudeBS.z, _NormalExtrudeBS.w, _NormalExtrudeBD.x, _NormalExtrudeBD.y, _NormalExtrudeBD.z, _NormalExtrudeBD.w, _NormDistortFreq);
+					NormDistortPowerA = FOwO_Lerp_Simple4Intervals(_NormalExtrudeAS.x, _NormalExtrudeAS.y, _NormalExtrudeAS.z, _NormalExtrudeAS.w, _NormalExtrudeAD.x, _NormalExtrudeAD.y, _NormalExtrudeAD.z, _NormalExtrudeAD.w, _NormDistortFreq);
+
+					NormDistortPass1 = dot(NormDistortPass0,float4(NormDistortPowerR,NormDistortPowerG,NormDistortPowerB,NormDistortPowerA)) * _NormDistortAmpl;
+
+					NormDistortPass2 = float4(INCOMING.normal.xyz,0) * NormDistortPass1;
+				}
+
+				
+				
 				
 
 
@@ -1395,6 +1493,7 @@ SubShader
 			vector _TextureLayer1MainTRot;//("ROT : Afwa, Roll, CenX, CenY",Vector) = (0,0,0,0)
 			vector _TextureLayer1MainTScl;//("POS : SclX, SclY, NULL, NULL",Vector) = (0,0,0,0)
 			vector _TextureLayer1MainTSkw;
+			vector _TextureLayer1MainTRad;
 
 			float _TextureLayer1AlphChck;//("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
@@ -1430,6 +1529,7 @@ SubShader
 			vector _TextureLayer1DistTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _TextureLayer1DistTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _TextureLayer1DistTSkw;
+			vector _TextureLayer1DistTRad;
 
 			vector _TextureLayer1DistPowR;//("Rwed Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
 			vector _TextureLayer1DistPowG;//("Gwin Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
@@ -1445,6 +1545,7 @@ SubShader
 			vector _TextureLayer1MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _TextureLayer1MaskTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _TextureLayer1MaskTSkw;
+			vector _TextureLayer1MaskTRad;
 
 			float _TextureLayer1MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _TextureLayer1MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1479,6 +1580,7 @@ SubShader
 			vector _TextureLayer2MainTRot;//("ROT : Afwa, Roll, CenX, CenY",Vector) = (0,0,0,0)
 			vector _TextureLayer2MainTScl;//("POS : SclX, SclY, NULL, NULL",Vector) = (0,0,0,0)
 			vector _TextureLayer2MainTSkw;
+			vector _TextureLayer2MainTRad;
 
 			float _TextureLayer2AlphChck;//("If Afwa==0, then RGB = 0",Range(0,1)) = 1
 
@@ -1514,6 +1616,7 @@ SubShader
 			vector _TextureLayer2DistTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _TextureLayer2DistTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _TextureLayer2DistTSkw;
+			vector _TextureLayer2DistTRad;
 
 			vector _TextureLayer2DistPowR;//("Rwed Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
 			vector _TextureLayer2DistPowG;//("Gwin Distwot : X, Y, NULL, NULL",Vector) = (0,0,0,0)
@@ -1529,6 +1632,7 @@ SubShader
 			vector _TextureLayer2MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _TextureLayer2MaskTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _TextureLayer2MaskTSkw;
+			vector _TextureLayer2MaskTRad;
 
 			float _TextureLayer2MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _TextureLayer2MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1574,6 +1678,7 @@ SubShader
 			vector _FresnelLayer1MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _FresnelLayer1MaskTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _FresnelLayer1MaskTSkw;
+			vector _FresnelLayer1MaskTRad;
 
 			float _FresnelLayer1MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _FresnelLayer1MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1618,6 +1723,7 @@ SubShader
 			vector _FresnelLayer2MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _FresnelLayer2MaskTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _FresnelLayer2MaskTSkw;
+			vector _FresnelLayer2MaskTRad;
 
 			float _FresnelLayer2MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _FresnelLayer2MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1656,6 +1762,7 @@ SubShader
 			vector _VectorCrLayer1MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _VectorCrLayer1MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
 			vector _VectorCrLayer1MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+			vector _VectorCrLayer1MaskTRad;
 
 			float _VectorCrLayer1MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _VectorCrLayer1MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1689,6 +1796,7 @@ SubShader
 			vector _VectorCrLayer2MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _VectorCrLayer2MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
 			vector _VectorCrLayer2MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+			vector _VectorCrLayer2MaskTRad;
 
 			float _VectorCrLayer2MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _VectorCrLayer2MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1722,6 +1830,7 @@ SubShader
 			vector _VectorCrLayer3MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _VectorCrLayer3MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
 			vector _VectorCrLayer3MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+			vector _VectorCrLayer3MaskTRad;
 
 			float _VectorCrLayer3MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _VectorCrLayer3MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1755,6 +1864,7 @@ SubShader
 			vector _VectorCrLayer4MaskTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _VectorCrLayer4MaskTScl;//("TrScl : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
 			vector _VectorCrLayer4MaskTSkw;//("TrSkw : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+			vector _VectorCrLayer4MaskTRad;
 
 			float _VectorCrLayer4MaskInvR;//("Kolor : InvR",Range(0,1)) = 0
 			float _VectorCrLayer4MaskInvG;//("Kolor : InvG",Range(0,1)) = 0
@@ -1796,6 +1906,7 @@ SubShader
 			vector _GlitterLayer1MainTRot;//("TrRot : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
 			vector _GlitterLayer1MainTScl;//("TrScl : SclX, SclY, NULL, NULL",Vector) = (1,1,0,0)
 			vector _GlitterLayer1MainTSkw;
+			vector _GlitterLayer1MainTRad;
 
 			float _GlitterLayer1MainHueS;//("Noise Texture Hue Scroll",float) = 0
 			
@@ -1852,6 +1963,7 @@ SubShader
 					_TextureLayer1DistTRot.x, _TextureLayer1DistTRot.y, _TextureLayer1DistTRot.z, _TextureLayer1DistTRot.w,
 					_TextureLayer1DistTScl.x, _TextureLayer1DistTScl.y, _TextureLayer1DistTScl.z, _TextureLayer1DistTScl.w,
 					_TextureLayer1DistTSkw.x, _TextureLayer1DistTSkw.y, _TextureLayer1DistTSkw.z, _TextureLayer1DistTSkw.w,
+					_TextureLayer1DistTRad.x, _TextureLayer1DistTRad.y, _TextureLayer1DistTRad.z, _TextureLayer1DistTRad.w,
 					_TextureLayer1DistTMod
 					);
 
@@ -1874,6 +1986,7 @@ SubShader
 					_TextureLayer2DistTRot.x, _TextureLayer2DistTRot.y, _TextureLayer2DistTRot.z, _TextureLayer2DistTRot.w,
 					_TextureLayer2DistTScl.x, _TextureLayer2DistTScl.y, _TextureLayer2DistTScl.z, _TextureLayer2DistTScl.w,
 					_TextureLayer2DistTSkw.x, _TextureLayer2DistTSkw.y, _TextureLayer2DistTSkw.z, _TextureLayer2DistTSkw.w,
+					_TextureLayer2DistTRad.x, _TextureLayer2DistTRad.y, _TextureLayer2DistTRad.z, _TextureLayer2DistTRad.w,
 					_TextureLayer2DistTMod
 					);
 
@@ -1913,6 +2026,7 @@ SubShader
 						_TextureLayer1MaskTRot.x, _TextureLayer1MaskTRot.y, _TextureLayer1MaskTRot.z, _TextureLayer1MaskTRot.w,
 						_TextureLayer1MaskTScl.x, _TextureLayer1MaskTScl.y, _TextureLayer1MaskTScl.z, _TextureLayer1MaskTScl.w,
 						_TextureLayer1MaskTSkw.x, _TextureLayer1MaskTSkw.y, _TextureLayer1MaskTSkw.z, _TextureLayer1MaskTSkw.w,
+						_TextureLayer1MaskTRad.x, _TextureLayer1MaskTRad.y, _TextureLayer1MaskTRad.z, _TextureLayer1MaskTRad.w,
 						_TextureLayer1MaskTMod
 					);
 
@@ -1932,7 +2046,7 @@ SubShader
 					FOwO_Lerp_Thresh(_TextureLayer1MaskALow,_TextureLayer1MaskAHgh,0,1,Piksel1Mask2.a)
 					);
 
-					Piksel1MaskPower = Piksel1Mask3.r * _TextureLayer1MaskPowR + Piksel1Mask3.g * _TextureLayer1MaskPowG + Piksel1Mask3.b * _TextureLayer1MaskPowB + Piksel1Mask3.a * _TextureLayer1MaskPowA;
+					Piksel1MaskPower = dot(Piksel1Mask3,float4(_TextureLayer1MaskPowR,_TextureLayer1MaskPowG,_TextureLayer1MaskPowB,_TextureLayer1MaskPowA));
 				}
 
 				if(_KontrolTextureLayer2 == 0)
@@ -1949,6 +2063,7 @@ SubShader
 					_TextureLayer2MaskTRot.x, _TextureLayer2MaskTRot.y, _TextureLayer2MaskTRot.z, _TextureLayer2MaskTRot.w,
 					_TextureLayer2MaskTScl.x, _TextureLayer2MaskTScl.y, _TextureLayer2MaskTScl.z, _TextureLayer2MaskTScl.w,
 					_TextureLayer2MaskTSkw.x, _TextureLayer2MaskTSkw.y, _TextureLayer2MaskTSkw.z, _TextureLayer2MaskTSkw.w,
+					_TextureLayer2MaskTRad.x, _TextureLayer2MaskTRad.y, _TextureLayer2MaskTRad.z, _TextureLayer2MaskTRad.w,
 					_TextureLayer2MaskTMod
 					);
 
@@ -1968,7 +2083,7 @@ SubShader
 					FOwO_Lerp_Thresh(_TextureLayer2MaskALow,_TextureLayer2MaskAHgh,0,1,Piksel2Mask2.a)
 					);
 
-					Piksel2MaskPower = Piksel2Mask3.r * _TextureLayer2MaskPowR + Piksel2Mask3.g * _TextureLayer2MaskPowG + Piksel2Mask3.b * _TextureLayer2MaskPowB + Piksel2Mask3.a * _TextureLayer2MaskPowA;
+					Piksel2MaskPower = dot(Piksel2Mask3,float4(_TextureLayer2MaskPowR,_TextureLayer2MaskPowG,_TextureLayer2MaskPowB,_TextureLayer2MaskPowA));
 				}
 
 
@@ -2020,6 +2135,7 @@ SubShader
 						_TextureLayer1MainTRot.x, _TextureLayer1MainTRot.y, _TextureLayer1MainTRot.z, _TextureLayer1MainTRot.w, 
 						_TextureLayer1MainTScl.x, _TextureLayer1MainTScl.y, _TextureLayer1MainTScl.z, _TextureLayer1MainTScl.w,
 						_TextureLayer1MainTSkw.x, _TextureLayer1MainTSkw.y, _TextureLayer1MainTSkw.z, _TextureLayer1MainTSkw.w,
+						_TextureLayer1MainTRad.x, _TextureLayer1MainTRad.y, _TextureLayer1MainTRad.z, _TextureLayer1MainTRad.w,
 						_TextureLayer1MainTMod
 					);
 
@@ -2082,6 +2198,7 @@ SubShader
 						_TextureLayer2MainTRot.x, _TextureLayer2MainTRot.y, _TextureLayer2MainTRot.z, _TextureLayer2MainTRot.w, 
 						_TextureLayer2MainTScl.x, _TextureLayer2MainTScl.y, _TextureLayer2MainTScl.z, _TextureLayer2MainTScl.w,
 						_TextureLayer2MainTSkw.x, _TextureLayer2MainTSkw.y, _TextureLayer2MainTSkw.z, _TextureLayer2MainTSkw.w,
+						_TextureLayer2MainTRad.x, _TextureLayer2MainTRad.y, _TextureLayer2MainTRad.z, _TextureLayer2MainTRad.w,
 						_TextureLayer2MainTMod
 					);
 
@@ -2185,6 +2302,7 @@ SubShader
 						_VectorCrLayer1MaskTRot.x, _VectorCrLayer1MaskTRot.y, _VectorCrLayer1MaskTRot.z, _VectorCrLayer1MaskTRot.w,
 						_VectorCrLayer1MaskTScl.x, _VectorCrLayer1MaskTScl.y, _VectorCrLayer1MaskTScl.z, _VectorCrLayer1MaskTScl.w,
 						_VectorCrLayer1MaskTSkw.x, _VectorCrLayer1MaskTSkw.y, _VectorCrLayer1MaskTSkw.z, _VectorCrLayer1MaskTSkw.w,
+						_VectorCrLayer1MaskTRad.x, _VectorCrLayer1MaskTRad.y, _VectorCrLayer1MaskTRad.z, _VectorCrLayer1MaskTRad.w,
 						_VectorCrLayer1MaskTMod
 					);
 
@@ -2204,7 +2322,7 @@ SubShader
 						FOwO_Lerp_Thresh(_VectorCrLayer1MaskALow,_VectorCrLayer1MaskAHgh,0,1,Vectorcr1Pass1of1.a)
 					);
 
-					Vectorcr1Pass1of3 = Vectorcr1Pass1of2.r * _VectorCrLayer1MaskPowR + Vectorcr1Pass1of2.g * _VectorCrLayer1MaskPowG + Vectorcr1Pass1of2.b * _VectorCrLayer1MaskPowB + Vectorcr1Pass1of2.a * _VectorCrLayer1MaskPowA;
+					Vectorcr1Pass1of3 = dot(Vectorcr1Pass1of2,float4(_VectorCrLayer1MaskPowR,_VectorCrLayer1MaskPowG,_VectorCrLayer1MaskPowB,_VectorCrLayer1MaskPowA));
 
 					Vectorcr1Pass2 = Vectorcr1Pass0 * _VectorCrLayer1MainStwg * _VectorCrLayer1MainClr0 * Vectorcr1Pass1of3;
 				}
@@ -2224,6 +2342,7 @@ SubShader
 						_VectorCrLayer2MaskTRot.x, _VectorCrLayer2MaskTRot.y, _VectorCrLayer2MaskTRot.z, _VectorCrLayer2MaskTRot.w,
 						_VectorCrLayer2MaskTScl.x, _VectorCrLayer2MaskTScl.y, _VectorCrLayer2MaskTScl.z, _VectorCrLayer2MaskTScl.w,
 						_VectorCrLayer2MaskTSkw.x, _VectorCrLayer2MaskTSkw.y, _VectorCrLayer2MaskTSkw.z, _VectorCrLayer2MaskTSkw.w,
+						_VectorCrLayer2MaskTRad.x, _VectorCrLayer2MaskTRad.y, _VectorCrLayer2MaskTRad.z, _VectorCrLayer2MaskTRad.w,
 						_VectorCrLayer2MaskTMod
 					);
 
@@ -2243,8 +2362,7 @@ SubShader
 						FOwO_Lerp_Thresh(_VectorCrLayer2MaskALow,_VectorCrLayer2MaskAHgh,0,1,Vectorcr2Pass1of1.a)
 					);
 
-					Vectorcr2Pass1of3 = Vectorcr2Pass1of2.r * _VectorCrLayer2MaskPowR + Vectorcr2Pass1of2.g * _VectorCrLayer2MaskPowG + Vectorcr2Pass1of2.b * _VectorCrLayer2MaskPowB + Vectorcr2Pass1of2.a * _VectorCrLayer2MaskPowA;
-
+					Vectorcr2Pass1of3 = dot(Vectorcr2Pass1of2,float4(_VectorCrLayer2MaskPowR,_VectorCrLayer2MaskPowG,_VectorCrLayer2MaskPowB,_VectorCrLayer2MaskPowA));
 
 					Vectorcr2Pass2 = Vectorcr2Pass0 * _VectorCrLayer2MainStwg * _VectorCrLayer2MainClr0 * Vectorcr2Pass1of3;
 				}
@@ -2264,6 +2382,7 @@ SubShader
 						_VectorCrLayer3MaskTRot.x, _VectorCrLayer3MaskTRot.y, _VectorCrLayer3MaskTRot.z, _VectorCrLayer3MaskTRot.w,
 						_VectorCrLayer3MaskTScl.x, _VectorCrLayer3MaskTScl.y, _VectorCrLayer3MaskTScl.z, _VectorCrLayer3MaskTScl.w,
 						_VectorCrLayer3MaskTSkw.x, _VectorCrLayer3MaskTSkw.y, _VectorCrLayer3MaskTSkw.z, _VectorCrLayer3MaskTSkw.w,
+						_VectorCrLayer3MaskTRad.x, _VectorCrLayer3MaskTRad.y, _VectorCrLayer3MaskTRad.z, _VectorCrLayer3MaskTRad.w,
 						_VectorCrLayer3MaskTMod
 					);
 
@@ -2283,7 +2402,7 @@ SubShader
 						FOwO_Lerp_Thresh(_VectorCrLayer3MaskALow,_VectorCrLayer3MaskAHgh,0,1,Vectorcr3Pass1of1.a)
 					);
 
-					Vectorcr3Pass1of3 = Vectorcr3Pass1of2.r * _VectorCrLayer3MaskPowR + Vectorcr3Pass1of2.g * _VectorCrLayer3MaskPowG + Vectorcr3Pass1of2.b * _VectorCrLayer3MaskPowB + Vectorcr3Pass1of2.a * _VectorCrLayer3MaskPowA;
+					Vectorcr3Pass1of3 = dot(Vectorcr3Pass1of2,float4(_VectorCrLayer3MaskPowR,_VectorCrLayer3MaskPowG,_VectorCrLayer3MaskPowB,_VectorCrLayer3MaskPowA));
 
 					Vectorcr3Pass2 = Vectorcr3Pass0 * _VectorCrLayer3MainStwg * _VectorCrLayer3MainClr0 * Vectorcr3Pass1of3;
 				}
@@ -2303,6 +2422,7 @@ SubShader
 						_VectorCrLayer4MaskTRot.x, _VectorCrLayer4MaskTRot.y, _VectorCrLayer4MaskTRot.z, _VectorCrLayer4MaskTRot.w,
 						_VectorCrLayer4MaskTScl.x, _VectorCrLayer4MaskTScl.y, _VectorCrLayer4MaskTScl.z, _VectorCrLayer4MaskTScl.w,
 						_VectorCrLayer4MaskTSkw.x, _VectorCrLayer4MaskTSkw.y, _VectorCrLayer4MaskTSkw.z, _VectorCrLayer4MaskTSkw.w,
+						_VectorCrLayer4MaskTRad.x, _VectorCrLayer4MaskTRad.y, _VectorCrLayer4MaskTRad.z, _VectorCrLayer4MaskTRad.w,
 						_VectorCrLayer4MaskTMod
 					);
 
@@ -2322,8 +2442,7 @@ SubShader
 						FOwO_Lerp_Thresh(_VectorCrLayer4MaskALow,_VectorCrLayer4MaskAHgh,0,1,Vectorcr4Pass1of1.a)
 					);
 
-					Vectorcr4Pass1of3 = Vectorcr4Pass1of2.r * _VectorCrLayer4MaskPowR + Vectorcr4Pass1of2.g * _VectorCrLayer4MaskPowG + Vectorcr4Pass1of2.b * _VectorCrLayer4MaskPowB + Vectorcr4Pass1of2.a * _VectorCrLayer4MaskPowA;
-
+					Vectorcr4Pass1of3 = dot(Vectorcr4Pass1of2,float4(_VectorCrLayer4MaskPowR,_VectorCrLayer4MaskPowG,_VectorCrLayer4MaskPowB,_VectorCrLayer4MaskPowA));
 
 					Vectorcr4Pass2 = Vectorcr4Pass0 * _VectorCrLayer4MainStwg * _VectorCrLayer4MainClr0 * Vectorcr4Pass1of3;
 				}
@@ -2406,6 +2525,7 @@ SubShader
 						_FresnelLayer1MaskTRot.x, _FresnelLayer1MaskTRot.y, _FresnelLayer1MaskTRot.z, _FresnelLayer1MaskTRot.w, 
 						_FresnelLayer1MaskTScl.x, _FresnelLayer1MaskTScl.y, _FresnelLayer1MaskTScl.z, _FresnelLayer1MaskTScl.w,
 						_FresnelLayer1MaskTSkw.x, _FresnelLayer1MaskTSkw.y, _FresnelLayer1MaskTSkw.z, _FresnelLayer1MaskTSkw.w,
+						_FresnelLayer1MaskTRad.x, _FresnelLayer1MaskTRad.y, _FresnelLayer1MaskTRad.z, _FresnelLayer1MaskTRad.w,
 						_FresnelLayer1MaskTMod
 					);
 
@@ -2425,8 +2545,8 @@ SubShader
 						FOwO_Lerp_Thresh(_FresnelLayer1MaskALow,_FresnelLayer1MaskAHgh,0,1,Fresnel1Pass4of1.a)
 					);
 
-					Fresnel1MaskPower = Fresnel1Pass4of2.r * _FresnelLayer1MaskPowR + Fresnel1Pass4of2.g * _FresnelLayer1MaskPowG + Fresnel1Pass4of2.b * _FresnelLayer1MaskPowB + Fresnel1Pass4of2.a * _FresnelLayer1MaskPowA;
-				
+					Fresnel1MaskPower = dot(Fresnel1Pass4of2,float4(_FresnelLayer1MaskPowR,_FresnelLayer1MaskPowG,_FresnelLayer1MaskPowB,_FresnelLayer1MaskPowA));
+
 					Fresnel1Pass3 = Fresnel1Color * Fresnel1Pass2 * Fresnel1MaskPower * _FresnelLayer1MainStwg;
 				
 				}
@@ -2449,7 +2569,8 @@ SubShader
 						_FresnelLayer2MaskTPos.x, _FresnelLayer2MaskTPos.y, _FresnelLayer2MaskTPos.z, _FresnelLayer2MaskTPos.w, 
 						_FresnelLayer2MaskTRot.x, _FresnelLayer2MaskTRot.y, _FresnelLayer2MaskTRot.z, _FresnelLayer2MaskTRot.w, 
 						_FresnelLayer2MaskTScl.x, _FresnelLayer2MaskTScl.y, _FresnelLayer2MaskTScl.z, _FresnelLayer2MaskTScl.w,
-						_FresnelLayer2MaskTSkw.x, _FresnelLayer2MaskTSkw.y, _FresnelLayer2MaskTSkw.z, _FresnelLayer2MaskTSkw.w, 
+						_FresnelLayer2MaskTSkw.x, _FresnelLayer2MaskTSkw.y, _FresnelLayer2MaskTSkw.z, _FresnelLayer2MaskTSkw.w,
+						_FresnelLayer2MaskTRad.x, _FresnelLayer2MaskTRad.y, _FresnelLayer2MaskTRad.z, _FresnelLayer2MaskTRad.w, 
 						_FresnelLayer2MaskTMod
 					);
 
@@ -2469,8 +2590,9 @@ SubShader
 						FOwO_Lerp_Thresh(_FresnelLayer2MaskALow,_FresnelLayer2MaskAHgh,0,1,Fresnel2Pass4of1.a)
 					);
 
-					Fresnel2MaskPower = Fresnel2Pass4of2.r * _FresnelLayer2MaskPowR + Fresnel2Pass4of2.g * _FresnelLayer2MaskPowG + Fresnel2Pass4of2.b * _FresnelLayer2MaskPowB + Fresnel2Pass4of2.a * _FresnelLayer2MaskPowA;
-				
+					
+					Fresnel2MaskPower = dot(Fresnel2Pass4of2,float4(_FresnelLayer2MaskPowR,_FresnelLayer2MaskPowG,_FresnelLayer2MaskPowB,_FresnelLayer2MaskPowA));
+
 					Fresnel2Pass3 = Fresnel2Color * Fresnel2Pass2 * Fresnel2MaskPower * _FresnelLayer2MainStwg;	
 				}
 
@@ -2509,6 +2631,7 @@ SubShader
 						_GlitterLayer1MainTRot.x, _GlitterLayer1MainTRot.y, _GlitterLayer1MainTRot.z, _GlitterLayer1MainTRot.w, 
 						_GlitterLayer1MainTScl.x, _GlitterLayer1MainTScl.y, _GlitterLayer1MainTScl.z, _GlitterLayer1MainTScl.w,
 						_GlitterLayer1MainTSkw.x, _GlitterLayer1MainTSkw.y, _GlitterLayer1MainTSkw.z, _GlitterLayer1MainTSkw.w,
+						_GlitterLayer1MainTRad.x, _GlitterLayer1MainTRad.y, _GlitterLayer1MainTRad.z, _GlitterLayer1MainTRad.w,
 						_GlitterLayer1MainTMod
 					);
 
@@ -2693,8 +2816,8 @@ SubShader
 					return float4(INCOMING.uv.xy,0,1);
 
 					//return float4(INCOMING.worldPos.xyz,1);
-
 					//return float4(_WorldSpaceCameraPos.xyz,1);
+					//return float4(INCOMING.binormal.xyz,1);
 				}
 	
 

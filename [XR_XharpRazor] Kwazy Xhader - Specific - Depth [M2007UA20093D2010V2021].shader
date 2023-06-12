@@ -8,6 +8,9 @@ Shader "M2007U - A2009 - 3D2010 - V2021/KX_Spcf_Depth"
         _depth ("depth",float) = 0
         _depthSlide ("depth slide",range(0,1)) = 1
 
+        _BoundCheck ("Use boundary ? 0 = no, else yes",Range(0,1)) = 1
+        _OutColor ("Out Color",Color) = (0,0,0,1)
+
     }
     SubShader
     {
@@ -67,6 +70,9 @@ Shader "M2007U - A2009 - 3D2010 - V2021/KX_Spcf_Depth"
             sampler2D _MainTex;
             float _depth;
             float _depthSlide;
+            fixed4 _OutColor;
+            float _BoundCheck;
+            
 
             v2f vert (appdata INCOMING)
             {
@@ -120,9 +126,7 @@ Shader "M2007U - A2009 - 3D2010 - V2021/KX_Spcf_Depth"
                 //===== method 2 to calculate deltaXY
 
                 float theta = acos(dot(i.normal,i.viewdir));
-
                 float depthTRUE = _depth * _depthSlide;
-
                 float delta = tan(theta) * depthTRUE;
 
                 float3 v1 = i.viewdir * -1;
@@ -137,7 +141,20 @@ Shader "M2007U - A2009 - 3D2010 - V2021/KX_Spcf_Depth"
                 float deltaX = dot(u,i.tangent);
                 float deltaY = dot(u,i.binormal);
 
-                return tex2D(_MainTex,i.uv.xy - float2(-1 * deltaX,deltaY));
+                float2 TotalUV = i.uv.xy - float2(-1 * deltaX,deltaY);
+
+                fixed4 FinalColor;
+
+                if((TotalUV.x > 1 || TotalUV.x < 0 || TotalUV.y > 1 || TotalUV.y < 0) && (_BoundCheck != 0))
+                {
+                    FinalColor = _OutColor;
+                }
+                else
+                {
+                    FinalColor = tex2D(_MainTex,TotalUV);
+                }
+
+                return FinalColor;
 
 
 
