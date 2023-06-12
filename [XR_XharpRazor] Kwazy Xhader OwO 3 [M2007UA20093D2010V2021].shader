@@ -1454,6 +1454,9 @@ SubShader
 
 				OUTGOING.position = UnityObjectToClipPos(INCOMING.vertex + AxisDistortTotal + NormDistortPass2);//float4
 				OUTGOING.uv = INCOMING.uv;
+				OUTGOING.uv1 = INCOMING.uv1;
+				OUTGOING.uv2 = INCOMING.uv2;
+				OUTGOING.uv3 = INCOMING.uv3;
 
 				OUTGOING.normal = normalize(UnityObjectToWorldNormal(INCOMING.normal));
                 OUTGOING.tangent = normalize(mul(unity_ObjectToWorld,INCOMING.tangent));
@@ -1464,6 +1467,7 @@ SubShader
 
 				//#if defined(LIGHTMAP_ON)
 				OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+				OUTGOING.lightmapUV.zw = float2(0,0);
 				//#endif
 				//#if defined(DYNAMICLIGHTMAP_ON)
 				//OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
