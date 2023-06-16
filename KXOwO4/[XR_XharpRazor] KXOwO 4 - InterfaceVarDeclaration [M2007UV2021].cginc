@@ -529,6 +529,11 @@ fixed4 _GlitterLayer1GlitClor;//("Gwitter Kolor",Color) = (1,1,1,1)
 
 
 
+float _RuntimeLightDiffStrg;
+float _RuntimeLightSpecStrg;
+float _RuntimeLightSpecGlos;
+
+
 
 
 

@@ -1,3 +1,8 @@
+float FOwO_Vec2Mag(float2 vek)
+{
+    return pow(pow(vek.x,2) + pow(vek.y,2),0.5);
+}
+
 float FOwO_Vec3Mag(float3 vek)
 {
     return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2),0.5);

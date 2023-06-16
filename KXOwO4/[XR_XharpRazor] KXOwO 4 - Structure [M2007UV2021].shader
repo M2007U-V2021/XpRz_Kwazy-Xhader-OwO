@@ -59,124 +59,7 @@
 			(Glitter Feature Idea)      : https://www.youtube.com/watch?v=jAOqmx764dA
 */
 
-/*
-	incoming Update Notes:
 
-	new transform mode : Circle Projection:
-		Take the whole texture and roll it onto a cylinder,
-		then get projected to a plane on the right of the cylinder
-
-	new layer : real time Light, thanks Freya Holmer OwO <3
-		https://www.youtube.com/watch?v=mL8U8tIiRRg&t=10521s
-		https://www.youtube.com/watch?v=E4PHFnvMzFc&t=2970s
-
-		realtimeLights
-		{
-			vector _WorldSpaceLightPos0 //from Unity 
-			if it is a directional light, then it is a direction(worldspace), else it is a position(world space)
-			read Unity manual for details
-			CAUTION : Point light cannot be taken care in the base pass (the first pass)
-			SOLUTION : make another pass then takecare the pointlights there
-
-			color _LightColor0 //from Unity
-		}
-
-		DiffuseLight/LambertianShading
-		{
-			direction from obj to lightsource, worldSpace : vector L; // on the entire mesh, L is the same
-			normal of the current triangle, worldSpace : vector INCOMING.normal OR simplfy to vector N;
-			the color of the light : color C;
-
-			float DotValue = max(0,dot(L,N)); this will be a Scalar.
-			FinalOutput = ReadFromTexture * C * DotValue
-		}
-
-		SpecularLight / GlossHighlight
-		{
-			phong:
-
-				direction from obj to lightsource, worldSpace : vector L; // on the entire mesh, L is the same
-				normal of the current triangle, worldSpace : vector INCOMING.normal OR simplfy to vector N;
-				the view vector, from mesh to camera : vector INCOMING.viewdir OR simplyfy to vector V;
-				the color of the light : color C;
-
-				since L is pointing away from mesh, we need to flip it, let call it FlipL, 
-				then let FlipL reflect by using N, then we will get a new vector, say vector R;
-				R = reflect(-L,N) //this function is built in by Unity
-
-				Glossiness : how smooth it is
-
-				dotValue = max(0,dot(R,N))
-				FinalOutput = ReadFromTexture * C * pow(dotValue,gloss)
-
-				CAUTION : 
-				since normals are LERPed between vertices, 
-				the normal vector between vertices will be shorter in magnitude (mag < 1), 
-				causing the dotValue to be slightly darker
-
-				FIX : dotValue = max(0,dot(R,normalize(N)))
-
-			blinnphong (more used often):
-
-				direction from obj to lightsource, worldSpace : vector L; // on the entire mesh, L is the same
-				normal of the current triangle, worldSpace : vector INCOMING.normal OR simplfy to vector N;
-				the view vector, from mesh to camera : vector INCOMING.viewdir OR simplyfy to vector V;
-				the color of the light : color C;
-
-				vector HalfVector OR simplyfy to vector H = normalize(L + V)
-
-				dotValue = max(0,dot(H,N))
-				FinalOutput = ReadFromTexture * C * pow(dotValue,gloss)
-
-				CAUTION : when the camera is behind the object from the light source, sometimes there is a small spotlight,
-				FIX : get Lambert = max(0,dot(N,L)), then dotValue = max(0,dot(H,N)) * (Lambert > 0) //Lambert > 0 is going to return a boolean, either 1 or 0;
-		}
-
-		Multiple lightsource
-		{
-			Structure Note:
-				We are going to to do all the real time lights in AddPass, no matter if it is Directional or point lights etc
-
-
-			Shader structure set up / installments :
-
-				Add pass is called for every additional light source in Unity
-
-				BasePass.tag : "LightMode" = "ForwardBase"
-				AddPass.tag : "LightMode" = "ForwardAdd"
-
-				for the Addpass, there are 3 pragmas : vert, frag, multi_compile_fwdadd
-
-				struct v2f
-				{
-					//add this
-					LIGHTING_COORDS(SemanticNumber,SemanticNumber)
-					//lights in Unity has a matrix attach to it, so the shader needs to know the matrix,
-				}
-
-				v2f vert(appdata INCOMING)
-				{
-					//add this
-					TRANSFER_VERTEX_TO_FRAGMENT(OUTGOING)
-				}
-
-				fixed4 frag(v2f INCOMING) : SV_Target
-				{
-					vector L = normalize(UnityWorldSpaceLightDir(INCOMING.worldPos));
-				}
-
-			Point light Attenuation (inside AddPass):
-
-				basically we want the color to fall of as the point light gets further
-				float atten = LIGHT_ATTENUATION(INCOMING) //this will read LIGHTING_COORDS from INCOMING to calculate the ATTENUATION
-				then we can adjust such that :
-
-				Lambertian : FinalOutput = ReadFromTexture * C * DotValue * Attenuation
-		}
-
-
-
-*/
 
 
 
@@ -777,6 +660,17 @@ Properties
 
 
 
+
+
+	[Header(Runtime Light)]
+	[Space(64)]
+
+	_RuntimeLightDiffStrg("Diff Stwength",range(0,1)) = 1
+	_RuntimeLightSpecStrg("Spek Stwength",range(0,1)) = 1
+	_RuntimeLightSpecGlos("Gwos Stwength",float) = 1
+
+
+
 	
 	//[Header(Post Processing)]
 	//[Space(64)]
@@ -884,7 +778,7 @@ SubShader
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "AutoLight.cginc"
-			//#include "UnityLightingCommon.cginc"
+			#include "UnityLightingCommon.cginc"
 
 			#include "[XR_XharpRazor] KXOwO 4 - Struct Appdata [M2007UV2021].cginc"
 			#include "[XR_XharpRazor] KXOwO 4 - Struct V2F [M2007UV2021].cginc"
@@ -905,7 +799,7 @@ SubShader
 
 			fixed4 furagmentXD(v2f INCOMING) : SV_Target
 			{
-				return float4(INCOMING.uv.xy,0,1);
+				#include "[XR_XharpRazor] KXOwO 4 - Pragma Frag ForwardAdd [M2007UV2021].cginc"
 			}
 
 		ENDCG

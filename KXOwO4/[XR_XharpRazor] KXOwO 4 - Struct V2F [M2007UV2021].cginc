@@ -3,9 +3,9 @@ struct v2f //VertexToFragment
     float4 position : SV_POSITION; //the type, the name, then what it is equivalent to Unity
 
     float2 uv : TEXCOORD0;
-    float2 uv1 : TEXCOORD1;
-    float2 uv2 : TEXCOORD2;
-    float2 uv3 : TEXCOORD3;
+    //float2 uv1 : TEXCOORD1;
+    //float2 uv2 : TEXCOORD2;
+    //float2 uv3 : TEXCOORD3;
 
     float3 normal : TEXCOORD4;
     float3 tangent : TEXCOORD5;
@@ -14,7 +14,7 @@ struct v2f //VertexToFragment
     float3 viewdir : TEXCOORD7;
     float3 worldPos : TEXCOORD8;
 
-    LIGHTING_COORDS(9,10)
+    LIGHTING_COORDS(1,2)
 
     float4 lightmapUV : TEXCOORD12;
 

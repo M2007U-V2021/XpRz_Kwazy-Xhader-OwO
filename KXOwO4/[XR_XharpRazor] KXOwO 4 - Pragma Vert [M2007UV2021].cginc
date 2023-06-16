@@ -128,9 +128,10 @@ else
 
 OUTGOING.position = UnityObjectToClipPos(INCOMING.vertex + AxisDistortTotal + NormDistortPass2);//float4
 OUTGOING.uv = INCOMING.uv;
-OUTGOING.uv1 = INCOMING.uv1;
-OUTGOING.uv2 = INCOMING.uv2;
-OUTGOING.uv3 = INCOMING.uv3;
+
+//OUTGOING.uv1 = INCOMING.uv1;
+//OUTGOING.uv2 = INCOMING.uv2;
+//OUTGOING.uv3 = INCOMING.uv3;
 
 OUTGOING.normal = normalize(UnityObjectToWorldNormal(INCOMING.normal));
 OUTGOING.tangent = normalize(mul(unity_ObjectToWorld,INCOMING.tangent));
@@ -139,13 +140,13 @@ OUTGOING.binormal = normalize(mul(unity_ObjectToWorld,cross(INCOMING.normal,INCO
 OUTGOING.viewdir = float3(normalize(WorldSpaceViewDir(INCOMING.vertex)));
 OUTGOING.worldPos = mul(unity_ObjectToWorld,INCOMING.vertex);
 
-//#if defined(LIGHTMAP_ON)
+
 OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 OUTGOING.lightmapUV.zw = float2(0,0);
 
-TRANSFER_VERTEX_TO_FRAGMENT(OUTGOING);//has something to deal with lightning
-//#endif
-//#if defined(DYNAMICLIGHTMAP_ON)
-//OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
-//#endif
+
+//TRANSFER_VERTEX_TO_FRAGMENT(OUTGOING);
+
+//has something to deal with lightning
+
 
