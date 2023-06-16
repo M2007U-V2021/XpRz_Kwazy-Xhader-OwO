@@ -1,4 +1,4 @@
-//fixed4 frag (v2f INCOMING) : SV_TARGET
+//fixed4 frag (v2f i) : SV_TARGET
 
 //get distort color
 fixed4 Piksel1Dist;
@@ -21,7 +21,7 @@ else
 {
     Piksel1Dist = FOwO_Color_ReadFromTexture
     (
-    _TextureLayer1DistImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+    _TextureLayer1DistImge, 0, i.uv.x, i.uv.y,
     _TextureLayer1DistTShft,
     _TextureLayer1DistTRott,
     _TextureLayer1DistTScPx,
@@ -45,7 +45,7 @@ else
 {
     Piksel2Dist = FOwO_Color_ReadFromTexture
     (
-    _TextureLayer2DistImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+    _TextureLayer2DistImge, 0, i.uv.x, i.uv.y,
     _TextureLayer2DistTShft,
     _TextureLayer2DistTRott,
     _TextureLayer2DistTScPx,
@@ -86,7 +86,7 @@ else
 {
     Piksel1Mask1 = FOwO_Color_ReadFromTexture
     (
-        _TextureLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+        _TextureLayer1MaskImge, 0, i.uv.x, i.uv.y,
         _TextureLayer1MaskTShft,
         _TextureLayer1MaskTRott,
         _TextureLayer1MaskTScPx,
@@ -124,7 +124,7 @@ else
 {
     Piksel2Mask1 = FOwO_Color_ReadFromTexture
     (
-    _TextureLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+    _TextureLayer2MaskImge, 0, i.uv.x, i.uv.y,
     _TextureLayer2MaskTShft,
     _TextureLayer2MaskTRott,
     _TextureLayer2MaskTScPx,
@@ -197,7 +197,7 @@ else
 {
     Piksel1Pass0of1 = FOwO_Color_ReadFromTexture
     (
-        _TextureLayer1MainImge, 0, INCOMING.uv.x + Piksel1XOofset, INCOMING.uv.y + Piksel1YOofset, 
+        _TextureLayer1MainImge, 0, i.uv.x + Piksel1XOofset, i.uv.y + Piksel1YOofset, 
         _TextureLayer1MainTShft, 
         _TextureLayer1MainTRott, 
         _TextureLayer1MainTScPx,
@@ -245,7 +245,7 @@ else
             _TextureLayer1MainDtcv.z,
             _TextureLayer1MainDtcv.x,
             _TextureLayer1MainDtcv.w,
-            FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - INCOMING.worldPos.xyz)
+            FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - i.worldPos.xyz)
         );
     }
 
@@ -261,7 +261,7 @@ else
 {
     Piksel2Pass0of1 = FOwO_Color_ReadFromTexture
     (
-        _TextureLayer2MainImge, 0, INCOMING.uv.x + Piksel2XOofset, INCOMING.uv.y + Piksel2YOofset, 
+        _TextureLayer2MainImge, 0, i.uv.x + Piksel2XOofset, i.uv.y + Piksel2YOofset, 
         _TextureLayer2MainTShft, 
         _TextureLayer2MainTRott, 
         _TextureLayer2MainTScPx,
@@ -309,7 +309,7 @@ else
             _TextureLayer2MainDtcv.z,
             _TextureLayer2MainDtcv.x,
             _TextureLayer2MainDtcv.w,
-            FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - INCOMING.worldPos.xyz)
+            FOwO_Vec3Mag(_WorldSpaceCameraPos.xyz - i.worldPos.xyz)
         );
     }
 
@@ -362,11 +362,11 @@ if(_VectorCrLayer1MainStwg == 0)
 }
 else
 {
-    Vectorcr1Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
+    Vectorcr1Pass0 = pow(max(0,dot(i.normal,_VectorCrLayer1MainVect)),_VectorCrLayer1MainRamp);
 
     Vectorcr1Pass1of0 = FOwO_Color_ReadFromTexture
     (
-        _VectorCrLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+        _VectorCrLayer1MaskImge, 0, i.uv.x, i.uv.y,
         _VectorCrLayer1MaskTShft,
         _VectorCrLayer1MaskTRott,
         _VectorCrLayer1MaskTScPx,
@@ -403,11 +403,11 @@ if(_VectorCrLayer2MainStwg == 0)
 }
 else
 {
-    Vectorcr2Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
+    Vectorcr2Pass0 = pow(max(0,dot(i.normal,_VectorCrLayer2MainVect)),_VectorCrLayer2MainRamp);
 
     Vectorcr2Pass1of0 = FOwO_Color_ReadFromTexture
     (
-        _VectorCrLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+        _VectorCrLayer2MaskImge, 0, i.uv.x, i.uv.y,
         _VectorCrLayer2MaskTShft,
         _VectorCrLayer2MaskTRott,
         _VectorCrLayer2MaskTScPx,
@@ -444,11 +444,11 @@ if(_VectorCrLayer3MainStwg == 0)
 }
 else
 {
-    Vectorcr3Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
+    Vectorcr3Pass0 = pow(max(0,dot(i.normal,_VectorCrLayer3MainVect)),_VectorCrLayer3MainRamp);
 
     Vectorcr3Pass1of0 = FOwO_Color_ReadFromTexture
     (
-        _VectorCrLayer3MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+        _VectorCrLayer3MaskImge, 0, i.uv.x, i.uv.y,
         _VectorCrLayer3MaskTShft,
         _VectorCrLayer3MaskTRott,
         _VectorCrLayer3MaskTScPx,
@@ -485,11 +485,11 @@ if(_VectorCrLayer4MainStwg == 0)
 }
 else
 {
-    Vectorcr4Pass0 = pow(max(0,dot(INCOMING.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
+    Vectorcr4Pass0 = pow(max(0,dot(i.normal,_VectorCrLayer4MainVect)),_VectorCrLayer4MainRamp);
 
     Vectorcr4Pass1of0 = FOwO_Color_ReadFromTexture
     (
-        _VectorCrLayer4MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y,
+        _VectorCrLayer4MaskImge, 0, i.uv.x, i.uv.y,
         _VectorCrLayer4MaskTShft,
         _VectorCrLayer4MaskTRott,
         _VectorCrLayer4MaskTScPx,
@@ -587,13 +587,13 @@ else
 {
     Fresnel1Color = FOwO_Lerp_Color4Intervals(_FresnelLayer1MainClr0, _FresnelLayer1MainClr1, _FresnelLayer1MainClr2, _FresnelLayer1MainClr3, _FresnelLayer1MainClrT.x, _FresnelLayer1MainClrT.y, _FresnelLayer1MainClrT.z, _FresnelLayer1MainClrT.w,_KontrolLerpClamp);
 
-    Fresnel1Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer1MainRgIv);
+    Fresnel1Pass0 = FOwO_BlendOneMinus(max(0,dot(i.normal,i.viewdir)),1,_FresnelLayer1MainRgIv);
     Fresnel1Pass1 = pow(Fresnel1Pass0,_FresnelLayer1MainRamp);
     Fresnel1Pass2 = FOwO_Lerp_Thresh(_FresnelLayer1MainTrLw, _FresnelLayer1MainTrHg, 0, 1, Fresnel1Pass1);
 
     Fresnel1Pass4of0 = FOwO_Color_ReadFromTexture
     (
-        _FresnelLayer1MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+        _FresnelLayer1MaskImge, 0, i.uv.x, i.uv.y, 
         _FresnelLayer1MaskTShft, 
         _FresnelLayer1MaskTRott, 
         _FresnelLayer1MaskTScPx,
@@ -633,13 +633,13 @@ else
 {
     Fresnel2Color = FOwO_Lerp_Color4Intervals(_FresnelLayer2MainClr0, _FresnelLayer2MainClr1, _FresnelLayer2MainClr2, _FresnelLayer2MainClr3, _FresnelLayer2MainClrT.x, _FresnelLayer2MainClrT.y, _FresnelLayer2MainClrT.z, _FresnelLayer2MainClrT.w,_KontrolLerpClamp);
 
-    Fresnel2Pass0 = FOwO_BlendOneMinus(max(0,dot(INCOMING.normal,INCOMING.viewdir)),1,_FresnelLayer2MainRgIv);
+    Fresnel2Pass0 = FOwO_BlendOneMinus(max(0,dot(i.normal,i.viewdir)),1,_FresnelLayer2MainRgIv);
     Fresnel2Pass1 = pow(Fresnel2Pass0,_FresnelLayer2MainRamp);
     Fresnel2Pass2 = FOwO_Lerp_Thresh(_FresnelLayer2MainTrLw, _FresnelLayer2MainTrHg, 0, 1, Fresnel2Pass1);
 
     Fresnel2Pass4of0 = FOwO_Color_ReadFromTexture
     (
-        _FresnelLayer2MaskImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+        _FresnelLayer2MaskImge, 0, i.uv.x, i.uv.y, 
         _FresnelLayer2MaskTShft, 
         _FresnelLayer2MaskTRott, 
         _FresnelLayer2MaskTScPx,
@@ -701,7 +701,7 @@ else
 {
     Glitter1Pass0 = FOwO_Color_ReadFromTexture
     (
-        _GlitterLayer1MainImge, 0, INCOMING.uv.x, INCOMING.uv.y, 
+        _GlitterLayer1MainImge, 0, i.uv.x, i.uv.y, 
         _GlitterLayer1MainTShft, 
         _GlitterLayer1MainTRott, 
         _GlitterLayer1MainTScPx,
@@ -744,8 +744,8 @@ else
 
 
 
-//float2 LMUV = (INCOMING.uv + unity_LightmapST.zw) * unity_LightmapST.xy;
-fixed4 LightmapPass0 = float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,INCOMING.lightmapUV)),1);
+//float2 LMUV = (i.uv + unity_LightmapST.zw) * unity_LightmapST.xy;
+fixed4 LightmapPass0 = float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,i.lightmapUV)),1);
 
 /*
 return 
@@ -762,14 +762,14 @@ return
     LightmapPass0 * _KontrolLightMap ;
 */
 
-//return float4(INCOMING.lightmapUV.xy,0,1);
+//return float4(i.lightmapUV.xy,0,1);
 
-//return float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,INCOMING.lightmapUV)),1);
+//return float4(DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap,i.lightmapUV)),1);
 //_LightmapLayerMainImge
 
-//return tex2D(unity_Lightmap,INCOMING.lightmapUV.xy);
+//return tex2D(unity_Lightmap,i.lightmapUV.xy);
 
-//return float4(INCOMING.lightmapUV.xy,0,1);
+//return float4(i.lightmapUV.xy,0,1);
 
 
 
@@ -889,9 +889,9 @@ else if(_LayerBlendMode == 2) //Layer2 is on top of Layer1
 }
 else //shader testing
 {
-    return float4(INCOMING.uv.xy,0,1);
+    return float4(i.uv.xy,0,1);
 
-    //return float4(INCOMING.worldPos.xyz,1);
+    //return float4(i.worldPos.xyz,1);
     //return float4(_WorldSpaceCameraPos.xyz,1);
-    //return float4(INCOMING.binormal.xyz,1);
+    //return float4(i.binormal.xyz,1);
 }

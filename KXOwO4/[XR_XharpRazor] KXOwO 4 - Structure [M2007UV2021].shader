@@ -745,14 +745,14 @@ SubShader
 			#include "[XR_XharpRazor] KXOwO 4 - InterfaceVarDeclaration [M2007UV2021].cginc"
 
 
-			v2f verteksXD(appdata INCOMING)
+			v2f verteksXD(appdata v)
 			{
-				v2f OUTGOING;
+				v2f o;
 				#include "[XR_XharpRazor] KXOwO 4 - Pragma Vert [M2007UV2021].cginc"
-				return OUTGOING;
+				return o;
 			}
 
-			fixed4 furagmentXD(v2f INCOMING) : SV_Target
+			fixed4 furagmentXD(v2f i) : SV_Target
 			{
 				#include "[XR_XharpRazor] KXOwO 4 - Pragma Frag ForwardBase [M2007UV2021].cginc"
 			}
@@ -788,16 +788,16 @@ SubShader
 
 			
 
-			v2f verteksXD(appdata INCOMING)
+			v2f verteksXD(appdata v)
 			{
-				v2f OUTGOING;
+				v2f o;
 				#include "[XR_XharpRazor] KXOwO 4 - Pragma Vert [M2007UV2021].cginc"
-				return OUTGOING;
+				return o;
 			}
 
 			
 
-			fixed4 furagmentXD(v2f INCOMING) : SV_Target
+			fixed4 furagmentXD(v2f i) : SV_Target
 			{
 				#include "[XR_XharpRazor] KXOwO 4 - Pragma Frag ForwardAdd [M2007UV2021].cginc"
 			}

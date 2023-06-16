@@ -1,4 +1,4 @@
-//v2f frag (INCOMING)
+//v2f frag (v)
 
 #include "UnityCG.cginc"
 
@@ -15,7 +15,7 @@ else
 {
     AxisDistortXPass0 = FOwO_Color_ReadFromTexture
     (
-        _AxisDistortXImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
+        _AxisDistortXImge, 1,v.uv.x, v.uv.y, 
         _AxisDistortXTShft, 
         _AxisDistortXTRott, 
         _AxisDistortXTScPx,
@@ -34,7 +34,7 @@ else
 {
     AxisDistortYPass0 = FOwO_Color_ReadFromTexture
     (
-        _AxisDistortYImge, 1,INCOMING.uv.x, INCOMING.uv.y, 
+        _AxisDistortYImge, 1,v.uv.x, v.uv.y, 
         _AxisDistortYTShft,
         _AxisDistortYTRott, 
         _AxisDistortYTScPx,
@@ -53,7 +53,7 @@ else
 {
     AxisDistortZPass0 = FOwO_Color_ReadFromTexture
     (
-        _AxisDistortZImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
+        _AxisDistortZImge, 1, v.uv.x, v.uv.y, 
         _AxisDistortZTShft, 
         _AxisDistortZTRott, 
         _AxisDistortZTScPx,
@@ -100,7 +100,7 @@ else
 {
     NormDistortPass0 = FOwO_Color_ReadFromTexture
     (
-        _NormalExtrudeMainImge, 1, INCOMING.uv.x, INCOMING.uv.y, 
+        _NormalExtrudeMainImge, 1, v.uv.x, v.uv.y, 
         _NormalExtrudeMainTShft, 
         _NormalExtrudeMainTRott, 
         _NormalExtrudeMainTScPx,
@@ -117,7 +117,7 @@ else
 
     NormDistortPass1 = dot(NormDistortPass0,float4(NormDistortPowerR,NormDistortPowerG,NormDistortPowerB,NormDistortPowerA)) * _NormDistortAmpl;
 
-    NormDistortPass2 = float4(INCOMING.normal.xyz,0) * NormDistortPass1;
+    NormDistortPass2 = float4(v.normal.xyz,0) * NormDistortPass1;
 }
 
 
@@ -126,26 +126,26 @@ else
 
 
 
-OUTGOING.position = UnityObjectToClipPos(INCOMING.vertex + AxisDistortTotal + NormDistortPass2);//float4
-OUTGOING.uv = INCOMING.uv;
+o.position = UnityObjectToClipPos(v.vertex + AxisDistortTotal + NormDistortPass2);//float4
+o.uv = v.uv;
 
-//OUTGOING.uv1 = INCOMING.uv1;
-//OUTGOING.uv2 = INCOMING.uv2;
-//OUTGOING.uv3 = INCOMING.uv3;
+//o.uv1 = v.uv1;
+//o.uv2 = v.uv2;
+//o.uv3 = v.uv3;
 
-OUTGOING.normal = normalize(UnityObjectToWorldNormal(INCOMING.normal));
-OUTGOING.tangent = normalize(mul(unity_ObjectToWorld,INCOMING.tangent));
-OUTGOING.binormal = normalize(mul(unity_ObjectToWorld,cross(INCOMING.normal,INCOMING.tangent)));
+o.normal = normalize(UnityObjectToWorldNormal(v.normal));
+o.tangent = normalize(mul(unity_ObjectToWorld,v.tangent));
+o.binormal = normalize(mul(unity_ObjectToWorld,cross(v.normal,v.tangent)));
 
-OUTGOING.viewdir = float3(normalize(WorldSpaceViewDir(INCOMING.vertex)));
-OUTGOING.worldPos = mul(unity_ObjectToWorld,INCOMING.vertex);
-
-
-OUTGOING.lightmapUV.xy = INCOMING.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
-OUTGOING.lightmapUV.zw = float2(0,0);
+o.viewdir = float3(normalize(WorldSpaceViewDir(v.vertex)));
+o.worldPos = mul(unity_ObjectToWorld,v.vertex);
 
 
-//TRANSFER_VERTEX_TO_FRAGMENT(OUTGOING);
+o.lightmapUV.xy = v.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+o.lightmapUV.zw = float2(0,0);
+
+
+TRANSFER_VERTEX_TO_FRAGMENT(o);
 
 //has something to deal with lightning
 
