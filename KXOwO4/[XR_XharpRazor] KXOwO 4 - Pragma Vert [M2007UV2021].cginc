@@ -134,8 +134,8 @@ o.uv = v.uv;
 //o.uv3 = v.uv3;
 
 o.normal = normalize(UnityObjectToWorldNormal(v.normal));
-o.tangent = normalize(mul(unity_ObjectToWorld,v.tangent));
-o.binormal = normalize(mul(unity_ObjectToWorld,cross(v.normal,v.tangent)));
+o.tangent = normalize(UnityObjectToWorldDir(v.tangent.xyz));
+o.binormal = cross(o.normal,o.tangent) * v.tangent.w * unity_WorldTransformParams.w;
 
 o.viewdir = float3(normalize(WorldSpaceViewDir(v.vertex)));
 o.worldPos = mul(unity_ObjectToWorld,v.vertex);

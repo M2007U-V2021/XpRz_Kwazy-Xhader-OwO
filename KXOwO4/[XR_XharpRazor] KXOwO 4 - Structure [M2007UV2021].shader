@@ -5,11 +5,9 @@
 	by:
 		XR_XharpRazor
 
-
-
 	department:
 		M2007UA2009
-		M2007UA20093D2+010U2019
+		M2007UA20093D2010U2019
 		M2007UA20093D2010V2021
 
 
@@ -17,46 +15,48 @@
 	SpecialThanks:
 
 		Unity
-			(Built in Unity Shader Var) : https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
-			https://docs.unity3d.com/Manual/SL-BuiltinFunctions.html
+			(Built in Unity Shader Variables) : https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+			(Built in Unity Shader Functions) : https://docs.unity3d.com/Manual/SL-BuiltinFunctions.html
 
 		Microsoft Visual Studio Code
 			(Text Editor)
 
-		Freya Holmer                         
-			(Shader Analysis)           : https://www.youtube.com/watch?v=kfM-yu0iQBk
-			(built in Unity Shader Var) : https://www.youtube.com/watch?v=mL8U8tIiRRg where t = 2:25:17
+		Freya Holmér        
+			(Shader Analysis)                 : https://www.youtube.com/watch?v=kfM-yu0iQBk
+			(built in Unity Shader Var)       : https://www.youtube.com/watch?v=mL8U8tIiRRg where t = 2:25:17
+			(Runtime Lights)                  : https://www.youtube.com/watch?v=E4PHFnvMzFc
+			(Property tag [NoScaleOffset])    : https://www.youtube.com/watch?v=E4PHFnvMzFc where t = 1:12:29
 
 		quill18creates                       
-			(General Concept)           : https://www.youtube.com/watch?v=C0uJ4sZelio
+			(General Concept)                 : https://www.youtube.com/watch?v=C0uJ4sZelio
 
 		Makin' Stuff Look Good               
-			(General Concept)           : https://www.youtube.com/watch?v=T-HXmQAMhG0
+			(General Concept)                 : https://www.youtube.com/watch?v=T-HXmQAMhG0
 
 		Dapper Dino                          
-			(General Concept)           : https://www.youtube.com/watch?v=bR8DHcj6Htg&list=PLS6sInD7ThM3giqACaYCBtIhkMNucqmna
+			(General Concept)                 : https://www.youtube.com/watch?v=bR8DHcj6Htg&list=PLS6sInD7ThM3giqACaYCBtIhkMNucqmna
 
 		NiceChord                            
-			(ADSR Concept)              : https://www.youtube.com/watch?v=U55KRu68ls8
+			(ADSR Concept)                    : https://www.youtube.com/watch?v=U55KRu68ls8
 
 		Benjamin Swee - Custom Unity Shaders 
-			(Fresnel Effect)            : https://www.youtube.com/watch?v=nuoQdbJwAHo
-			(Blending Mode)             : https://www.youtube.com/watch?v=vr1u8HbWTbo
+			(Fresnel Effect)                  : https://www.youtube.com/watch?v=nuoQdbJwAHo
+			(Blending Mode)                   : https://www.youtube.com/watch?v=vr1u8HbWTbo
 
 		Exsy                                 
-			(Fur Shader Explain)        : https://vrchat.com/home/user/usr_f9a43067-7a87-41ea-8514-20d68c049b2f
+			(Fur Shader Explain)              : https://vrchat.com/home/user/usr_f9a43067-7a87-41ea-8514-20d68c049b2f
 
 		Learn Unity@Yang                     
-			(Shader Format : Header)    : https://www.youtube.com/watch?v=Xc9pGc8I1fA
-			(Normal extrusion)          : https://www.youtube.com/watch?v=Xc9pGc8I1fA
-			(Directional Light)         : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Property tag [Header])           : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Normal extrusion)                : https://www.youtube.com/watch?v=Xc9pGc8I1fA
+			(Directional Light)               : https://www.youtube.com/watch?v=Xc9pGc8I1fA
 
 		Poiyomi                              
 			(Shader Format : Space)
 			(Enum)
 
 		Daniel llett
-			(Glitter Feature Idea)      : https://www.youtube.com/watch?v=jAOqmx764dA
+			(Glitter Feature Idea)            : https://www.youtube.com/watch?v=jAOqmx764dA
 */
 
 
@@ -65,7 +65,7 @@
 
 
 
-Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] Kwazy Xhader OwO 4 [M2007UA20093D2010V2021]"
+Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] KXOwO 4 [M2007UV2021]"
 {
 Properties
 {
@@ -104,7 +104,7 @@ Properties
 
 	[Header(Teksture Layer 01)]
 	[Space(64)]
-	_TextureLayer1MainImge("Mwain Teksture",2D) = "white" {}
+	[NoScaleOffset] _TextureLayer1MainImge("Mwain Teksture",2D) = "white" {}
 	_TextureLayer1MainTMod("Transform Mode",float) = 0
 	_TextureLayer1MainTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1MainTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -142,7 +142,7 @@ Properties
 
 
 
-	_TextureLayer1DistImge("Distwot Teksture",2D) = "black" {}
+	[NoScaleOffset] _TextureLayer1DistImge("Distwot Teksture",2D) = "black" {}
 	_TextureLayer1DistTMod("Transform Mode",float) = 0
 	_TextureLayer1DistTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1DistTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -160,7 +160,7 @@ Properties
 
 
 
-	_TextureLayer1MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _TextureLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_TextureLayer1MaskTMod("Transform Mode",float) = 0
 	_TextureLayer1MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer1MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -197,7 +197,7 @@ Properties
 
 	[Header(Teksture Layer 02)]
 	[Space(64)]
-	_TextureLayer2MainImge("Mwain Teksture",2D) = "white" {}
+	[NoScaleOffset] _TextureLayer2MainImge("Mwain Teksture",2D) = "white" {}
 	_TextureLayer2MainTMod("Transform Mode",float) = 0
 	_TextureLayer2MainTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2MainTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -234,7 +234,7 @@ Properties
 
 
 
-	_TextureLayer2DistImge("Distwot Teksture",2D) = "black" {}
+	[NoScaleOffset] _TextureLayer2DistImge("Distwot Teksture",2D) = "black" {}
 	_TextureLayer2DistTMod("Transform Mode",float) = 0
 	_TextureLayer2DistTShft("Trf_Shift : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2DistTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -251,7 +251,7 @@ Properties
 
 
 
-	_TextureLayer2MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _TextureLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_TextureLayer2MaskTMod("Transform Mode",float) = 0
 	_TextureLayer2MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_TextureLayer2MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -305,7 +305,7 @@ Properties
 
 
 
-	_FresnelLayer1MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _FresnelLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_FresnelLayer1MaskTMod("Transform Mode",float) = 0
 	_FresnelLayer1MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_FresnelLayer1MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -359,7 +359,7 @@ Properties
 
 
 
-	_FresnelLayer2MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _FresnelLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_FresnelLayer2MaskTMod("Transform Mode",float) = 0
 	_FresnelLayer2MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_FresnelLayer2MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -403,7 +403,7 @@ Properties
 	_VectorCrLayer1MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer1MainStwg("Stwengh0",Range(0,1)) = 0
 
-	_VectorCrLayer1MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _VectorCrLayer1MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer1MaskTMod("Transform Mode",float) = 0
 	_VectorCrLayer1MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_VectorCrLayer1MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -441,7 +441,7 @@ Properties
 	_VectorCrLayer2MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer2MainStwg("Stwengh1",Range(0,1)) = 0
 
-	_VectorCrLayer2MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _VectorCrLayer2MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer2MaskTMod("Transform Mode",float) = 0
 	_VectorCrLayer2MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_VectorCrLayer2MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -480,7 +480,7 @@ Properties
 	_VectorCrLayer3MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer3MainStwg("Stwengh1",Range(0,1)) = 0
 
-	_VectorCrLayer3MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _VectorCrLayer3MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer3MaskTMod("Transform Mode",float) = 0
 	_VectorCrLayer3MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_VectorCrLayer3MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -519,7 +519,7 @@ Properties
 	_VectorCrLayer4MainRamp("Wamp",Range(0,8)) = 1
 	_VectorCrLayer4MainStwg("Stwengh1",Range(0,1)) = 0
 
-	_VectorCrLayer4MaskImge("Mask Teksture",2D) = "white" {}
+	[NoScaleOffset] _VectorCrLayer4MaskImge("Mask Teksture",2D) = "white" {}
 	_VectorCrLayer4MaskTMod("Transform Mode",float) = 0
 	_VectorCrLayer4MaskTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_VectorCrLayer4MaskTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -555,7 +555,7 @@ Properties
 
 	[Header(Lightmap Layer)]
 	[Space(64)]
-	_LightmapLayerMainImge("Lightmap from Unity", 2D) = "white" {}
+	[NoScaleOffset] _LightmapLayerMainImge("Lightmap from Unity", 2D) = "white" {}
 
 
 
@@ -563,7 +563,7 @@ Properties
 
 	[Header(Gwitters)]
 	[Space(64)]
-	_GlitterLayer1MainImge("Noise Texture",2D) = "black" {}
+	[NoScaleOffset] _GlitterLayer1MainImge("Noise Texture",2D) = "black" {}
 	_GlitterLayer1MainTMod("Transform Mode",float) = 0
 	_GlitterLayer1MainTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_GlitterLayer1MainTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -591,7 +591,7 @@ Properties
 	[Header(Verteks Distwot)]
 	[Space(64)]
 
-	_AxisDistortXImge("X Distwot texture",2D) = "black" {}
+	[NoScaleOffset] _AxisDistortXImge("X Distwot texture",2D) = "black" {}
 	_AxisDistortXTMod("Transform Mode",float) = 0
 	_AxisDistortXTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortXTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -604,7 +604,7 @@ Properties
 	_AxisDistortXAdjt("Distwot Adjust",Float) = 0
 
 	[Space(64)]
-	_AxisDistortYImge("Y Distwot texture",2D) = "black" {}
+	[NoScaleOffset] _AxisDistortYImge("Y Distwot texture",2D) = "black" {}
 	_AxisDistortYTMod("Transform Mode",float) = 0
 	_AxisDistortYTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortYTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -617,7 +617,7 @@ Properties
 	_AxisDistortYAdjt("Distwot Adjust",Float) = 0
 
 	[Space(64)]
-	_AxisDistortZImge("Z Distwot texture",2D) = "black" {}
+	[NoScaleOffset] _AxisDistortZImge("Z Distwot texture",2D) = "black" {}
 	_AxisDistortZTMod("Transform Mode",float) = 0
 	_AxisDistortZTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_AxisDistortZTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -637,7 +637,7 @@ Properties
 	[Header(Verteks Normal Extwude)]
 	[Space(64)]
 
-	_NormalExtrudeMainImge("Extrude Teksture",2D) = "white" {}
+	[NoScaleOffset] _NormalExtrudeMainImge("Extrude Teksture",2D) = "white" {}
 	_NormalExtrudeMainTMod("Transform Mode",float) = 0
 	_NormalExtrudeMainTShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
 	_NormalExtrudeMainTRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
@@ -656,7 +656,7 @@ Properties
 	_NormalExtrudeBD("Bwoo Duwation",Vector) = (1,0,0,0)
 	_NormalExtrudeAS("Afwa Stwength",Vector) = (0,0,0,0)
 	_NormalExtrudeAD("Afwa Duwation",Vector) = (1,0,0,0)
-	//[Space(128)]
+	[Space(128)]
 
 
 
@@ -665,9 +665,41 @@ Properties
 	[Header(Runtime Light)]
 	[Space(64)]
 
-	_RuntimeLightDiffStrg("Diff Stwength",range(0,1)) = 1
-	_RuntimeLightSpecStrg("Spek Stwength",range(0,1)) = 1
-	_RuntimeLightSpecGlos("Gwos Stwength",float) = 1
+	[Header(Basic Lighting)]
+	_RuntimeLightDiffStrg("Diff Stwength",Range(0,1)) = 1
+	_RuntimeLightSpecStrg("Spek Stwength",Range(0,1)) = 1
+	_RuntimeLightSpecGlos("Gwos : base, pow",Vector) = (2,8,0,0)
+	[Space(64)]
+
+	[Header(Normal Map)]
+	_RuntimeLightNormAStrength("Normal Map Total Stwengh",range(0,1)) = 1
+
+
+	[Space(32)]
+	[Header(Layer 1)]
+	_RuntimeLightNorm1Strength("Normal Map Stwength",Range(0,1)) = 1
+	_RuntimeLightNorm1Imge("Normal Teksture",2D) = "bump" {}
+	_RuntimeLightNorm1TMod("Transform Mode",float) = 0
+	_RuntimeLightNorm1TShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_RuntimeLightNorm1TRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_RuntimeLightNorm1TScPx("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_RuntimeLightNorm1TSkew("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_RuntimeLightNorm1TRadl("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
+	_RuntimeLightNorm1TCrpj("Trf_Crpj : XHgh, XRad, YHgh, YRad",vector) = (0.5,0.5,0.5,0.5)
+	[Space(32)]
+
+
+	[Header(Layer 2)]
+	_RuntimeLightNorm2Strength("Normal Map Stwength",Range(0,1)) = 1
+	_RuntimeLightNorm2Imge("Normal Teksture",2D) = "bump" {}
+	_RuntimeLightNorm2TMod("Transform Mode",float) = 0
+	_RuntimeLightNorm2TShft("Trf_Shft : ShfX, ShfY, ScrX, ScrY",Vector) = (0,0,0,0)
+	_RuntimeLightNorm2TRott("Trf_Rott : Afwa, Roll, CenX, CenY",Vector) = (0,0,0.5,0.5)
+	_RuntimeLightNorm2TScPx("Trf_ScPx : SclX, SclY, PxlX, PxlY",Vector) = (1,1,0,0)
+	_RuntimeLightNorm2TSkew("Trf_Skew : SkXd, SkXu, SkYl, SkYr",Vector) = (0,0,0,0)
+	_RuntimeLightNorm2TRadl("Trf_Radl : CenX, CenY, Afwa, Roll",vector) = (0.5,0.5,0,0)
+	_RuntimeLightNorm2TCrpj("Trf_Crpj : XHgh, XRad, YHgh, YRad",vector) = (0.5,0.5,0.5,0.5)
+	
 
 
 

@@ -6,7 +6,7 @@ struct appdata
     float2 uv2 : TEXCOORD2;
     float2 uv3 : TEXCOORD3;
     float3 normal : NORMAL;
-    float3 tangent : TANGENT;
+    float4 tangent : TANGENT;
 
     /*
     from POIYOMI

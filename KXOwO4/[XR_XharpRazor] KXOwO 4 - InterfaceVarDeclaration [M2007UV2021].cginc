@@ -80,7 +80,7 @@ float _NormDistortFreq;//("Fwikuensy",Float) = 0
 
 
 
-// FRAG ---------------------------------------------------------------------------------------
+// FRAG FORWARD BASE --------------------------------------------------------------------------
 
 sampler2D _TextureLayer1MainImge;
 float  _TextureLayer1MainTMod;
@@ -529,9 +529,38 @@ fixed4 _GlitterLayer1GlitClor;//("Gwitter Kolor",Color) = (1,1,1,1)
 
 
 
+
+
+
+// FRAG FOWARDADD -----------------------------------------------------------------------------
+
 float _RuntimeLightDiffStrg;
 float _RuntimeLightSpecStrg;
-float _RuntimeLightSpecGlos;
+vector _RuntimeLightSpecGlos;
+
+float _RuntimeLightNormAStrength;
+
+float _RuntimeLightNorm1Strength;
+sampler2D _RuntimeLightNorm1Imge;
+float _RuntimeLightNorm1TMod;
+vector _RuntimeLightNorm1TShft;
+vector _RuntimeLightNorm1TRott;
+vector _RuntimeLightNorm1TScPx;
+vector _RuntimeLightNorm1TSkew;
+vector _RuntimeLightNorm1TRadl;
+vector _RuntimeLightNorm1TCrpj;
+
+float _RuntimeLightNorm2Strength;
+sampler2D _RuntimeLightNorm2Imge;
+float _RuntimeLightNorm2TMod;
+vector _RuntimeLightNorm2TShft;
+vector _RuntimeLightNorm2TRott;
+vector _RuntimeLightNorm2TScPx;
+vector _RuntimeLightNorm2TSkew;
+vector _RuntimeLightNorm2TRadl;
+vector _RuntimeLightNorm2TCrpj;
+
+
 
 
 
