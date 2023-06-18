@@ -69,7 +69,7 @@ Shader "M2007U - A2009 - 3D2010 - V2021/[XR_XharpRazor] KXOwO 4 [M2007UV2021]"
 {
 Properties
 {
-	[Header(Kwazy Xhader OwO 4.1.b)]
+	[Header(Kwazy Xhader OwO 4.2)]
 	[Space(128)]
 
 	[Header(Blend Method)]
@@ -669,6 +669,7 @@ Properties
 	_RuntimeLightDiffStrg("Diff Stwength",Range(0,1)) = 1
 	_RuntimeLightSpecStrg("Spek Stwength",Range(0,1)) = 1
 	_RuntimeLightSpecGlos("Gwos : base, pow",Vector) = (2,8,0,0)
+	[Enum(Fong,0,bwinFong1,1,bwinFong2,2)] _RuntimeLightSpecType ("Spek Taip",Float) = 2
 	[Space(64)]
 
 	[Header(Normal Map)]

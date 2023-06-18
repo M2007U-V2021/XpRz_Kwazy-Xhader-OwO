@@ -52,20 +52,51 @@ else
 
 
     //Vector calcs
-    float3 VectorL = normalize(_WorldSpaceLightPos0.xyz - i.worldPos.xyz);
+    float3 VectorL = normalize(_WorldSpaceLightPos0.xyz - i.worldPos.xyz); //
     float3 VectorN = normalize( lerp( i.normal.xyz , NormalMapNormalAPass3 , _RuntimeLightNormAStrength)  );
+    float3 VectorR = reflect(-VectorL,VectorN);
     float3 VectorV = normalize(i.viewdir.xyz);
+    float LambertEval = max(0,dot(VectorN, VectorL));
+    //float3 VectorV = (_WorldSpaceCameraPos - i.worldPos);
 
 
     //Diffuse
     float3 DiffuseLight = max(0,dot(VectorL,VectorN)) * _LightColor0 * _RuntimeLightDiffStrg * LIGHT_ATTENUATION(i);
 
-    //Specular
-    float3 VectorH = normalize(VectorL + VectorN);
-    float SpecPower = pow(_RuntimeLightSpecGlos.x,_RuntimeLightSpecGlos.y);
-    float3 SpecularLight =  pow(max(0,dot(VectorH,VectorN)),SpecPower) * _LightColor0 * _RuntimeLightSpecStrg * LIGHT_ATTENUATION(i);
 
+    //Specular
+    float3 VectorH;
+    float3 SpecularLight;
+    float SpecPower;
+    float SpecularDotProduct;
+
+    if(_RuntimeLightSpecStrg == 0)
+    {
+        SpecularLight = float3(0,0,0);
+    }
+    else
+    {
+        SpecPower = pow(_RuntimeLightSpecGlos.x,_RuntimeLightSpecGlos.y);
+
+        if(_RuntimeLightSpecType == 0) //phong
+        {
+            SpecularDotProduct = max(0,dot(VectorR,VectorV)) * (LambertEval > 0); 
+        }
+        else if(_RuntimeLightSpecType == 1) //blinn phong
+        {
+            VectorH = normalize(VectorL + VectorV);
+            SpecularDotProduct = max(0,dot(VectorH,VectorN)) * (LambertEval > 0);  
+        }
+        else if(_RuntimeLightSpecType == 2) //blinn phong alt
+        {
+            VectorH = normalize(VectorL + VectorN);
+            SpecularDotProduct = max(0,dot(VectorH,VectorN)) * (LambertEval > 0);
+        }
+
+        SpecularLight = _LightColor0 * (pow(SpecularDotProduct,SpecPower) * _RuntimeLightSpecGlos.y) * _RuntimeLightSpecStrg * LIGHT_ATTENUATION(i);
+    }
     
+
 
 
     return float4(DiffuseLight.xyz + SpecularLight.xyz,1);

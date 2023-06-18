@@ -1,3 +1,5 @@
+// VECTOR MATH ----------------------------------------------------------------------------------------------------------------
+
 float FOwO_Vec2Mag(float2 vek)
 {
     return pow(pow(vek.x,2) + pow(vek.y,2),0.5);
@@ -12,6 +14,12 @@ float FOwO_Vec4Mag(float4 vek)
 {
     return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2) + pow(vek.w,2),0.5);
 }
+
+
+
+
+
+// LINEAR INTERPOLATIONS ------------------------------------------------------------------------------------------------------
 
 float FOwO_BlendOneMinus(float InCurrent,float InFull,float K)
 {
@@ -152,6 +160,11 @@ float FOwO_Clamp(float DetectLow, float DetectHigh, float OutputLow, float Outpu
         return 0.5;
     }
 }
+
+
+
+
+// COLOR MANIPUTATION ---------------------------------------------------------------------------------------------------------
 
 float4 FOwO_Color_RGBAtoHSVA(float R, float G, float B, float A)
 {
@@ -322,6 +335,11 @@ float4 FOwO_Color_HSVAtoRGBA(float H, float S, float V, float A)//0<H<1 where 0 
     return float4(C1Rp, C1Gp, C1Bp, A);
 }
 
+
+
+
+// UV COORDINATE MANIPULATION -------------------------------------------------------------------------------------------------
+
 float2 FOwO_UVCoordTransform_Offset(float2 input, float ShiftX, float ShiftY, float ScrollX, float ScrollY)
 {
     return input + float2(ShiftX,ShiftY) + float2(ScrollX,ScrollY) * _Time[1];
@@ -442,8 +460,6 @@ float2 FOwO_UVCoordTransform_CirprjY(float2 input, float H, float R)
 
     return float2(input.x, H + R * sin(theta) );
 }
-
-
 
 fixed4 FOwO_Color_ReadFromTexture
 (

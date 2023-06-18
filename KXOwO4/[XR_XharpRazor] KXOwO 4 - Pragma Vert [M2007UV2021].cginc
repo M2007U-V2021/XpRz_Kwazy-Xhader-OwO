@@ -140,6 +140,8 @@ o.binormal = cross(o.normal,o.tangent) * v.tangent.w * unity_WorldTransformParam
 o.viewdir = float3(normalize(WorldSpaceViewDir(v.vertex)));
 o.worldPos = mul(unity_ObjectToWorld,v.vertex);
 
+//o.viewdir = normalize(_WorldSpaceCameraPos - o.worldPos);
+
 
 o.lightmapUV.xy = v.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 o.lightmapUV.zw = float2(0,0);
