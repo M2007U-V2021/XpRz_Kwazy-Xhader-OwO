@@ -15,6 +15,33 @@ float FOwO_Vec4Mag(float4 vek)
     return pow(pow(vek.x,2) + pow(vek.y,2) + pow(vek.z,2) + pow(vek.w,2),0.5);
 }
 
+float FOwO_Random_Float_01(float2 vek)
+{
+    float sinX = sin(vek.x);
+    float cosX = cos(vek.x);
+    float sinY = sin(vek.y);
+    float cosY = cos(vek.y);
+
+    return ((sinX * sinY) + (cosX * cosY) + (sinX * cosX) + (sinY * cosY)) % 1;
+}
+
+float FOwO_Random_Float_02(float2 vek1, float2 vek2)
+{
+    return 0;
+}
+
+/*
+2,1,1,2,1,2
+1,2,3,4,5,6
+
+1:B : dangui
+2:B : alma
+3:A : masterphil
+4:A : odplus
+5:A : slime
+6:B : XR
+*/
+
 
 
 
@@ -139,11 +166,18 @@ fixed4 FOwO_Lerp_Color4Intervals(fixed4 C0, fixed4 C1, fixed4 C2, fixed4 C3, flo
 
     float LerpT;
 
-    if     ( 0 <= CurrentTime && CurrentTime < T1){LerpT = (CurrentTime - T0)/D0;return FOwO_Lerp_ColorSimple(C0,C1,LerpT,Cwamp);}
-    else if(T1 <= CurrentTime && CurrentTime < T2){LerpT = (CurrentTime - T1)/D1;return FOwO_Lerp_ColorSimple(C1,C2,LerpT,Cwamp);}
-    else if(T2 <= CurrentTime && CurrentTime < T3){LerpT = (CurrentTime - T2)/D2;return FOwO_Lerp_ColorSimple(C2,C3,LerpT,Cwamp);}
-    else if(T3 <= CurrentTime && CurrentTime < T4){LerpT = (CurrentTime - T3)/D3;return FOwO_Lerp_ColorSimple(C3,C0,LerpT,Cwamp);}
-    else {return fixed4(0,0,0,0);}
+    if(D0 == -1)
+    {
+        return C0;
+    }
+    else
+    {
+        if     ( 0 <= CurrentTime && CurrentTime < T1){LerpT = (CurrentTime - T0)/D0;return FOwO_Lerp_ColorSimple(C0,C1,LerpT,Cwamp);}
+        else if(T1 <= CurrentTime && CurrentTime < T2){LerpT = (CurrentTime - T1)/D1;return FOwO_Lerp_ColorSimple(C1,C2,LerpT,Cwamp);}
+        else if(T2 <= CurrentTime && CurrentTime < T3){LerpT = (CurrentTime - T2)/D2;return FOwO_Lerp_ColorSimple(C2,C3,LerpT,Cwamp);}
+        else if(T3 <= CurrentTime && CurrentTime < T4){LerpT = (CurrentTime - T3)/D3;return FOwO_Lerp_ColorSimple(C3,C0,LerpT,Cwamp);}
+        else {return fixed4(0,0,0,0);}
+    }
 
 }
 

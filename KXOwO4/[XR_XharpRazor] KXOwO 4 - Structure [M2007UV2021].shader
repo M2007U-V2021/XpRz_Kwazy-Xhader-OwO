@@ -830,7 +830,7 @@ SubShader
 
 			
 
-			fixed4 furagmentXD(v2f i) : SV_Target
+			fixed4 furagmentXD(v2f i) : COLOR //SV_Target
 			{
 				#include "[XR_XharpRazor] KXOwO 4 - Pragma Frag ForwardAdd [M2007UV2021].cginc"
 			}
@@ -838,5 +838,7 @@ SubShader
 		ENDCG
 	}
 }
+
+Fallback "Standard"
 
 }
