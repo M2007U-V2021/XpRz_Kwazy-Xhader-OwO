@@ -1,0 +1,15 @@
+[XR_XharpRazor] Kwazy Xhader OwO 5 - UV Transform Table [M2007U-V2021]
+
+| Operation           | ID | Interface Input                                                                                      | 
+|---------------------|----|------------------------------------------------------------------------------------------------------|
+| Ignore              | 00 | [X] : -                , [Y] : -                , [Z] : -                  , [W] : -                 |
+| Shift               | 01 | [X] : Offset X         , [Y] : Offset Y         , [Z] : Scroll X           , [W] : Scroll Y          |
+| Rotate              | 02 | [X] : Angle            , [Y] : Roll             , [Z] : Rotation Center X  , [W] : Rotation Center Y |
+| Scale               | 03 | [X] : Scale Factor X   , [Y] : Scale Factor Y   , [Z] : -                  , [W] : -                 |
+| Pixelate            | 04 | [X] : Column Quantity  , [Y] : Row Quantity     , [Z] : -                  , [W] : -                 |
+| Skew X              | 05 | [X] : Skew Point Down  , [Y] : Skew Point Up    , [Z] : -                  , [W] : -                 |
+| Skew Y              | 06 | [X] : Skew Point Left  , [Y] : Skew Point Right , [Z] : -                  , [W] : -                 |
+| Radial              | 07 | [X] : Spinning Point X , [Y] : Spinning Point Y , [Z] : Phase Angle        , [W] : Roll              |
+| Circle Projection X | 08 | [X] : Circle Position  , [Y] : Radius           , [Z] : -                  , [W] : -                 |
+| Circle Projection Y | 09 | [X] : Circle Position  , [Y] : Radius           , [Z] : -                  , [W] : -                 |
+| Stochastic Ring     | 10 | [X] : Range            , [Y] : Iteration        , [Z] : Instruction Offset , [W] : -                 |
